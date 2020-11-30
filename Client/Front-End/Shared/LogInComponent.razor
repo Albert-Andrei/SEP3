@@ -1,0 +1,170 @@
+@page "/log-in"
+@using AndriuhaAssignment.Authentication
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager NavigationManager
+
+
+<AuthorizeView>
+    <NotAuthorized>
+        @if (loading == true)
+        {
+            <div class="bg-image"/>
+
+            <div class="loading">
+                <div class="bg-text">
+                    <Loading/>
+                    <h4> We are processing your data, please wait.</h4>
+                    <h3>
+                        <b>We care about your safety</b>
+                    </h3>
+                </div>
+            </div>
+        }
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 offset-md-4 offset-sm-4">
+                    @* <h1 class="log-In-header">Log in to your account</h1> *@
+                    <div class="logIn">
+                        <img style="width: 200px; margin-top: 10px;
+                                                      margin-bottom: 10px; " src="imagne.png">
+
+                        <form class="username" style="width: 100%">
+                            <div class="form-group">
+                                <label class="form-group-label1" style="display:@disply1;">Username</label>
+                                <input type="text" placeholder="Enter Username" name="uname" required @bind-value="username"
+                                       class="form-control input-lg" @oninput="@((arg) => change(arg))"/>
+                            </div>
+                        </form>
+                        <div style="color:red">@errorMessageUname</div>
+
+                        <form class="password" style="width: 100%">
+                            <div class="form-group">
+                                <label class="form-group-label2" style="display:@disply2;"> Passord </label>
+                                <input type="password" placeholder="Enter Password" name="psw" required @bind-value="password"
+                                       class="form-control input-lg" @oninput="(arg) => change2(arg)"/>
+                            </div>
+                        </form>
+                        <div style="color:red">@errorMessagePsw</div>
+
+                        <div style="color:red">@errorMessage</div>
+                        <button type="button" class="logInBtn" @onclick="PerformLogin" style="display: @displyBtn">Log In</button>
+                        <div class="SignUpPar">
+                            <p style="display: @displyBtn; margin: 0; padding: 0;"  @onclick="Navigate" >Sign Up</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </NotAuthorized>
+    <Authorized>
+        <button @onclick="PerformLogout" class="logout" type="button"> Log out</button>
+    </Authorized>
+</AuthorizeView>
+
+@code {
+    private string username;
+    private string password;
+    private string errorMessage;
+    private string errorMessageUname;
+    private string errorMessagePsw;
+    private bool loading = false;
+    private string displyBtn;
+
+    public async Task PerformLogin()
+    {
+        errorMessageUname = "";
+        errorMessagePsw = "";
+        try
+        {
+            loading = true;
+            await ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(username, password);
+            NavigationManager.NavigateTo("/");
+            loading = false;
+            username = "";
+            password = "";
+            displyBtn = "block";
+        }
+        catch (Exception e)
+        {
+            if (e.Message.Equals("Enter username"))
+            {
+                loading = false;
+                errorMessageUname = e.Message;
+                errorMessagePsw = "";
+                displyBtn = "none";
+            }
+            else if (e.Message.Equals("Enter password"))
+            {
+                loading = false;
+                errorMessageUname = "";
+                errorMessagePsw = e.Message;
+                displyBtn = "none";
+            }
+            else
+            {
+                loading = false;
+                errorMessage = e.Message;
+                displyBtn = "none";
+            }
+        }
+    }
+
+    public async Task PerformLogout()
+    {
+        errorMessageUname = "";
+        errorMessagePsw = "";
+        errorMessage = "";
+        try
+        {
+            ((CustomAuthenticationStateProvider) AuthenticationStateProvider).Logout();
+            NavigationManager.NavigateTo("/");
+            username = "";
+            password = "";
+        }
+        catch (Exception e)
+        {
+        }
+    }
+
+    private string disply1 = "none";
+    private string disply2 = "none";
+
+    private void change(ChangeEventArgs changeEventArgs)
+    {
+        if (!string.IsNullOrEmpty(changeEventArgs.Value.ToString()))
+        {
+            disply1 = "block";
+            errorMessageUname = "";
+            errorMessage = "";
+            displyBtn = "block";
+        }
+        else
+        {
+            disply1 = "none";
+        }
+    }
+
+    private void change2(ChangeEventArgs changeEventArgs)
+    {
+        if (!string.IsNullOrEmpty(changeEventArgs.Value.ToString()))
+        {
+            disply2 = "block";
+            errorMessagePsw = "";
+            errorMessage = "";
+            displyBtn = "block";
+        }
+        else
+        {
+            disply2 = "none";
+        }
+    }
+
+    private void Navigate()
+    {
+        NavigationManager.NavigateTo("/sign-up");
+    }
+
+}

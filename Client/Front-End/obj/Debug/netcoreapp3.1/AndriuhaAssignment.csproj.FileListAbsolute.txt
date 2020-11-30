@@ -1,0 +1,106 @@
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\bin\Debug\netcoreapp3.1\AndriuhaAssignment.exe
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\bin\Debug\netcoreapp3.1\AndriuhaAssignment.deps.json
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\bin\Debug\netcoreapp3.1\AndriuhaAssignment.runtimeconfig.json
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\bin\Debug\netcoreapp3.1\AndriuhaAssignment.runtimeconfig.dev.json
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\bin\Debug\netcoreapp3.1\AndriuhaAssignment.dll
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\bin\Debug\netcoreapp3.1\AndriuhaAssignment.pdb
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\bin\Debug\netcoreapp3.1\AndriuhaAssignment.Views.dll
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\bin\Debug\netcoreapp3.1\AndriuhaAssignment.Views.pdb
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\AndriuhaAssignment.csprojAssemblyReference.cache
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\AndriuhaAssignment.AssemblyInfoInputs.cache
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\AndriuhaAssignment.AssemblyInfo.cs
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\AndriuhaAssignment.csproj.CoreCompileInputs.cache
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\AndriuhaAssignment.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\AndriuhaAssignment.RazorComponent.input.cache
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\RazorDeclaration\App.razor.g.cs
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Index.razor.g.cs
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\MainLayout.razor.g.cs
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\SurveyPrompt.razor.g.cs
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\RazorDeclaration\_Imports.razor.g.cs
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\RazorDeclaration\AndriuhaAssignment.dll
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\AndriuhaAssignment.TagHelpers.input.cache
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\AndriuhaAssignment.TagHelpers.output.cache
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\AndriuhaAssignment.RazorCoreGenerate.cache
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\Razor\App.razor.g.cs
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\Razor\Pages\Index.razor.g.cs
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\Razor\Shared\MainLayout.razor.g.cs
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\Razor\Shared\SurveyPrompt.razor.g.cs
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\Razor\_Imports.razor.g.cs
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\Razor\Pages\_Host.cshtml.g.cs
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\AndriuhaAssignment.RazorAssemblyInfo.cache
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\AndriuhaAssignment.RazorAssemblyInfo.cs
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\AndriuhaAssignment.RazorTargetAssemblyInfo.cache
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\AndriuhaAssignment.RazorTargetAssemblyInfo.cs
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\AndriuhaAssignment.Views.pdb
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\staticwebassets\AndriuhaAssignment.StaticWebAssets.Manifest.cache
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\staticwebassets\AndriuhaAssignment.StaticWebAssets.xml
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\AndriuhaAssignment.dll
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\AndriuhaAssignment.pdb
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\AndriuhaAssignment.genruntimeconfig.cache
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\AndriuhaAssignment.csproj.CopyComplete
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\LogInComponent.razor.g.cs
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\Razor\Shared\LogInComponent.razor.g.cs
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\Loading.razor.g.cs
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\Razor\Shared\Loading.razor.g.cs
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\NavBar.razor.g.cs
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\Razor\Shared\NavBar.razor.g.cs
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\HomeComponent.razor.g.cs
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\Razor\Pages\HomeComponent.razor.g.cs
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\SignUpComponent.razor.g.cs
+C:\Users\User\RiderProjects\Brazor\AndrihaHelp\Andriuha\AndriuhaAssignment\obj\Debug\netcoreapp3.1\Razor\Pages\SignUpComponent.razor.g.cs
+D:\VIA\Semester 3\SEP3\Client\Front-End\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\VIA\Semester 3\SEP3\Client\Front-End\bin\Debug\netcoreapp3.1\appsettings.json
+D:\VIA\Semester 3\SEP3\Client\Front-End\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+D:\VIA\Semester 3\SEP3\Client\Front-End\bin\Debug\netcoreapp3.1\AndriuhaAssignment.exe
+D:\VIA\Semester 3\SEP3\Client\Front-End\bin\Debug\netcoreapp3.1\AndriuhaAssignment.deps.json
+D:\VIA\Semester 3\SEP3\Client\Front-End\bin\Debug\netcoreapp3.1\AndriuhaAssignment.runtimeconfig.json
+D:\VIA\Semester 3\SEP3\Client\Front-End\bin\Debug\netcoreapp3.1\AndriuhaAssignment.runtimeconfig.dev.json
+D:\VIA\Semester 3\SEP3\Client\Front-End\bin\Debug\netcoreapp3.1\AndriuhaAssignment.dll
+D:\VIA\Semester 3\SEP3\Client\Front-End\bin\Debug\netcoreapp3.1\AndriuhaAssignment.pdb
+D:\VIA\Semester 3\SEP3\Client\Front-End\bin\Debug\netcoreapp3.1\AndriuhaAssignment.Views.dll
+D:\VIA\Semester 3\SEP3\Client\Front-End\bin\Debug\netcoreapp3.1\AndriuhaAssignment.Views.pdb
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\AndriuhaAssignment.csprojAssemblyReference.cache
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\AndriuhaAssignment.AssemblyInfoInputs.cache
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\AndriuhaAssignment.AssemblyInfo.cs
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\AndriuhaAssignment.csproj.CoreCompileInputs.cache
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\AndriuhaAssignment.MvcApplicationPartsAssemblyInfo.cache
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\AndriuhaAssignment.RazorComponent.input.cache
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\RazorDeclaration\App.razor.g.cs
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\HomeComponent.razor.g.cs
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Index.razor.g.cs
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\SignUpComponent.razor.g.cs
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\Loading.razor.g.cs
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\LogInComponent.razor.g.cs
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\MainLayout.razor.g.cs
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\NavBar.razor.g.cs
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\SurveyPrompt.razor.g.cs
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\RazorDeclaration\_Imports.razor.g.cs
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\RazorDeclaration\AndriuhaAssignment.dll
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\AndriuhaAssignment.TagHelpers.input.cache
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\AndriuhaAssignment.TagHelpers.output.cache
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\AndriuhaAssignment.RazorCoreGenerate.cache
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\Razor\App.razor.g.cs
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\Razor\Pages\HomeComponent.razor.g.cs
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\Razor\Pages\Index.razor.g.cs
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\Razor\Pages\SignUpComponent.razor.g.cs
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\Razor\Shared\Loading.razor.g.cs
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\Razor\Shared\LogInComponent.razor.g.cs
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\Razor\Shared\MainLayout.razor.g.cs
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\Razor\Shared\NavBar.razor.g.cs
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\Razor\Shared\SurveyPrompt.razor.g.cs
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\Razor\_Imports.razor.g.cs
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\Razor\Pages\_Host.cshtml.g.cs
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\AndriuhaAssignment.RazorAssemblyInfo.cache
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\AndriuhaAssignment.RazorAssemblyInfo.cs
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\AndriuhaAssignment.RazorTargetAssemblyInfo.cache
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\AndriuhaAssignment.RazorTargetAssemblyInfo.cs
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\AndriuhaAssignment.Views.pdb
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\staticwebassets\AndriuhaAssignment.StaticWebAssets.Manifest.cache
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\staticwebassets\AndriuhaAssignment.StaticWebAssets.xml
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\AndriuhaAssignment.dll
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\AndriuhaAssignment.pdb
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\AndriuhaAssignment.genruntimeconfig.cache
+D:\VIA\Semester 3\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\AndriuhaAssignment.csproj.CopyComplete

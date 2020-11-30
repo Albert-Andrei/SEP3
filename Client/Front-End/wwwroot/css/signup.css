@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+.sign-up {
+    color: #0d0c22;
+    background: #f2d184;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+.content{
+    background: #fff;
+    margin: 20px 10px 20px 10px;
+}
+
+.auth-sidebar {
+    display: none;
+}
+
+.auth-content {
+    width: 100%;
+    max-width: 700px;
+    padding: 10px;
+}
+
+h2 {
+    margin-top: 30px;
+}
+
+hr.divider {
+    overflow: visible;
+    padding: 0;
+    margin-bottom: 10px;
+    margin-top: 35px;
+    border: none;
+    border-top: 1px solid #e0e0e0;
+    color: #6e6d7a;
+    text-align: center;
+}
+
+hr.divider:after {
+    content: 'Logo';
+    display: inline-block;
+    position: relative;
+    top: -15px;
+    /*font-family: 'Dancing Script', cursive;*/
+    font: normal 25px/25px 'Dancing Script', cursive;
+    padding: 0 16px;
+    background: #fff;
+}
+
+@media (min-width: 960px) {
+
+    .sign-up {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .auth-sidebar {
+        background: #f2d184;
+        color: #866118;
+        width: 458px;
+        position: fixed;
+        height: 100%;
+        display: flex;
+    }
+    
+    .calhoz{
+        background: #f2d184;
+        color: #866118;
+        width: 810px;
+        /*height: 100%;*/
+    }
+    
+    .auth-sidebar .auth-sidebar-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        -ms-flex-pack: justify;
+    }
+
+    .auth-sidebar .header {
+        max-width: 100%;
+        margin: 0;
+        height: 100%;
+        padding: 40px 40px 30px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .auth-sidebar .header .logo .signup-logo {
+        opacity: 0.7;
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+    }
+
+    .signup-logo {
+        font-family: 'Dancing Script', cursive;
+        font-size: 50px;
+        margin-top: 20px;
+        margin-bottom: 50px;
+        background: #f2d184;
+        opacity: 0.7;
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+    }
+
+    .signup-logo:hover {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .auth-sidebar .header h1 {
+        font-weight: 600;
+    }
+
+
+    .content {
+        width: 100%;
+        background: #fff;
+        margin: 20px 20px 10px 0px;
+    }
+
+    main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    .auth-content {
+        padding: 30px 60px 0;
+        margin: 0;
+        height: 100%;
+    }
+}
+
+.forms {
+    margin-top: 40px;
+}
+
+.name {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.longbox {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.city {
+    margin-top: 15px;
+}
+.box {
+    width: 49%;
+}
+
+input {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 45px;
+    padding: 10px 16px;
+    outline: none;
+    border-radius: 8px;
+    appearance: none;
+    color: #0d0c22;
+    background-color: #f3f3f4;
+    border: 2px #f3f3f4;
+}
+
+label {
+    font: bold 15px/24px "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 10px 0px 5px 10px;
+    color: #0d0c22;
+}
+
+.signupBtn {
+    width: 45%;
+    height: 45px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 2px dodgerblue;
+    border-radius: 8px;
+    color: white;
+    background-color: dodgerblue;
+}
+
+.signupBtn:hover {
+    transition: 0.3s;
+    background-color: lightskyblue;
+}
+
+.dropdown-state {
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+}
+
+.state {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 45px;
+    padding: 10px 16px;
+    outline: none;
+    border-radius: 8px;
+    color: #0d0c22;
+    background-color: #f3f3f4;
+    border: 2px #f3f3f4;
+}

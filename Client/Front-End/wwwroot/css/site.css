@@ -1,0 +1,327 @@
+@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+html, body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: #f2d184;
+}
+
+.main {
+    height: 100%;
+    background: #f2d184;
+}
+
+a, .btn-link {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+app {
+    position: relative;
+    display: flex;
+    /*height: 100%;*/
+    flex-direction: column;
+}
+
+.top-row {
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.main {
+    flex: 1;
+    margin-top: 60px;
+}
+
+    .main .top-row {
+        background-color: #f7f7f7;
+        border-bottom: 1px solid #d6d5d5;
+        justify-content: flex-end;
+    }
+
+        .main .top-row > a, .main .top-row .btn-link {
+            white-space: nowrap;
+            margin-left: 1.5rem;
+        }
+
+.main .top-row a:first-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.content {
+}
+
+.navbar-toggler {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.valid.modified:not([type=checkbox]) {
+    outline: 1px solid #26b050;
+}
+
+.invalid {
+    outline: 1px solid red;
+}
+
+.validation-message {
+    color: red;
+}
+
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+#blazor-error-ui .dismiss {
+    cursor: pointer;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+}
+
+@media (max-width: 767.98px) {
+    .main .top-row:not(.auth) {
+        display: none;
+        background: #f2d184;
+    }
+
+    .main .top-row.auth {
+        justify-content: space-between;
+    }
+
+    .main .top-row a, .main .top-row .btn-link {
+        margin-left: 0;
+    }
+}
+
+
+@media (min-width: 768px) {
+    
+
+    .sidebar {
+        width: 100%;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .main .top-row {
+        position: sticky;
+        top: 0;
+    }
+
+    .main > div {
+       
+    }
+
+    .navbar-toggler {
+        display: none;
+    }
+
+    /*.sidebar .collapse {*/
+    /*    !* Never collapse the sidebar for wide screens *!*/
+    /*    display: block;*/
+    /*}*/
+
+    .logout {
+        margin-top: 20px;
+        margin-left: auto;
+    }
+}
+
+body {
+    background-color: rgba(246,246,250,1);
+    height: 100%;
+    background: #f2d184; 
+}
+
+.form-group{
+    padding-top: 1px;
+    border:2px solid;
+    margin:10px;
+    border-radius: 7px;
+}
+
+.form-group-label1{
+    position:absolute;
+    margin-top: -12px;
+    margin-left: 15px;
+    left:40px;
+    width: 85px;
+    text-align: center;
+    /*background: linear-gradient(180deg, rgba(246,246,250,1) 0%, rgba(255,255,255,1) 100%);*/
+    background: white;
+}
+.form-group-label2{
+    position: absolute;
+    margin-top: -12px;
+    margin-left: 15px;
+    left: 40px;
+    width: 65px;
+    text-align: center;
+    /*background: linear-gradient(180deg, rgba(246,246,250,1) 0%, rgba(255,255,255,1) 100%);*/
+    background: white;
+}
+
+.form-group>input{
+    border:none;
+}
+
+.logInBtn {
+    width: 95%;
+    height: 40px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    background-color: dodgerblue;
+}
+
+.logInBtn:hover {
+    width: 95%;
+    height: 40px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    transition: 0.3s;
+    background-color: lightskyblue;
+}
+
+.username .password{
+    width: 100%;
+}
+
+.SignUpPar {
+    margin-top: 10px;
+    width: 85%;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    font-family: 'Dancing Script', cursive;
+}
+
+.SignUpPar:hover {
+    margin-top: 10px;
+    width: 85%;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    font-family: 'Dancing Script', cursive;
+    cursor: pointer;
+}
+
+.logIn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    height: 460px;
+    margin-top: 40px;
+    padding: 15px 15px 0px 15px;
+    background-color: white;
+    border: solid 2px white;
+    border-radius: 5px;
+    box-shadow: 0px 3px 10px 0px #0B325E, 5px 5px 5px 5px rgba(0,0,0,0);
+}
+
+.log-In-header {
+    width: 400px;
+    font-size: 40px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+
+    .logout {
+        margin-top: 20px;
+        margin-left: 0px;
+    }
+}
+
+.logout {
+    margin-top: 200px;
+    color: white;
+    background: black;
+    text-align: center;
+    height: 40px;
+    width: 250px;
+    border-radius: 7px;
+    margin-left: 400px;
+    text-decoration: none;
+}
+
+.logout:hover
+{
+    background: red;
+    color: black;   
+}
+
+.bg-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 100%;
+    height: 598px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 63px;
+}
+
+.bg-image {
+    /* The image used */
+    background-color: #8EC5FC;
+    background-image: linear-gradient(162deg, #8EC5FC 0%, #E0C3FC 100%);
+
+    /* Add the blur effect */
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+
+    /* Full height */
+    width: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.logIn-img {
+   position: absolute;
+    width: 80%;
+    padding: 0px;
+    margin-top: -80px;
+    height: 92.3%;
+    width: 83.3%;
+    opacity: 80%;
+}
