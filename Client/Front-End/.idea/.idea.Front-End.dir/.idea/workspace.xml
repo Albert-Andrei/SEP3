@@ -153,6 +153,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.AndriuhaAssignment">
     <configuration name="AndriuhaAssignment" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
@@ -194,7 +195,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606737892309</updated>
-      <workItem from="1606737902170" duration="360000" />
+      <workItem from="1606737902170" duration="739000" />
     </task>
     <servers />
   </component>
@@ -216,5 +217,23 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1606738287261">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606738287261" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1606738287261">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1606738287261" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1606738287261">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1606738287261" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1606738287261">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606738287261" />
   </component>
 </project>
