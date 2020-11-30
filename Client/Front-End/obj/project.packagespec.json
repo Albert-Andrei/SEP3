@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "D:\\VIA\\Semester 3\\SEP3\\Client\\Front-End\\AndriuhaAssignment.csproj",
+    "projectUniqueName": "C:\\Users\\mirek\\Documents\\GitHub\\SEP3\\Client\\Front-End\\AndriuhaAssignment.csproj",
     "projectName": "AndriuhaAssignment",
-    "projectPath": "D:\\VIA\\Semester 3\\SEP3\\Client\\Front-End\\AndriuhaAssignment.csproj",
-    "outputPath": "D:\\VIA\\Semester 3\\SEP3\\Client\\Front-End\\obj\\",
+    "projectPath": "C:\\Users\\mirek\\Documents\\GitHub\\SEP3\\Client\\Front-End\\AndriuhaAssignment.csproj",
+    "outputPath": "C:\\Users\\mirek\\Documents\\GitHub\\SEP3\\Client\\Front-End\\obj\\",
     "projectStyle": "PackageReference",
     "originalTargetFrameworks": [
       "netcoreapp3.1"
@@ -35,6 +35,16 @@
       ],
       "assetTargetFallback": true,
       "warn": true,
+      "downloadDependencies": [
+        {
+          "name": "Microsoft.AspNetCore.App.Ref",
+          "version": "[3.1.8, 3.1.8]"
+        },
+        {
+          "name": "Microsoft.NETCore.App.Host.win-x64",
+          "version": "[3.1.9, 3.1.9]"
+        }
+      ],
       "frameworkReferences": {
         "Microsoft.AspNetCore.App": {
           "privateAssets": "none"
@@ -43,7 +53,7 @@
           "privateAssets": "all"
         }
       },
-      "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+      "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
     }
   }
 }
