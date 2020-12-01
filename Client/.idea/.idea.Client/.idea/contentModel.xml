@@ -35,6 +35,7 @@
           <e p="_Host.cshtml" t="Include" />
           <e p="HomeComponent.razor" t="Include" />
           <e p="Index.razor" t="Include" />
+          <e p="ShiftsComponent.razor" t="Include" />
           <e p="SignUpComponent.razor" t="Include" />
         </e>
         <e p="Program.cs" t="Include" />
