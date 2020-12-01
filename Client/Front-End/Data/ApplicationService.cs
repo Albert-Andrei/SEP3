@@ -24,16 +24,12 @@ namespace AndriuhaAssignment.Data
 
         public async Task<Application> CreateApplicationAsync(Application application)
         {
-            HttpResponseMessage response = await client.PostAsync("http://localhost:6969/users/create", content);
-                Console.Out.WriteLine(response.ToString());
-                
-                string applicationAsJson = JsonSerializer.Serialize(application);
+            string applicationAsJson = JsonSerializer.Serialize(application);
                 HttpContent content = new StringContent(applicationAsJson,
                     Encoding.UTF8,
                     "application/json");
-                await client.PostAsync(uri+"/Adult", content);
+                HttpResponseMessage response = await client.PostAsync(uri+"/application/create", content);
                 Console.Out.WriteLine(response.ToString());
-
         }
 
         public Task<Application> RemoveApplicationAsync(ObjectIDGenerator applicationId)

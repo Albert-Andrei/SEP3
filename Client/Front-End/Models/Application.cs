@@ -26,12 +26,7 @@ namespace AndriuhaAssignment.Models
         [NotNull]
         [JsonPropertyName("sex")]
         public string Sex { get; set; }
-        
-        [Required]
-        [NotNull]
-        [JsonPropertyName("dateOfBirth")]
-        public string DateOfBirth { get; set; }
-        
+
         [Required, MaxLength(15)]
         [ValidatePhoneNr]
         [NotNull]
