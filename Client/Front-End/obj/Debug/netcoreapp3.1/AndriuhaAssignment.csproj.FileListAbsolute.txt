@@ -158,3 +158,5 @@ C:\Users\mirek\Documents\GitHub\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\An
 C:\Users\mirek\Documents\GitHub\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\AndriuhaAssignment.pdb
 C:\Users\mirek\Documents\GitHub\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\AndriuhaAssignment.genruntimeconfig.cache
 C:\Users\mirek\Documents\GitHub\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\AndriuhaAssignment.csproj.CopyComplete
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\EmployeeApplication.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Front-End\obj\Debug\netcoreapp3.1\Razor\Pages\EmployeeApplication.razor.g.cs

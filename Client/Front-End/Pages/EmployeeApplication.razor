@@ -1,0 +1,110 @@
+@page "/EmployeeApplication"
+@using AndriuhaAssignment.Models
+@using AndriuhaAssignment.Data
+@inject NavigationManager NavigationManager
+@inject IApplicationService ApplicationService
+
+
+<EditForm Model="@application" OnValidSubmit="@CreateNewApplication">
+    <DataAnnotationsValidator/>
+    
+    <div class="sign-up">
+        <div class="auth-sidebar">
+            <div class="auth-sidebar-content">
+                <div class="header">
+                    <a href="/" class="signup-logo">Logo</a>
+                    <h1>Discover all available possibilities of our platform</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="calhoz"></div>
+
+        <div class="content">
+            <main>
+                <div class="auth-content">
+
+                    <h2>Sign up to JPool</h2>
+
+                    <hr class="divider"/>
+
+                    <div class="forms" autocomplete="on">
+                        <div class="name">
+                            <div class="box">
+                                <fieldset>
+                                    <label>First Name</label>
+                                    <InputText autocomplete="given-name" class="text-input"
+                                               type="text" name="given-name"
+                                               @bind-Value="application.FirstName" required/>
+                                </fieldset>
+                            </div>
+                            <div class="box">
+                                <fieldset>
+                                    <label>Last Name</label>
+                                    <input autocomplete="family-name" class="text-input"
+                                           type="text" name="family-name"
+                                           @bind="application.LastName" required/>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="name">
+                            <div class="box">
+                                <fieldset>
+                                    <label>Sex</label>
+                                    <input  class="text-input" type="text"
+                                            name="email"
+                                            @bind="application.Sex" required/>
+                                </fieldset>
+                            </div>
+                            <div class="box">
+                                <fieldset>
+                                    <label>Phone Number</label>
+                                    <input autocomplete="tel" class="text-input"
+                                           type="text" name="tel"
+                                           @bind="application.PhoneNumber" required/>
+                                    <ValidationMessage For="@(() => application.PhoneNumber)"/>
+                                </fieldset>
+                            </div>
+                        </div>
+
+                        <div class="name">
+                            <div class="box">
+                                <fieldset>
+                                    <label>Email</label>
+                                    <input placeholder="8+ characters " class="text-input"
+                                           type="password"
+                                           @bind="application.Email" required/>
+                                    <ValidationMessage For="@(() => application.Email)"/>
+                                </fieldset>
+                            </div>
+                            <div class="box">
+                                <fieldset>
+                                    <label>Job Experience</label>
+                                    <input placeholder="Same as previous"
+                                           class="text-input" type="password"
+                                           required/>
+                                    <ValidationMessage For="@(() => application.JobExperience)"/>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="color:red">@errorMessage</div>
+                    <button type="submit" class="signupBtn">Create Account</button>
+                </div>
+            </main>
+        </div>
+    </div>
+</EditForm>
+
+@code {
+    private string errorMessage;
+    private Application application = new Application();
+
+    private void CreateNewApplication()
+    {
+        ApplicationService.CreateApplicationAsync(application);
+        NavigationManager.NavigateTo("/log-in");
+    }
+    
+    
+}
