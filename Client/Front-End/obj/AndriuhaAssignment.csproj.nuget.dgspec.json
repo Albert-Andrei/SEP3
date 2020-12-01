@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\VIA\\Semester 3\\SEP3\\Client\\Front-End\\AndriuhaAssignment.csproj": {}
+    "D:\\VIA\\Semester 3\\Semester project\\SEP3\\Client\\Front-End\\AndriuhaAssignment.csproj": {}
   },
   "projects": {
-    "D:\\VIA\\Semester 3\\SEP3\\Client\\Front-End\\AndriuhaAssignment.csproj": {
+    "D:\\VIA\\Semester 3\\Semester project\\SEP3\\Client\\Front-End\\AndriuhaAssignment.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VIA\\Semester 3\\SEP3\\Client\\Front-End\\AndriuhaAssignment.csproj",
+        "projectUniqueName": "D:\\VIA\\Semester 3\\Semester project\\SEP3\\Client\\Front-End\\AndriuhaAssignment.csproj",
         "projectName": "AndriuhaAssignment",
-        "projectPath": "D:\\VIA\\Semester 3\\SEP3\\Client\\Front-End\\AndriuhaAssignment.csproj",
+        "projectPath": "D:\\VIA\\Semester 3\\Semester project\\SEP3\\Client\\Front-End\\AndriuhaAssignment.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "D:\\VIA\\Semester 3\\SEP3\\Client\\Front-End\\obj\\",
+        "outputPath": "D:\\VIA\\Semester 3\\Semester project\\SEP3\\Client\\Front-End\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"

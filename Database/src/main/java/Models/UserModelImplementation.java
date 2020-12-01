@@ -50,8 +50,9 @@ public class UserModelImplementation implements UserModel {
         document.append("lastName", user.getLastName());
         document.append("userType", user.getUserType());
         document.append("password", user.getPassword());
-        document.append("phoneNr", user.getPhoneNr());
         document.append("emali", user.getEmali());
+        document.append("securityLevel", user.getSecurityLevel());
+
         //Inserting the document into the collection
         usersCollection.insertOne(document);
         System.out.println("Document inserted successfully " + user);

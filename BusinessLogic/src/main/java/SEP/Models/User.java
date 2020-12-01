@@ -9,9 +9,7 @@ public class User {
     private int securityLevel;
     private String firstName;
     private String lastName;
-    private String phoneNr;
     private String emali;
-    private String city;
     private String userType;
 
     public User() {
@@ -29,9 +27,7 @@ public class User {
         this.securityLevel = securityLevel;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.phoneNr = phoneNr;
         this.emali = emali;
-        this.city = city;
         this.userType = userType;
     }
 
@@ -83,28 +79,12 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getPhoneNr() {
-        return phoneNr;
-    }
-
-    public void setPhoneNr(String phoneNr) {
-        this.phoneNr = phoneNr;
-    }
-
     public String getEmali() {
         return emali;
     }
 
     public void setEmali(String emali) {
         this.emali = emali;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
     }
 
     public String getUserType() {
@@ -124,9 +104,7 @@ public class User {
                 ", securityLevel=" + securityLevel +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", phoneNr='" + phoneNr + '\'' +
                 ", emali='" + emali + '\'' +
-                ", city='" + city + '\'' +
                 ", userType='" + userType + '\'' +
                 '}';
     }

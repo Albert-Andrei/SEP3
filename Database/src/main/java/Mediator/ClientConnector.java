@@ -18,7 +18,7 @@ public class ClientConnector implements Runnable {
     public ClientConnector() throws IOException {
         this.welcomeSocket = new ServerSocket(PORT);
         MongoClient mongoClient = MongoClients.create(
-                "mongodb+srv://Admin:12345@sep3.zn0bp.mongodb.net/cluster?retryWrites=true&w=majority");
+                "mongodb+srv://shared:12345@sep3.epb66.mongodb.net/cluster?retryWrites=true&w=majority");
         MongoDatabase database = mongoClient.getDatabase("SEP");
         this.userModel = new UserModelImplementation(database);
     }

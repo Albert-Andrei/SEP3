@@ -4,40 +4,14 @@
     <projectFile>AndriuhaAssignment/AndriuhaAssignment.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f3c66f11-75b4-4f65-b307-4d72e272e537" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Andriuha/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Andriuha/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Andriuha/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Andriuha/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndriuhaAssignment/Pages/Index.razor" beforeDir="false" afterPath="$PROJECT_DIR$/AndriuhaAssignment/Pages/Index.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndriuhaAssignment/bin/Debug/netcoreapp3.1/AndriuhaAssignment.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AndriuhaAssignment/bin/Debug/netcoreapp3.1/AndriuhaAssignment.Views.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndriuhaAssignment/bin/Debug/netcoreapp3.1/AndriuhaAssignment.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/AndriuhaAssignment/bin/Debug/netcoreapp3.1/AndriuhaAssignment.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndriuhaAssignment/bin/Debug/netcoreapp3.1/AndriuhaAssignment.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/AndriuhaAssignment/bin/Debug/netcoreapp3.1/AndriuhaAssignment.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndriuhaAssignment/bin/Debug/netcoreapp3.1/AndriuhaAssignment.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AndriuhaAssignment/bin/Debug/netcoreapp3.1/AndriuhaAssignment.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndriuhaAssignment/bin/Debug/netcoreapp3.1/AndriuhaAssignment.exe" beforeDir="false" afterPath="$PROJECT_DIR$/AndriuhaAssignment/bin/Debug/netcoreapp3.1/AndriuhaAssignment.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndriuhaAssignment/bin/Debug/netcoreapp3.1/AndriuhaAssignment.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/AndriuhaAssignment/bin/Debug/netcoreapp3.1/AndriuhaAssignment.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndriuhaAssignment/obj/AndriuhaAssignment.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/AndriuhaAssignment/obj/AndriuhaAssignment.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndriuhaAssignment/obj/Debug/netcoreapp3.1/AndriuhaAssignment.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AndriuhaAssignment/obj/Debug/netcoreapp3.1/AndriuhaAssignment.Views.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndriuhaAssignment/obj/Debug/netcoreapp3.1/AndriuhaAssignment.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/AndriuhaAssignment/obj/Debug/netcoreapp3.1/AndriuhaAssignment.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndriuhaAssignment/obj/Debug/netcoreapp3.1/AndriuhaAssignment.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AndriuhaAssignment/obj/Debug/netcoreapp3.1/AndriuhaAssignment.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndriuhaAssignment/obj/Debug/netcoreapp3.1/AndriuhaAssignment.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AndriuhaAssignment/obj/Debug/netcoreapp3.1/AndriuhaAssignment.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndriuhaAssignment/obj/Debug/netcoreapp3.1/AndriuhaAssignment.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AndriuhaAssignment/obj/Debug/netcoreapp3.1/AndriuhaAssignment.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndriuhaAssignment/obj/Debug/netcoreapp3.1/AndriuhaAssignment.exe" beforeDir="false" afterPath="$PROJECT_DIR$/AndriuhaAssignment/obj/Debug/netcoreapp3.1/AndriuhaAssignment.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndriuhaAssignment/obj/Debug/netcoreapp3.1/AndriuhaAssignment.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/AndriuhaAssignment/obj/Debug/netcoreapp3.1/AndriuhaAssignment.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndriuhaAssignment/obj/Debug/netcoreapp3.1/Razor/Pages/Index.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AndriuhaAssignment/obj/Debug/netcoreapp3.1/Razor/Pages/Index.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndriuhaAssignment/obj/Debug/netcoreapp3.1/RazorDeclaration/AndriuhaAssignment.dll" beforeDir="false" afterPath="$PROJECT_DIR$/AndriuhaAssignment/obj/Debug/netcoreapp3.1/RazorDeclaration/AndriuhaAssignment.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndriuhaAssignment/obj/Debug/netcoreapp3.1/RazorDeclaration/AndriuhaAssignment.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/AndriuhaAssignment/obj/Debug/netcoreapp3.1/RazorDeclaration/AndriuhaAssignment.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndriuhaAssignment/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Index.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AndriuhaAssignment/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Index.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndriuhaAssignment/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/AndriuhaAssignment/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndriuhaAssignment/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/AndriuhaAssignment/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndriuhaAssignment/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/AndriuhaAssignment/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndriuhaAssignment/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/AndriuhaAssignment/obj/rider.project.restore.info" afterDir="false" />
-    </list>
+    <list default="true" id="f3c66f11-75b4-4f65-b307-4d72e272e537" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -126,6 +100,7 @@
       <workItem from="1604563864020" duration="272000" />
       <workItem from="1604564325799" duration="3104000" />
       <workItem from="1604835075718" duration="642000" />
+      <workItem from="1606763549583" duration="155000" />
     </task>
     <servers />
   </component>

@@ -7,7 +7,7 @@
 
 <EditForm Model="@newUser" OnValidSubmit="@CreateNewUser">
     <DataAnnotationsValidator/>
-    
+
     <div class="sign-up">
         <div class="auth-sidebar">
             <div class="auth-sidebar-content">
@@ -29,24 +29,6 @@
                     <hr class="divider"/>
 
                     <div class="forms" autocomplete="on">
-                        <div class="name">
-                            <div class="box">
-                                <fieldset>
-                                    <label>First Name</label>
-                                    <InputText autocomplete="given-name" class="text-input"
-                                               type="text" name="given-name"
-                                               @bind-Value="newUser.FirstName" required/>
-                                </fieldset>
-                            </div>
-                            <div class="box">
-                                <fieldset>
-                                    <label>Last Name</label>
-                                    <input autocomplete="family-name" class="text-input"
-                                           type="text" name="family-name"
-                                           @bind="newUser.LastName" required/>
-                                </fieldset>
-                            </div>
-                        </div>
 
                         <div class="name">
                             <div class="box">
@@ -56,15 +38,17 @@
                                            name="email"
                                            @bind="newUser.UserName" required/>
                                 </fieldset>
+                                <ValidationMessage For="@(() => newUser.UserName)"/>
                             </div>
-                            <div class="box">
-                                <fieldset>
-                                    <label>Phone Nr.</label>
-                                    <input autocomplete="tel" class="text-input"
-                                           type="text" name="tel"
-                                           @bind="newUser.PhoneNr" required/>
-                                    <ValidationMessage For="@(() => newUser.PhoneNr)"/>
-                                </fieldset>
+                            <div class="dropdown-state">
+                                <label for="state">Status:</label>
+                                <select name="type" class="state" @bind="@selectedType">
+                                    @foreach (var t in type)
+                                    {
+                                        <option value=@t>@t</option>
+                                    }
+                                </select>
+                                <ValidationMessage For="@(() => newUser.UserType)"/>
                             </div>
                         </div>
 
@@ -89,6 +73,25 @@
                             </div>
                         </div>
 
+                        <div class="name">
+                            <div class="box">
+                                <fieldset>
+                                    <label>First Name</label>
+                                    <InputText autocomplete="given-name" class="text-input"
+                                               type="text" name="given-name"
+                                               @bind-Value="newUser.FirstName" required/>
+                                </fieldset>
+                            </div>
+                            <div class="box">
+                                <fieldset>
+                                    <label>Last Name</label>
+                                    <input autocomplete="family-name" class="text-input"
+                                           type="text" name="family-name"
+                                           @bind="newUser.LastName" required/>
+                                </fieldset>
+                            </div>
+                        </div>
+
                         <div class="longbox" autocomplete="On">
                             <div class="email">
                                 <fieldset>
@@ -96,27 +99,6 @@
                                     <input autocomplete="email" class="text-input" type="text"
                                            name="email" @bind="newUser.Email" required/>
                                 </fieldset>
-                            </div>
-                            <div class="city">
-                                <div class="name">
-                                    <div class="box">
-                                        <fieldset>
-                                            <label>City</label>
-                                            <input autocomplete="On" class="text-input" type="text"
-                                                   name="address-level2" @bind="newUser.City" required/>
-                                        </fieldset>
-                                    </div>
-                                    <div class="dropdown-state">
-                                        <label for="state">Status:</label>
-                                        <select name="type" class="state" @bind="@selectedType">
-                                            @foreach (var t in type)
-                                            {
-                                                <option value=@t>@t</option>
-                                            }
-                                        </select>
-                                        <ValidationMessage For="@(() => newUser.UserType)"/>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -131,7 +113,7 @@
 @code {
     private string errorMessage;
     private User newUser = new User();
-    List<string> type = new List<string>() { "Employee", "Employer"};
+    List<string> type = new List<string>() {"Employee", "Employer"};
     string selectedType = "Employee";
 
     private void CreateNewUser()
@@ -140,6 +122,6 @@
         UserService.CreateUserAsync(newUser);
         NavigationManager.NavigateTo("/log-in");
     }
-    
-    
+
+
 }
