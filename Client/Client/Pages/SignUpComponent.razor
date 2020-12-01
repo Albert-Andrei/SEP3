@@ -1,0 +1,127 @@
+@page "/sign-up"
+@using Client.Data
+@using Client.Models
+@inject NavigationManager NavigationManager
+@inject IUserService UserService
+
+
+<EditForm Model="@newUser" OnValidSubmit="@CreateNewUser">
+    <DataAnnotationsValidator/>
+
+    <div class="sign-up">
+        <div class="auth-sidebar">
+            <div class="auth-sidebar-content">
+                <div class="header">
+                    <a href="/" class="signup-logo">Logo</a>
+                    <h1>Discover all available possibilities of our platform</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="calhoz"></div>
+
+        <div class="content">
+            <main>
+                <div class="auth-content">
+
+                    <h2>Sign up to JPool</h2>
+
+                    <hr class="divider"/>
+
+                    <div class="forms" autocomplete="on">
+
+                        <div class="name">
+                            <div class="box">
+                                <fieldset>
+                                    <label>Username</label>
+                                    <input autocomplete="email" class="text-input" type="text"
+                                           name="email"
+                                           @bind="newUser.UserName" required/>
+                                </fieldset>
+                                <ValidationMessage For="@(() => newUser.UserName)"/>
+                            </div>
+                            <div class="dropdown-state">
+                                <label for="state">Status:</label>
+                                <select name="type" class="state" @bind="@selectedType">
+                                    @foreach (var t in type)
+                                    {
+                                        <option value=@t>@t</option>
+                                    }
+                                </select>
+                                <ValidationMessage For="@(() => newUser.UserType)"/>
+                            </div>
+                        </div>
+
+                        <div class="name">
+                            <div class="box">
+                                <fieldset>
+                                    <label>Password</label>
+                                    <input placeholder="8+ characters " class="text-input"
+                                           type="password"
+                                           @bind="newUser.Password" required/>
+                                    <ValidationMessage For="@(() => newUser.Password)"/>
+                                </fieldset>
+                            </div>
+                            <div class="box">
+                                <fieldset>
+                                    <label>Confirm password</label>
+                                    <input placeholder="Same as previous"
+                                           class="text-input" type="password"
+                                           required/>
+                                    <ValidationMessage For="@(() => newUser.Password)"/>
+                                </fieldset>
+                            </div>
+                        </div>
+
+                        <div class="name">
+                            <div class="box">
+                                <fieldset>
+                                    <label>First Name</label>
+                                    <InputText autocomplete="given-name" class="text-input"
+                                               type="text" name="given-name"
+                                               @bind-Value="newUser.FirstName" required/>
+                                </fieldset>
+                            </div>
+                            <div class="box">
+                                <fieldset>
+                                    <label>Last Name</label>
+                                    <input autocomplete="family-name" class="text-input"
+                                           type="text" name="family-name"
+                                           @bind="newUser.LastName" required/>
+                                </fieldset>
+                            </div>
+                        </div>
+
+                        <div class="longbox" autocomplete="On">
+                            <div class="email">
+                                <fieldset>
+                                    <label>Email</label>
+                                    <input autocomplete="email" class="text-input" type="text"
+                                           name="email" @bind="newUser.Email" required/>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="color:red">@errorMessage</div>
+                    <button type="submit" class="signupBtn">Create Account</button>
+                </div>
+            </main>
+        </div>
+    </div>
+</EditForm>
+
+@code {
+    private string errorMessage;
+    private User newUser = new User();
+    List<string> type = new List<string>() {"Employee", "Employer"};
+    string selectedType = "Employee";
+
+    private void CreateNewUser()
+    {
+        newUser.UserType = selectedType;
+        UserService.CreateUserAsync(newUser);
+        NavigationManager.NavigateTo("/log-in");
+    }
+
+
+}

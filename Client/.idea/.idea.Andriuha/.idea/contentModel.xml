@@ -7,9 +7,6 @@
     <e p="C:\Users\User\AppData\Roaming\JetBrains\Rider2020.2\extensions" t="IncludeRecursive" />
     <e p="D:\VIA\Semester 3\Semester project\SEP3\Client" t="IncludeFlat">
       <e p="Andriuha.sln" t="IncludeFlat" />
-      <e p="AndriuhaAssignment" t="IncludeRecursive">
-        <e p="AndriuhaAssignment.csproj" t="IncludeRecursive" />
-      </e>
     </e>
   </component>
 </project>
