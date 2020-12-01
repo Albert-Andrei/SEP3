@@ -1,36 +1,30 @@
 package SEP.Mediator;
 
-import SEP.Models.User;
-import SEP.Network.NetworkPackage;
-import SEP.Network.NetworkType;
-import SEP.Network.UserPackage;
 import com.google.gson.Gson;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.Socket;
 
-public class UserClient implements UserRemoteModel{
+public class ConnectionImplementation implements ConnectionHandler{
     public static final String HOST = "localhost";
     public static final int PORT = 2910;
     private String host;
     private int port;
     private Socket socket;
-    private Gson gson;
     OutputStream outputStream;
     InputStream inputStream;
-    User checked;
-    private static UserClient instance;
     private static Object lock = new Object();
+    private static ConnectionImplementation instance;
 
-
-    private UserClient() throws IOException {
+    private ConnectionImplementation() throws IOException {
         this.port = PORT;
         this.host = HOST;
-        this.gson = new Gson();
         connect();
     }
 
-    public static UserClient getInstance() throws IOException
+    public static ConnectionImplementation getInstance() throws IOException
     {
         if(instance == null)
         {
@@ -38,46 +32,34 @@ public class UserClient implements UserRemoteModel{
             {
                 if (instance == null)
                 {
-                    instance = new UserClient();
+                    instance = new ConnectionImplementation();
                 }
             }
         }
         return instance;
     }
 
-    @Override public void connect() throws IOException
-    {
+    private void connect() throws IOException {
         this.socket = new Socket(host, port);
         this.outputStream = socket.getOutputStream();
         this.inputStream = socket.getInputStream();
     }
 
-    @Override public void disconnect() throws IOException
-    {
+    @Override
+    public void disconnect() throws IOException {
         this.inputStream.close();
         this.outputStream.close();
         socket.close();
     }
 
-    @Override public User validateUser(String username, String password) throws IOException, ClassNotFoundException {
-        User toCheck = new User();
-        toCheck.setUsername(username);
-        toCheck.setPassword(password);
-
-        NetworkPackage toServer = new UserPackage(NetworkType.USER, toCheck);
-        String gsonToServer = gson.toJson(toServer);
-        send(outputStream,gsonToServer);
-
-        String respose = read(inputStream);
-        UserPackage checked = gson.fromJson(respose, UserPackage.class);
-        return checked.getUser();
+    @Override
+    public String readFromDb() throws IOException {
+        return read(inputStream);
     }
 
     @Override
-    public void createUser(User user) throws IOException, ClassNotFoundException {
-        NetworkPackage toServer = new UserPackage(NetworkType.CREATE_USER, user);
-        String gsonToServer = gson.toJson(toServer);
-        send(outputStream,gsonToServer);
+    public void sendToDb(String toServer) throws IOException {
+        send(outputStream,toServer);
     }
 
     private static String read(InputStream inputStream) throws IOException {

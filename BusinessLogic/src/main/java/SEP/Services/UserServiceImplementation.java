@@ -1,8 +1,8 @@
 package SEP.Services;
 
 
-import SEP.Mediator.UserClient;
-import SEP.Mediator.UserRemoteModel;
+import SEP.Managers.UserClient;
+import SEP.Managers.UserRemoteModel;
 import SEP.Models.User;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ public class UserServiceImplementation implements UserService {
     private UserRemoteModel remoteModel;
 
     public UserServiceImplementation() throws IOException {
-        this.remoteModel = UserClient.getInstance();
+        this.remoteModel = new UserClient();
     }
 
 
