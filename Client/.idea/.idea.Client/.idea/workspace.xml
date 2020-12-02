@@ -23,6 +23,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70f6378a-4c40-4bb3-b0db-72be20c5e15f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Managers/UserClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Mediator/ConnectionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Mediator/UserClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Mediator/ConnectionImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Mediator/UserRemoteModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Managers/UserRemoteModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Services/UserServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Services/UserServiceImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Client/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.RazorCoreGenerate.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.RazorCoreGenerate.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.TagHelpers.output.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.TagHelpers.output.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Client.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Client.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Client.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Client.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Database/target/classes/Models/UserModelImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/target/classes/Models/UserModelImplementation.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,6 +76,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Client">
     <configuration name="Client" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
@@ -98,7 +119,7 @@
       <option name="presentableId" value="Default" />
       <updated>1606838970266</updated>
       <workItem from="1606838983913" duration="554000" />
-      <workItem from="1606840690135" duration="652000" />
+      <workItem from="1606840690135" duration="999000" />
     </task>
     <servers />
   </component>
@@ -121,5 +142,23 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1606844542049">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1606844542049" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1606844542048">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1606844542048" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1606844542048">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1606844542048" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1606844542049">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1606844542049" />
   </component>
 </project>

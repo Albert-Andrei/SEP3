@@ -1,8 +1,126 @@
-@page "/shifts"
+@page "/shift"
+@using Client.Models
 @inject NavigationManager NavigationManager
+@* @attribute [Authorize(Policy = "SecurityLevel4")] *@
 
+<EditForm Model="@newShift" OnValidSubmit="@CreateNewShift">
+    <DataAnnotationsValidator/>
 
+    <div class="create-shift-content">
+        <main>
+            <div class="shift-auth-content">
+
+                <h2>Create a shift</h2>
+
+                <hr class="divider"/>
+
+                <div class="forms" autocomplete="on">
+
+                    <div class="name">
+                        <div class="box">
+                            <fieldset>
+                                <label>Company Name</label>
+                                <InputText class="text-input" type="text"
+                                           @bind-Value="newShift.CompanyName" required/>
+                            </fieldset>
+                            <ValidationMessage For="@(() => newShift.CompanyName)"/>
+                        </div>
+
+                        <div class="box">
+                            <fieldset>
+                                <label>Job Title</label>
+                                <InputText class="text-input" type="text"
+                                           @bind-Value="newShift.JobTitle" required/>
+                            </fieldset>
+                            <ValidationMessage For="@(() => newShift.JobTitle)"/>
+                        </div>
+                    </div>
+
+                    <div class="name">
+                        <div class="box">
+                            <fieldset>
+                                <label>Start Hour</label>
+                                <InputText class="text-input" type="text" placeholder="HH:MM"
+                                           @bind-Value="newShift.StartHour" required/>
+                            </fieldset>
+                            <ValidationMessage For="@(() => newShift.StartHour)"/>
+                        </div>
+
+                        <div class="box">
+                            <fieldset>
+                                <label>End Hour</label>
+                                <InputText class="text-input" type="text" placeholder="HH:MM"
+                                           @bind-Value="newShift.EndHour" required/>
+                            </fieldset>
+                            <ValidationMessage For="@(() => newShift.EndHour)"/>
+                        </div>
+                    </div>
+
+                    <div class="name">
+                        <div class="box">
+                            <fieldset>
+                                <label>Date</label>
+                                <InputDate class="text-input" type="date" default="01/01/2020"
+                                           @bind-Value="newShift.Date" required/>
+                            </fieldset>
+                            <ValidationMessage For="@(() => newShift.Date)"/>
+                        </div>
+                        <div class="box">
+                            <fieldset>
+                                <label>Hour Wage</label>
+                                <InputNumber class="text-input" @bind-Value="newShift.HourWage"/>
+                            </fieldset>
+                            <ValidationMessage For="@(() => newShift.HourWage)"/>
+                        </div>
+                    </div>
+
+                    <div class="box-long">
+                        <fieldset>
+                            <label>Description</label>
+                            <InputTextArea class="long-text" type="text"
+                                           @bind-Value="newShift.Description"/>
+                        </fieldset>
+                        <ValidationMessage For="@(() => newShift.Description)"/>
+                    </div>
+                    
+                    <div class="box-long">
+                        <fieldset>
+                            <label>Requirements (optional)</label>
+                            <InputTextArea class="long-text" type="text"
+                                           @bind-Value="newShift.Requirements"/>
+                        </fieldset>
+                        <ValidationMessage For="@(() => newShift.Requirements)"/>
+                    </div>
+                </div>
+                <div style="color:red">@errorMessage</div>
+                <button type="submit" class="signupBtn">Create Account</button>
+            </div>
+        </main>
+    </div>
+</EditForm>
 
 @code {
-    
+
+    string errorMessage;
+    private Shift newShift = new Shift();
+
+    private void CreateNewShift()
+    {
+        Console.Out.WriteLine(newShift.ToString());
+        NavigationManager.NavigateTo("/myjobs");
+    }
+
+    // [CascadingParameter]
+    // protected Task<AuthenticationState> AuthStat { get; set; }
+    //
+    // protected async override Task OnInitializedAsync()
+    // {
+    //     base.OnInitialized();
+    //     var user = (await AuthStat).User;
+    //     if (!user.Identity.IsAuthenticated)
+    //     {
+    //         NavigationManager.NavigateTo($"/log-in");
+    //     }
+    // }
+
 }

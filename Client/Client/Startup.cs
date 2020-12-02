@@ -51,6 +51,13 @@ namespace Client
                     if (levelClaim == null) return false;
                     return int.Parse(levelClaim.Value) >= 3;
                 }));
+                
+                options.AddPolicy("SecurityLevel4", a => a.RequireAuthenticatedUser().RequireAssertion(context =>
+                {
+                    Claim levelClaim = context.User.FindFirst(claim => claim.Type.Equals("Level"));
+                    if (levelClaim == null) return false;
+                    return int.Parse(levelClaim.Value) >= 4;
+                }));
             });
         }
 
