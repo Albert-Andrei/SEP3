@@ -1,6 +1,11 @@
 @page "/shift"
 @using Client.Models
+@using Client.Data
+@using Client.Authentication
+@using Client.Data.Shifts
 @inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject IShiftService ShiftService
 @* @attribute [Authorize(Policy = "SecurityLevel4")] *@
 
 <EditForm Model="@newShift" OnValidSubmit="@CreateNewShift">
@@ -103,10 +108,12 @@
 
     string errorMessage;
     private Shift newShift = new Shift();
-
+    
     private void CreateNewShift()
     {
+        newShift.UserName = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidatedUsername();
         Console.Out.WriteLine(newShift.ToString());
+        ShiftService.AddShiftAsync(newShift);
         NavigationManager.NavigateTo("/myjobs");
     }
 
@@ -122,5 +129,4 @@
     //         NavigationManager.NavigateTo($"/log-in");
     //     }
     // }
-
 }

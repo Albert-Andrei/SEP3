@@ -1,7 +1,6 @@
 package SEP.Services;
 
 import SEP.Models.User;
-
 import java.io.IOException;
 
 public interface UserService {

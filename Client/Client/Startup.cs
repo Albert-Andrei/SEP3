@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Client.Data;
+using Client.Data.Shifts;
 using Microsoft.AspNetCore.Components.Authorization;
 
 namespace Client
@@ -32,6 +33,7 @@ namespace Client
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IShiftService, ShiftService>();
             services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
             services.AddAuthorization(options =>
             {

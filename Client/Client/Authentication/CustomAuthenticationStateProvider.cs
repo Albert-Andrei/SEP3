@@ -15,6 +15,7 @@ namespace Client.Authentication
         private readonly IJSRuntime jsRuntime;
         private readonly IUserService userService;
         private User cachedUser;
+        public string username = "test";
 
         public CustomAuthenticationStateProvider(IJSRuntime jsRuntime, IUserService userService)
         {
@@ -43,6 +44,7 @@ namespace Client.Authentication
             return await Task.FromResult(new AuthenticationState(cachedClaimsPrincipal));
         }
 
+
         public async Task ValidateLogin(string username, string password)
         {
             if (string.IsNullOrEmpty(username)) throw new Exception("Enter username");
@@ -59,6 +61,7 @@ namespace Client.Authentication
                 string serialisedData = JsonSerializer.Serialize(user);
                 jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", serialisedData);
                 cachedUser = user;
+                this.username = user.UserName;
             }
             catch (Exception e)
             {
@@ -66,6 +69,10 @@ namespace Client.Authentication
             }
         
             NotifyAuthenticationStateChanged(Task.FromResult(new AuthenticationState(new ClaimsPrincipal(identity))));
+        }
+        public string ValidatedUsername()
+        {
+            return username;
         }
 
         public void Logout()
