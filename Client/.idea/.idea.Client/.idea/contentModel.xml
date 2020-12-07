@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\User\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\User\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Client.-2093777577.00" t="ExcludeRecursive" />
-    <e p="C:\Users\User\AppData\Roaming\JetBrains\Rider2020.2\consoles\db" t="IncludeRecursive" />
-    <e p="C:\Users\User\AppData\Roaming\JetBrains\Rider2020.2\extensions" t="IncludeRecursive" />
-    <e p="D:\VIA\Semester 3\Semester project\SEP3\Client" t="IncludeFlat">
+    <e p="C:\Users\tbile\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\tbile\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Client.-2011878043.00" t="ExcludeRecursive" />
+    <e p="C:\Users\tbile\AppData\Roaming\JetBrains\Rider2020.2\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\tbile\AppData\Roaming\JetBrains\Rider2020.2\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\tbile\SemesterProject\SEP3\Client" t="IncludeFlat">
       <e p="Client" t="IncludeRecursive">
         <e p="_Imports.razor" t="Include" />
         <e p="App.razor" t="Include" />
@@ -33,6 +33,8 @@
         </e>
         <e p="Pages" t="Include">
           <e p="_Host.cshtml" t="Include" />
+          <e p="AboutComponent.razor" t="Include" />
+          <e p="ContactComponent.razor" t="Include" />
           <e p="HomeComponent.razor" t="Include" />
           <e p="Index.razor" t="Include" />
           <e p="ShiftsComponent.razor" t="Include" />
@@ -51,13 +53,17 @@
         </e>
         <e p="Startup.cs" t="Include" />
         <e p="wwwroot" t="Include">
+          <e p="andrei.jpg" t="Include" />
           <e p="background-logIn.jpg" t="Include" />
           <e p="Background-LogIn_2.jpg" t="Include" />
           <e p="css" t="Include">
+            <e p="AboutComponent.razor.css" t="Include" />
             <e p="bootstrap" t="Include">
               <e p="bootstrap.min.css" t="Include" />
               <e p="bootstrap.min.css.map" t="Include" />
             </e>
+            <e p="ContactComponent.razor.css" t="Include" />
+            <e p="HomeComponent.razor.css" t="Include" />
             <e p="loading.css" t="Include" />
             <e p="navigation.css" t="Include" />
             <e p="open-iconic" t="Include">
@@ -82,6 +88,11 @@
           </e>
           <e p="favicon.ico" t="Include" />
           <e p="imagne.png" t="Include" />
+          <e p="mirka.jpg" t="Include" />
+          <e p="tautvydas.png" t="Include" />
+          <e p="work.png" t="Include" />
+          <e p="work2.png" t="Include" />
+          <e p="work3.png" t="Include" />
         </e>
       </e>
       <e p="Client.sln" t="IncludeFlat" />

@@ -1,5 +1,45 @@
-<h3 style="margin-top: 130px">Home Page</h3>
+@page "/home"
+@inject NavigationManager NavigationManager
+
+<link href="css/HomeComponent.razor.css" media="screen" rel="stylesheet">
+
+<div class="photo1">
+    <img src="work.png"  width="600" height="600">
+        </div>
+<div class="photo2">
+    <img src="work2.png"  width="600" height="600">
+</div>
+<div class="background">
+    <div class="headerHome">
+        <h1 class="headerFirst"> Plathorm Made for Employee and Employeer</h1>
+        <h1 class="headerSecond"> for job search and application</h1>
+        <h2 class="headerThird">Create account its totaly free</h2>
+    </div>
+     
+    <button @onclick="NavigateToSignup" class="buttonSign" >sign up!</button>
+    <div class="headerHome">
+        <h2 class="headerThird">If you already user</h2>
+    </div>
+    <button @onclick="NavigateToLogin" class="buttonSign" >log in</button>
+</div>
+<div class="navbarhome" id="myNavbar">
+  <a href="AboutComponent" >About</a>
+  
+  <a class="right" href="ContactComponent">Contact us</a>
+ 
+  
+</div>
+
 
 @code {
+ //   wwwroot/worker.jpg
+    private  void  NavigateToSignup()
+    {
+        NavigationManager.NavigateTo("/sign-up",true);
+    }
+    private  void  NavigateToLogin()
+    {
+        NavigationManager.NavigateTo("/log-in",true);
+    }
     
 }

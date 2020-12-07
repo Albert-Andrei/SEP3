@@ -1,0 +1,109 @@
+
+.headerFirst{
+    margin-top: 100px;
+    text-align: center;
+    font-family: sans; color: white;
+    font-size: 50px;
+}
+.headerSecond{
+    text-align: center;
+    font-family: sans; color: white;
+    font-size: 50px;
+}
+.headerThird{
+    text-align: center;
+    font-family: sans; color: white;
+    font-size: 25px;
+} 
+.buttonSign{
+    margin-top: 50px;
+    font-size: 25px;
+    display: block;
+    max-width: 300px;
+    margin: auto;
+    padding: 0;
+    border: #5dd631;
+    background: #5dd631;
+    font-family: sans; color: white;
+    padding: 1px 50px;
+}
+.background {
+    background: #1f7ac4;
+    max-height: 100%;
+    max-width: 100%;
+    
+}
+
+body {
+    background-color: #1f7ac4;
+    
+    }
+.buttonSign:hover {
+    transform: scale(1.35);
+    opacity: 1;
+    text-decoration: none;
+    filter: blur(0);
+    color: #edf0f1;
+}
+.buttonSign .icon {
+    display: none;
+}
+
+.navbarhome {
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    opacity: 0.8;
+}
+
+.navbarhome a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 30px 347px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbarhome a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.navbarhome a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.navbarhome .icon {
+    display: none;
+}
+
+.photo1 {
+
+    width: 458px;
+
+    height: 100%;
+    display: flex;
+
+    position:absolute;
+    left:-125px;
+}
+.photo2 {
+   
+    width: 458px;
+   
+    height: 100%;
+    display: flex;
+    
+    position:absolute;
+     left:1050px;
+}
+
+.main {
+    height: 100%;
+    background: #1f7ac4;
+}
