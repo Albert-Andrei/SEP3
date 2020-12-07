@@ -44,32 +44,26 @@
                     <div class="name">
                         <div class="box">
                             <fieldset>
-                                <label>Start Hour</label>
-                                <InputText class="text-input" type="text" placeholder="HH:MM"
-                                           @bind-Value="newShift.StartHour" required/>
+                                <label>Start Date & Time</label>
+                                <input type="datetime-local"
+                                       name="meeting-time"
+                                       @bind="newShift.StartDate">
                             </fieldset>
-                            <ValidationMessage For="@(() => newShift.StartHour)"/>
+                            <ValidationMessage For="@(() => newShift.StartDate)"/>
                         </div>
 
                         <div class="box">
                             <fieldset>
-                                <label>End Hour</label>
-                                <InputText class="text-input" type="text" placeholder="HH:MM"
-                                           @bind-Value="newShift.EndHour" required/>
+                                <label>End Date & Time</label>
+                                <input type="datetime-local"
+                                       name="meeting-time"
+                                       @bind="newShift.EndDate">
                             </fieldset>
-                            <ValidationMessage For="@(() => newShift.EndHour)"/>
+                            <ValidationMessage For="@(() => newShift.EndDate)"/>
                         </div>
                     </div>
 
                     <div class="name">
-                        <div class="box">
-                            <fieldset>
-                                <label>Date</label>
-                                <InputDate class="text-input" type="date" default="01/01/2020"
-                                           @bind-Value="newShift.Date" required/>
-                            </fieldset>
-                            <ValidationMessage For="@(() => newShift.Date)"/>
-                        </div>
                         <div class="box">
                             <fieldset>
                                 <label>Hour Wage</label>
@@ -87,7 +81,7 @@
                         </fieldset>
                         <ValidationMessage For="@(() => newShift.Description)"/>
                     </div>
-                    
+
                     <div class="box-long">
                         <fieldset>
                             <label>Requirements (optional)</label>
@@ -108,7 +102,7 @@
 
     string errorMessage;
     private Shift newShift = new Shift();
-    
+
     private void CreateNewShift()
     {
         newShift.UserName = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidatedUsername();

@@ -62,6 +62,7 @@ namespace Client.Authentication
                 jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", serialisedData);
                 cachedUser = user;
                 this.username = user.UserName;
+                Console.Out.WriteLine(user.UserId  + "<<<<<<<<<<<<ID");
             }
             catch (Exception e)
             {

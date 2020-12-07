@@ -1,5 +1,5 @@
 package SEP.Network;
 
 public enum NetworkType {
-    USER, CREATE_USER, ERROR;
+    USER, CREATE_USER, CREATE_SHIFT, ERROR;
 }

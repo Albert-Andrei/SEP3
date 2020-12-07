@@ -1,6 +1,5 @@
 package Network;
 
-
 import Data.User;
 
 public class UserPackage extends NetworkPackage {
