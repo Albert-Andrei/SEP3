@@ -1,0 +1,41 @@
+@page "/MyApplication"
+
+@using AndriuhaAssignment.Models
+@using AndriuhaAssignment.Data
+@using System.Runtime.Serialization
+@inject NavigationManager NavigationManager
+@inject IApplicationService ApplicationService
+<h3>MyApplicationComponent</h3>
+<EditForm Model="@application" OnValidSubmit="@GetApplication">
+    <DataAnnotationsValidator/>
+    <button type="submit" class="signupBtn" @onclick="@Click">Get Application</button>
+    <p> @Count </p>
+    <p> @Lol </p>
+
+</EditForm>
+
+
+@code {
+    public String Count { get; set; }
+    public ObjectIDGenerator Lol { get; set; }
+
+    
+    Application application = new Application();
+    private ObjectIDGenerator applicationId = new ObjectIDGenerator();
+    
+    private void Click(MouseEventArgs mouseEventArgs)
+    {
+
+        try {
+            ApplicationService.GetApplicationAsync(applicationId);
+            Lol = applicationId;
+        } catch (Exception e) {
+            Console.WriteLine(e.Message);
+        }
+    }
+    
+    private void GetApplication()
+    {
+        ApplicationService.GetApplicationAsync(applicationId);
+    }
+}

@@ -36,6 +36,7 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public void createUser(User user) throws IOException, ClassNotFoundException {
+
         remoteModel.createUser(user);
     }
 

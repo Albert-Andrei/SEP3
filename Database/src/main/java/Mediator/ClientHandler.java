@@ -1,28 +1,31 @@
 package Mediator;
 
+import Data.Application;
 import Data.User;
+import Models.ApplicationModel;
 import Models.UserModel;
-import Network.NetworkPackage;
-import Network.NetworkType;
-import Network.UserPackage;
+import Network.*;
 import com.google.gson.Gson;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.List;
 
 public class ClientHandler implements Runnable {
     private Socket socket;
     private InputStream inputStream;
     private OutputStream outputStream;
     private UserModel modelManager;
+    private ApplicationModel applicationModel;
     private Gson gson;
 
 
-    public ClientHandler(Socket socket, UserModel modelManager) throws IOException {
+    public ClientHandler(Socket socket, UserModel modelManager,ApplicationModel applicationModel) throws IOException {
         this.socket = socket;
         inputStream = socket.getInputStream();
         outputStream = socket.getOutputStream();
         this.modelManager = modelManager;
+        this.applicationModel = applicationModel;
         this.gson = new Gson();
     }
 
@@ -58,9 +61,41 @@ public class ClientHandler implements Runnable {
                     case ERROR:
                         send(outputStream,"ERROR");
                         break;
+                    case CREATE_APPLICATION:
+                        ApplicationPackage applicationPackage = gson.fromJson(message, ApplicationPackage.class);
+                        Application application = applicationPackage.getApplication();
+
+                        applicationModel.createApplication(application);
+                        break;
+                    case GET_ALL_APPLICATIONS:
+                        ApplicationListPackage applicationPackageAll = gson.fromJson(message, ApplicationListPackage.class);
+                        List<Application> applicationAll = applicationPackageAll.getApplicationList();
+
+                        List<Application> applicationAll1 = applicationModel.getAllApplications();
+                        ApplicationListPackage applicationPackage3 = new ApplicationListPackage(NetworkType.GET_ALL_APPLICATIONS, applicationAll1);
+
+                        String response3 = gson.toJson(applicationPackage3);
+                        System.out.println(response3 + "MESSAGE");
+                        send(outputStream, response3);
+                        break;
+                    case GET_APPLICATION:
+                        ApplicationPackage applicationPackage1 = gson.fromJson(message, ApplicationPackage.class);
+                        Application application1 = applicationPackage1.getApplication();
+
+                        Application application2 = applicationModel.getApplication(application1.getApplicationId());
+                        ApplicationPackage applicationPackage2 = new ApplicationPackage(NetworkType.GET_APPLICATION, application2);
+
+                        String response1 = gson.toJson(applicationPackage2);
+                        send(outputStream, response1);
+                        break;
+                    case DELETE_APPLICATION:
+                        break;
+                    case UPDATE_APPLICATION:
+                        break;
                 }
 
             } catch (Exception e) {
+                System.out.println(e.getMessage());
                 System.out.println("Client disconnected");
                 break;
             }

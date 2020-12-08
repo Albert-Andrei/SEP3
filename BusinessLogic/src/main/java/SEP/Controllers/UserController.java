@@ -21,7 +21,7 @@ public class UserController {
         return service.validateUser(user.getUsername(), user.getPassword());
     }
 
-    ;
+
 
     @PostMapping("/create")
     @ResponseBody
@@ -31,7 +31,6 @@ public class UserController {
         return user;
     }
 
-    ;
 
     @GetMapping("/get")
     public void get() throws IOException, ClassNotFoundException {

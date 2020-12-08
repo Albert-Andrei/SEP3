@@ -23,9 +23,64 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6cfed69e-18a5-4e12-9f8f-f4001ddb59f8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/client.txt" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/Client/Data/ApplicationService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Client/Client/Data/IApplicationService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/.idea/.idea.Andriuha/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/.idea/.idea.Andriuha/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/.idea/.idea.Andriuha/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/.idea/.idea.Andriuha/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/.idea/.idea.Client/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/.idea/.idea.Client/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/.idea/.idea.Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Client/.idea/.idea.Client/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/Shared/NavBar.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/Shared/NavBar.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/bin/Debug/netcoreapp3.1/Client.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/bin/Debug/netcoreapp3.1/Client.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/bin/Debug/netcoreapp3.1/Client.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/bin/Debug/netcoreapp3.1/Client.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/bin/Debug/netcoreapp3.1/Client.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/bin/Debug/netcoreapp3.1/Client.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/bin/Debug/netcoreapp3.1/Client.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/bin/Debug/netcoreapp3.1/Client.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/bin/Debug/netcoreapp3.1/Client.runtimeconfig.dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/bin/Debug/netcoreapp3.1/Client.runtimeconfig.dev.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/bin/Debug/netcoreapp3.1/Client.runtimeconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/bin/Debug/netcoreapp3.1/Client.runtimeconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Client.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Client.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Client.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Client.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Client.RazorComponent.input.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Client.RazorComponent.input.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Client.RazorCoreGenerate.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Client.RazorCoreGenerate.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Client.TagHelpers.output.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Client.TagHelpers.output.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Client.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Client.Views.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Client.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Client.Views.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Client.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Client.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Client.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Client.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Client.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Client.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Client.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Client.csprojAssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Client.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Client.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Client.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Client.genruntimeconfig.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Client.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Client.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Razor/App.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Razor/App.razor.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Razor/Pages/HomeComponent.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Razor/Pages/HomeComponent.razor.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Razor/Pages/Index.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Razor/Pages/Index.razor.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Razor/Pages/SignUpComponent.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Razor/Pages/SignUpComponent.razor.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Razor/Pages/_Host.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Razor/Pages/_Host.cshtml.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Razor/Shared/Loading.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Razor/Shared/Loading.razor.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Razor/Shared/LogInComponent.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Razor/Shared/LogInComponent.razor.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Razor/Shared/MainLayout.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Razor/Shared/MainLayout.razor.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Razor/Shared/NavBar.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Razor/Shared/NavBar.razor.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Razor/Shared/SurveyPrompt.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Razor/Shared/SurveyPrompt.razor.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Razor/_Imports.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/Razor/_Imports.razor.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/App.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/App.razor.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Client.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Client.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Client.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Client.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/HomeComponent.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/HomeComponent.razor.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Index.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Index.razor.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/SignUpComponent.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/SignUpComponent.razor.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/Loading.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/Loading.razor.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/LogInComponent.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/LogInComponent.razor.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/MainLayout.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/MainLayout.razor.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/NavBar.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/NavBar.razor.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/SurveyPrompt.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/SurveyPrompt.razor.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/_Imports.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/_Imports.razor.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Client/wwwroot/css/signup.css" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Client/wwwroot/css/signup.css" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,12 +128,24 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/SEP" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/BusinessLogic" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\VIA\Semester 3\SEP3\src\main\java\SEP" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager">
     <configuration name="DemoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -90,6 +157,9 @@
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="6cfed69e-18a5-4e12-9f8f-f4001ddb59f8" name="Default Changelist" comment="" />
@@ -123,12 +193,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="488" y="79" key="#com.intellij.ide.util.MemberChooser" timestamp="1606426035371">

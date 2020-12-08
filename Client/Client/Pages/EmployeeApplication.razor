@@ -1,0 +1,145 @@
+@page "/EmployeeApplication"
+@using AndriuhaAssignment.Models
+@using AndriuhaAssignment.Data
+@using System.Collections
+@inject NavigationManager NavigationManager
+@inject IApplicationService ApplicationService
+
+
+<EditForm Model="@application" OnValidSubmit="@CreateNewApplication">
+    <DataAnnotationsValidator/>
+    
+    <div class="sign-up">
+        <div class="auth-sidebar">
+            <div class="auth-sidebar-content">
+                <div class="header">
+                    <a href="/" class="signup-logo">Logo</a>
+                    <h1>Discover all available possibilities of our platform</h1>
+                </div>
+            </div>
+        </div>
+
+        <div class="calhoz"></div>
+
+        <div class="content">
+            <main>
+                <div class="auth-content">
+
+                    <h2>Employee Application</h2>
+
+                    <hr class="divider"/>
+
+                    <div class="forms" autocomplete="on">
+                        <div class="name">
+                            <div class="box">
+                                <fieldset>
+                                    <label>First Name</label>
+                                    <InputText class="text-input"
+                                               type="text" 
+                                               @bind-Value="application.FirstName" required/>
+                                </fieldset>
+                            </div>
+                            <div class="box">
+                                <fieldset>
+                                    <label>Last Name</label>
+                                    <input class="text-input"
+                                           
+                                           type="text" 
+                                           @bind="application.LastName" required/>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="name">
+                            <div class="box">
+                                <fieldset>
+                                    <label>Email</label>
+                                    <input  class="text-input" type="text"
+                                            @bind="application.Email" required/>
+                                </fieldset>
+                            </div>
+                            <div class="box">
+                                <fieldset>
+                                    <label>Phone Number</label>
+                                    <input class="text-input"
+                                           type="text"
+                                           @bind="application.PhoneNumber" required/>
+                                    <ValidationMessage For="@(() => application.PhoneNumber)"/>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="longbox">
+                            <div class="email" >
+                                <fieldset>
+                                    <label>Job Experience</label>
+                                    <textarea class="text-input" type="text"
+                                         @bind="application.JobExperience"  required></textarea>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4 dropdown-state">
+                                <label for="state">Danish Skill Level</label>
+                                <select name="type" class="state" @bind="@selectedType1">
+                                    @foreach (var t in languages)
+                                    {
+                                        <option  value="none" selected disabled hidden> 
+                                        </option> 
+                                        <option multiple value=@t>@t</option>
+                                    }
+                                </select>
+                            </div>
+                            <div class="col-4 dropdown-state">
+                                <label for="state">Driving Licenses</label>
+                                <select name="type" class="state" @bind="@selectedType2">
+                                    @foreach (var t in car)
+                                    {
+                                        <option value="none" selected disabled hidden> 
+                                        </option> 
+                                        <option value=@t>@t</option>
+                                    }
+                                </select>
+                            </div><div class="col-4 dropdown-state">
+                                <label for="state">Preferable Work Hours</label>
+                                <select name="type" class="state" @bind="@selectedType3">
+                                    @foreach (var t in time)
+                                    {
+                                        <option value="none" selected disabled hidden> 
+                                        </option> 
+                                        <option value=@t>@t</option>
+                                    }
+                                    </select>
+                                </div>
+                        </div>
+                    </div>
+                    <div style="color:red">@errorMessage</div>
+                    <button type="submit" class="signupBtn">Create Application</button>
+                </div>
+            </main>
+        </div>
+    </div>
+</EditForm>
+
+@code {
+    private string errorMessage;
+    private Application application = new Application(); 
+    List<string> car = new List<string>() {"Yes", "No"};
+    List<string> time = new List<string>() {"Day (6-14)", "Evening (14-22)", "Night (22-6)"};
+    List<string> languages = new List<string>() {"Native", "Proficient" ,"Advanced","Intermediate", "Elementary", "None"};
+    string selectedType1;
+    string selectedType2;
+    string selectedType3;
+    
+    private void CreateNewApplication()
+    {
+        application.Languages = selectedType1;
+        application.DrivingLicenses = selectedType2;
+        application.PreferableWorkTime = selectedType3;
+        ApplicationService.CreateApplicationAsync(application);
+        NavigationManager.NavigateTo("/log-in");
+    }
+    
+}
+
+    
+    
+}
