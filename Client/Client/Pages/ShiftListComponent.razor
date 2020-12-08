@@ -6,14 +6,14 @@
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject IShiftService ShiftService
 
-@* @if (shiftsToShow == null) *@
-@* { *@
-@*     <p class="loadingText"> *@
-@*         <em>Loading...</em> *@
-@*     </p> *@
-@* } *@
-@* else  if (!shiftsToShow.Any()) *@
-@* { *@
+@if (shiftsToShow == null)
+{
+    <p class="loadingText">
+        <em>Loading...</em>
+    </p>
+}
+else  if (!shiftsToShow.Any())
+{
 <div class="noshifts">
     <h1 class="text-no">You have no shifts, please add some.</h1>
     <button @onclick="Navigate" class="createShiftBtn">Create Shift</button>

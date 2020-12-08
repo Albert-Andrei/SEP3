@@ -20,14 +20,16 @@ namespace Client.Data.Shifts
         
         public async Task<IList<Shift>> GetAllShiftsOneUser(string username)
         {
-            string uri = "http://localhost:6969/shifts/get";
+            string uri = "http://localhost:6969/shifts/get?";
             
             if (username != null)
             {
                 uri += $"&username={username}";
             }
-            
+
+            // string message = await client.GetStringAsync($"http://localhost:6969/shifts/get?&username={username}");
             string message = await client.GetStringAsync(uri);
+            Console.Out.WriteLine(message);
             List<Shift> result = JsonSerializer.Deserialize<List<Shift>>(message);
             return result;
         }

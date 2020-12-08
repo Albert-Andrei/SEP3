@@ -3,6 +3,7 @@ package Models;
 import Data.Shift;
 import Data.User;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.mongodb.BasicDBObject;
 import com.mongodb.Cursor;
 import com.mongodb.DBCursor;
@@ -14,6 +15,10 @@ import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 
 import java.sql.DatabaseMetaData;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -58,7 +63,7 @@ public class ShiftModelImplementation implements ShiftModel {
     }
 
     @Override
-    public List<Shift> GetAllShiftsForOneUser(String username) {
+    public List<Shift> GetAllShiftsForOneUser(String username) throws ParseException {
 
         BasicDBObject whereQuery = new BasicDBObject();
         whereQuery.put("username", username);
@@ -67,23 +72,28 @@ public class ShiftModelImplementation implements ShiftModel {
         if (shiftCollection.find(whereQuery).first() != null) {
 
             MongoCursor<Document> cursor = shiftCollection.find(whereQuery).iterator();
-            Gson gson = new Gson();
-        //    FindIterable<Document> iterDoc = shiftCollection.find(whereQuery);
-        //    Iterator it = iterDoc.iterator();
+//            Gson gson = new Gson();
+            Gson gson = new GsonBuilder()
+                    .excludeFieldsWithoutExposeAnnotation()
+                    .create();
             while (cursor.hasNext()) {
-//                String shiftFromDB = shiftCollection.find(whereQuery).first().toJson();
-//                System.out.println(shiftFromDB);
-//                Shift ble = gson.fromJson(shiftFromDB, Shift.class);
-//                System.out.println(ble);
 
-                System.out.println(cursor.next());
                 Document document = cursor.next();
-
                 String json = document.toJson();
-                System.out.println(json);
+
+                String startDate = document.get("startDate").toString();
+                String endDate = document.get("endDate").toString();
+
+                // Formatter for the input date
+                final DateFormat inputFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
+//                // The parsed date
+                final Date startDateParsed = inputFormat.parse(startDate);
+                final Date endDateParsed = inputFormat.parse(endDate);
 
                 Shift opa = gson.fromJson(json, Shift.class);
                 System.out.println(opa.getStartDate());
+                opa.setStartDate(startDateParsed);
+                opa.setEndDate(endDateParsed);
                toReturn.add(opa);
             }
         }
