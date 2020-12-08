@@ -53,6 +53,7 @@ D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Cl
 D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Client.csproj.CopyComplete
 D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\ShiftsComponent.razor.g.cs
 D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\ShiftsComponent.razor.g.cs
+<<<<<<< HEAD
 C:\Users\tbile\SemesterProject\SEP3\Client\Client\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\tbile\SemesterProject\SEP3\Client\Client\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\tbile\SemesterProject\SEP3\Client\Client\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -116,3 +117,7 @@ D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Ra
 D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\ContactComponent.razor.g.cs
 D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\AboutComponent.razor.g.cs
 D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\ContactComponent.razor.g.cs
+=======
+D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\ShiftListComponent.razor.g.cs
+D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\ShiftListComponent.razor.g.cs
+>>>>>>> b69f125f09fe6a9d45c6e95085bfb53860153b32

@@ -8,7 +8,7 @@ namespace Client.Models
     public class User
     {
         [JsonPropertyName("username")]
-        [Required, MaxLength(30)]
+        [Required, MaxLength(30), MinLength(6)]
         [NotNull]
         public string UserName { get; set; }
 

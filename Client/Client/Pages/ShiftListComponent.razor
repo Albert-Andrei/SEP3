@@ -1,0 +1,61 @@
+@page "/shift-list"
+@using Client.Models
+@using Client.Data.Shifts
+@using Client.Authentication
+@inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject IShiftService ShiftService
+
+@* @if (shiftsToShow == null) *@
+@* { *@
+@*     <p class="loadingText"> *@
+@*         <em>Loading...</em> *@
+@*     </p> *@
+@* } *@
+@* else  if (!shiftsToShow.Any()) *@
+@* { *@
+<div class="noshifts">
+    <h1 class="text-no">You have no shifts, please add some.</h1>
+    <button @onclick="Navigate" class="createShiftBtn">Create Shift</button>
+</div>
+}
+else
+{
+<div class="create-shift-content">
+    <main>
+        <div class="shift-auth-content" style="width: 95%;">
+
+            <div class="sus-acolo">
+                <h2 style="margin-left: 50px;">My Shifts</h2>
+                <button @onclick="Navigate" class="createShiftBtn">Create Shift</button>
+            </div>
+
+            <div style="color:red">@errorMessage</div>
+
+            <hr class="divider"/>
+
+            <div class="forms" style="width: 95%; border-radius: 5px;">
+
+            </div>
+        </div>
+    </main>
+</div>
+}
+
+@code {
+    private IList<Shift> shiftsToShow;
+    private IList<Shift> allShifts;
+    private string errorMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        allShifts = await ShiftService.GetAllShiftsOneUser(((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidatedUsername());
+        shiftsToShow = allShifts;
+    }
+
+    private void Navigate()
+    {
+        NavigationManager.NavigateTo("/shift");
+    }
+
+}

@@ -1,12 +1,13 @@
 package Mediator;
 
+import Data.Shift;
 import Data.User;
+import Models.ShiftModel;
+import Models.ShiftModelImplementation;
 import Models.UserModel;
-import Network.NetworkPackage;
-import Network.NetworkType;
-import Network.UserPackage;
+import Network.*;
 import com.google.gson.Gson;
-
+import java.util.List;
 import java.io.*;
 import java.net.Socket;
 
@@ -14,17 +15,20 @@ public class ClientHandler implements Runnable {
     private Socket socket;
     private InputStream inputStream;
     private OutputStream outputStream;
-    private UserModel modelManager;
+    private UserModel userModelManager;
+    private ShiftModel shiftModelManager;
     private Gson gson;
 
 
-    public ClientHandler(Socket socket, UserModel modelManager) throws IOException {
+    public ClientHandler(Socket socket, UserModel userModelManager, ShiftModel shiftModelManager) throws IOException {
         this.socket = socket;
         inputStream = socket.getInputStream();
         outputStream = socket.getOutputStream();
-        this.modelManager = modelManager;
+        this.userModelManager = userModelManager;
+        this.shiftModelManager = shiftModelManager;
         this.gson = new Gson();
     }
+
 
     @Override
     public void run() {
@@ -42,7 +46,7 @@ public class ClientHandler implements Runnable {
                         UserPackage incomingUserPackageNumber = gson.fromJson(message, UserPackage.class);
                         User user = incomingUserPackageNumber.getUser();
 
-                        User returnedUser = modelManager.ValidateUser(user.getUsername());
+                        User returnedUser = userModelManager.ValidateUser(user.getUsername());
                         UserPackage outgoingUserPackage = new UserPackage(NetworkType.USER, returnedUser);
 
                         String response = gson.toJson(outgoingUserPackage);
@@ -53,14 +57,35 @@ public class ClientHandler implements Runnable {
                         UserPackage userToCreateFromClient = gson.fromJson(message, UserPackage.class);
                         User userToCreate = userToCreateFromClient.getUser();
 
-                        modelManager.CreateUser(userToCreate);
+                        userModelManager.CreateUser(userToCreate);
                         break;
+
+                    case CREATE_SHIFT:
+                        ShiftPackage shiftToCreateFromClient = gson.fromJson(message, ShiftPackage.class);
+                        Shift shiftToCreate = shiftToCreateFromClient.getShift();
+
+                        System.out.println("Opa db");
+                        shiftModelManager.CreateShift(shiftToCreate);
+                        break;
+
+                    case SEND_USERNAME:
+                        StringPackage usernameFromT2 = gson.fromJson(message, StringPackage.class);
+                        String username = usernameFromT2.getString();
+
+                        List<Shift> listToBusiness = shiftModelManager.GetAllShiftsForOneUser(username);
+                        ListPackage outgoingListPackage = new ListPackage(NetworkType.GET_SHIFTS_ONE_USER, listToBusiness);
+
+                        String listOfShifts = gson.toJson(outgoingListPackage);
+                        send(outputStream, listOfShifts);
+                        break;
+
                     case ERROR:
-                        send(outputStream,"ERROR");
+                        send(outputStream, "ERROR");
                         break;
                 }
 
             } catch (Exception e) {
+                System.out.println(e);
                 System.out.println("Client disconnected");
                 break;
             }

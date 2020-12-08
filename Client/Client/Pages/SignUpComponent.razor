@@ -34,9 +34,9 @@
                             <div class="box">
                                 <fieldset>
                                     <label>Username</label>
-                                    <input autocomplete="email" class="text-input" type="text"
+                                    <InputText autocomplete="email" class="text-input" type="text"
                                            name="email"
-                                           @bind="newUser.UserName" required/>
+                                           @bind-Value="newUser.UserName" required/>
                                 </fieldset>
                                 <ValidationMessage For="@(() => newUser.UserName)"/>
                             </div>
@@ -56,9 +56,9 @@
                             <div class="box">
                                 <fieldset>
                                     <label>Password</label>
-                                    <input placeholder="8+ characters " class="text-input"
+                                    <InputText placeholder="8+ characters " class="text-input"
                                            type="password"
-                                           @bind="newUser.Password" required/>
+                                           @bind-Value="newUser.Password" required/>
                                     <ValidationMessage For="@(() => newUser.Password)"/>
                                 </fieldset>
                             </div>
@@ -85,9 +85,9 @@
                             <div class="box">
                                 <fieldset>
                                     <label>Last Name</label>
-                                    <input autocomplete="family-name" class="text-input"
+                                    <InputText autocomplete="family-name" class="text-input"
                                            type="text" name="family-name"
-                                           @bind="newUser.LastName" required/>
+                                           @bind-Value="newUser.LastName" required/>
                                 </fieldset>
                             </div>
                         </div>
@@ -96,8 +96,8 @@
                             <div class="email">
                                 <fieldset>
                                     <label>Email</label>
-                                    <input autocomplete="email" class="text-input" type="text"
-                                           name="email" @bind="newUser.Email" required/>
+                                    <InputText autocomplete="email" class="text-input" type="text"
+                                           name="email" @bind-Value="newUser.Email" required/>
                                 </fieldset>
                             </div>
                         </div>

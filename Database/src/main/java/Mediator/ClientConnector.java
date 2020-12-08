@@ -1,5 +1,7 @@
 package Mediator;
 
+import Models.ShiftModel;
+import Models.ShiftModelImplementation;
 import Models.UserModel;
 import Models.UserModelImplementation;
 import com.mongodb.client.MongoClient;
@@ -14,13 +16,16 @@ public class ClientConnector implements Runnable {
     final int PORT = 2910;
     private ServerSocket welcomeSocket;
     private UserModel userModel;
+    private ShiftModel shiftModel;
 
     public ClientConnector() throws IOException {
         this.welcomeSocket = new ServerSocket(PORT);
         MongoClient mongoClient = MongoClients.create(
-                "mongodb+srv://shared:12345@sep3.epb66.mongodb.net/cluster?retryWrites=true&w=majority");
+                "mongodb+srv://shared:12345@cluster0.anhd1.mongodb.net/Cluster0?retryWrites=true&w=majority"
+        );
         MongoDatabase database = mongoClient.getDatabase("SEP");
         this.userModel = new UserModelImplementation(database);
+        this.shiftModel = new ShiftModelImplementation(database);
     }
 
     @Override
@@ -30,13 +35,14 @@ public class ClientConnector implements Runnable {
                 System.out.println("Waiting for client...");
             try {
                 Socket socket = welcomeSocket.accept();
-                ClientHandler clientHandler = new ClientHandler(socket, userModel);
+                ClientHandler clientHandler = new ClientHandler(socket, userModel, shiftModel);
                 Thread t = new Thread(clientHandler);
                 t.setDaemon(true);
                 t.start();
                 System.out.println("Client connected");
             } catch (IOException e) {
                 e.printStackTrace();
+                System.out.println(e);
             }
 
         }
