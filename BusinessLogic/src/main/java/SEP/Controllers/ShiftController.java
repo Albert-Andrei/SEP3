@@ -36,7 +36,6 @@ public class ShiftController {
     @PostMapping("/create")
     @ResponseBody
     public ResponseEntity CreateShift(@RequestBody final Shift shift) throws IOException, ClassNotFoundException {
-        System.out.println("Esti Contact > " + shift);
         try {
             service.AddShiftAsync(shift);
             return new ResponseEntity(shift, HttpStatus.CREATED);
@@ -56,6 +55,7 @@ public class ShiftController {
      */
     @GetMapping("/get")
     public List<Shift> get(@RequestParam final String username) throws IOException, ClassNotFoundException {
+        System.out.println("Hm try to  get");
         return service.GetShiftsAsyncForOne(username);
     }
 

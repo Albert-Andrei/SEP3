@@ -1,6 +1,7 @@
 package Data;
 
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.bson.types.ObjectId;
 
@@ -8,17 +9,14 @@ import org.bson.types.ObjectId;
 import java.util.Date;
 import java.util.List;
 
-class MongoDate {
-    @SerializedName("$date")
-    Date date;
-}
-
 public class Shift {
     private ObjectId _id;
     private String username;
     private String companyName;
-    private MongoDate endDate;
-    private MongoDate startDate;
+    @Expose(serialize = true, deserialize = false)
+    private Date endDate;
+    @Expose(serialize = true, deserialize = false)
+    private Date startDate;
     private String description;
     private String requirements;
     private float hourWage;
@@ -29,7 +27,7 @@ public class Shift {
     public Shift() {
     }
 
-    public Shift(ObjectId _id, String username, String companyName, MongoDate endDate, MongoDate startDate, String description, String requirements, float hourWage, List<String> pendingList, List<String> approvedList, List<String> rejectedList) {
+    public Shift(ObjectId _id, String username, String companyName, Date endDate, Date startDate, String description, String requirements, float hourWage, List<String> pendingList, List<String> approvedList, List<String> rejectedList) {
         this._id = _id;
         this.username = username;
         this.companyName = companyName;
@@ -67,19 +65,19 @@ public class Shift {
         this.companyName = companyName;
     }
 
-    public MongoDate getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(MongoDate endDate) {
+    public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 
-    public MongoDate getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(MongoDate startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
