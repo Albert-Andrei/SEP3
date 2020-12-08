@@ -15,14 +15,32 @@ public class ShiftServiceImplementation implements ShiftService {
 
     private ShiftRemoteModel remoteModel;
 
+    /**
+     * Constructor, initialize the variables
+     * @throws IOException
+     */
     public ShiftServiceImplementation() throws IOException {
         this.remoteModel = new ShiftClient();
     }
 
+    /**
+     *
+     * @param username
+     * @return A list of Shifts for a specific user
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     @Override
-    public List<Shift> GetShiftsAsync() {
-        return null;
+    public List<Shift> GetShiftsAsyncForOne(String username) throws IOException, ClassNotFoundException {
+        return remoteModel.getShiftsForOneUser(username);
     }
+
+    /**
+     * Calls the method CreateShift from remote model
+     * @param shift
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
 
     @Override
     public void AddShiftAsync(Shift shift) throws IOException, ClassNotFoundException {

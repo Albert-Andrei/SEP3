@@ -20,24 +20,16 @@ namespace Client.Data.Shifts
         
         public async Task<IList<Shift>> GetAllShiftsOneUser(string username)
         {
-            string uri = "http://localhost:6969/users/post";
-            string userSerialized = JsonSerializer.Serialize(username);
-            Console.Out.WriteLine(username);
+            string uri = "http://localhost:6969/shifts/get";
             
-            StringContent content = new StringContent(
-                userSerialized,
-                Encoding.UTF8,
-                "application/json"
-            );
+            if (username != null)
+            {
+                uri += $"&username={username}";
+            }
             
-            Console.Out.WriteLine(uri);
-            var response = await client.PostAsync(uri, content);
-            Console.Out.WriteLine(response.ToString());
-            
-            string cont = await  response.Content.ReadAsStringAsync();
-            Console.Out.WriteLine(cont);
-            IList<Shift> shiftsFromDB = JsonSerializer.Deserialize<IList<Shift>>(cont);
-            return shiftsFromDB; 
+            string message = await client.GetStringAsync(uri);
+            List<Shift> result = JsonSerializer.Deserialize<List<Shift>>(message);
+            return result;
         }
 
         public async Task AddShiftAsync(Shift shift)

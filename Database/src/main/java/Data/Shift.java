@@ -1,17 +1,24 @@
 package Data;
 
 
+import com.google.gson.annotations.SerializedName;
 import org.bson.types.ObjectId;
+
 
 import java.util.Date;
 import java.util.List;
+
+class MongoDate {
+    @SerializedName("$date")
+    Date date;
+}
 
 public class Shift {
     private ObjectId _id;
     private String username;
     private String companyName;
-    private Date endDate;
-    private Date startDate;
+    private MongoDate endDate;
+    private MongoDate startDate;
     private String description;
     private String requirements;
     private float hourWage;
@@ -22,7 +29,7 @@ public class Shift {
     public Shift() {
     }
 
-    public Shift(ObjectId _id, String username, String companyName, Date endDate, Date startDate, String description, String requirements, float hourWage, List<String> pendingList, List<String> approvedList, List<String> rejectedList) {
+    public Shift(ObjectId _id, String username, String companyName, MongoDate endDate, MongoDate startDate, String description, String requirements, float hourWage, List<String> pendingList, List<String> approvedList, List<String> rejectedList) {
         this._id = _id;
         this.username = username;
         this.companyName = companyName;
@@ -60,19 +67,19 @@ public class Shift {
         this.companyName = companyName;
     }
 
-    public Date getEndDate() {
+    public MongoDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(MongoDate endDate) {
         this.endDate = endDate;
     }
 
-    public Date getStartDate() {
+    public MongoDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(MongoDate startDate) {
         this.startDate = startDate;
     }
 

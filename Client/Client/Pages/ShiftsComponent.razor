@@ -47,7 +47,7 @@
                                 <label>Start Date & Time</label>
                                 <input type="datetime-local"
                                        name="meeting-time"
-                                       @bind="newShift.StartDate">
+                                       Value="@newShift.StartDate">
                             </fieldset>
                             <ValidationMessage For="@(() => newShift.StartDate)"/>
                         </div>
@@ -57,7 +57,7 @@
                                 <label>End Date & Time</label>
                                 <input type="datetime-local"
                                        name="meeting-time"
-                                       @bind="newShift.EndDate">
+                                       Value="@newShift.EndDate">
                             </fieldset>
                             <ValidationMessage For="@(() => newShift.EndDate)"/>
                         </div>
@@ -108,7 +108,7 @@
         newShift.UserName = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidatedUsername();
         Console.Out.WriteLine(newShift.ToString());
         ShiftService.AddShiftAsync(newShift);
-        NavigationManager.NavigateTo("/myjobs");
+        NavigationManager.NavigateTo("/shift-list");
     }
 
     // [CascadingParameter]

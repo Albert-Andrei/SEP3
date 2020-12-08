@@ -5,12 +5,9 @@ import Data.User;
 import Models.ShiftModel;
 import Models.ShiftModelImplementation;
 import Models.UserModel;
-import Network.NetworkPackage;
-import Network.NetworkType;
-import Network.ShiftPackage;
-import Network.UserPackage;
+import Network.*;
 import com.google.gson.Gson;
-
+import java.util.List;
 import java.io.*;
 import java.net.Socket;
 
@@ -70,13 +67,25 @@ public class ClientHandler implements Runnable {
                         System.out.println("Opa db");
                         shiftModelManager.CreateShift(shiftToCreate);
                         break;
+
+                    case SEND_USERNAME:
+                        StringPackage usernameFromT2 = gson.fromJson(message, StringPackage.class);
+                        String username = usernameFromT2.getString();
+
+                        List<Shift> listToBusiness = shiftModelManager.GetAllShiftsForOneUser(username);
+                        ListPackage outgoingListPackage = new ListPackage(NetworkType.GET_SHIFTS_ONE_USER, listToBusiness);
+
+                        String listOfShifts = gson.toJson(outgoingListPackage);
+                        send(outputStream, listOfShifts);
+                        break;
+
                     case ERROR:
                         send(outputStream, "ERROR");
                         break;
                 }
 
             } catch (Exception e) {
-                System.out.println(e.getMessage());
+                System.out.println(e);
                 System.out.println("Client disconnected");
                 break;
             }

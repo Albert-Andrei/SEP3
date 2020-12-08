@@ -53,5 +53,5 @@ D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Cl
 D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Client.csproj.CopyComplete
 D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\ShiftsComponent.razor.g.cs
 D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\ShiftsComponent.razor.g.cs
-D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\MyJobsComponent.razor.g.cs
-D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\MyJobsComponent.razor.g.cs
+D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\ShiftListComponent.razor.g.cs
+D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\ShiftListComponent.razor.g.cs

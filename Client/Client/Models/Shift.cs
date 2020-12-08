@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data.SqlTypes;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
+using Microsoft.VisualBasic.CompilerServices;
 
 namespace Client.Models
 {
@@ -29,12 +31,12 @@ namespace Client.Models
         [Required]
         [NotNull]
         [JsonPropertyName("startDate")]
-        public DateTime StartDate { get; set; } = DateTime.Now;  
-        
+        public DateTime StartDate { get; set; } = DateTime.Now.Date;
+
         [Required]
         [NotNull]
         [JsonPropertyName("endDate")]
-        public DateTime EndDate { get; set; } = DateTime.Now;
+        public DateTime EndDate { get; set; } = DateTime.Now.Date;
         
         [Required, MaxLength(70)]
         [JsonPropertyName("description")] [NotNull]
@@ -56,7 +58,27 @@ namespace Client.Models
         public IList<String> Approved { get; set; } 
         
         [JsonPropertyName("rejectedList")]
-        public IList<String> Rejected { get; set; } 
+        public IList<String> Rejected { get; set; }
+
+        public Shift()
+        {
+            // StartDate = DateTime.Now.Date;
+            // EndDate = DateTime.Now.Date;
+        }
+
+        public Shift(string userName, ObjectIDGenerator shiftId, string companyName, string jobTitle, string description, string requirements, float hourWage, IList<string> pending, IList<string> approved, IList<string> rejected)
+        {
+            UserName = userName;
+            ShiftId = shiftId;
+            CompanyName = companyName;
+            JobTitle = jobTitle;
+            Description = description;
+            Requirements = requirements;
+            HourWage = hourWage;
+            Pending = pending;
+            Approved = approved;
+            Rejected = rejected;
+        }
 
         public override string ToString()
         {

@@ -17,6 +17,12 @@ public class UserModelImplementation implements UserModel {
         usersCollection = database.getCollection("Users");;
     }
 
+    /**
+     * This method checks if there is a existing user in db with the given username
+     * @param username
+     * @return User
+     */
+
     @Override
     public User ValidateUser(String username) {
         {
@@ -26,7 +32,6 @@ public class UserModelImplementation implements UserModel {
             if (usersCollection.find(whereQuery).first() != null) {
                 String userJson = usersCollection.find(whereQuery).first().toJson();
                 Gson gson = new Gson();
-                System.out.println("Gson from Bd >" + userJson);
                 User userFromDatabase = gson.fromJson(userJson, User.class);
                 return userFromDatabase;
             }
@@ -34,10 +39,11 @@ public class UserModelImplementation implements UserModel {
         }
     }
 
+
     /**
      * This method creates a new user in the Database with values that came from tear 2.
-     *
-     * **/
+     * @param user
+     */
 
     @Override
     public void CreateUser(User user) {
