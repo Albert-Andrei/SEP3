@@ -16,7 +16,6 @@ public class UserServiceImplementation implements UserService {
         this.remoteModel = new UserClient();
     }
 
-
     @Override
     public User validateUser(String username, String password) throws IOException, ClassNotFoundException {
         User userFromDb = remoteModel.validateUser(username, password);

@@ -4,6 +4,7 @@ import org.bson.types.ObjectId;
 
 public class Application {
     private ObjectId applicationId;
+    private String id;
     private String firstName;
     private String lastName;
     private String phoneNumber;
@@ -17,8 +18,9 @@ public class Application {
     public Application() {
     }
 
-    public Application(ObjectId applicationId, String firstName, String lastName, String phoneNumber, String email, String jobExperience, String drivingLicenses, String languages, String preferableWorkTime, boolean available) {
+    public Application(ObjectId applicationId, String id, String firstName, String lastName, String phoneNumber, String email, String jobExperience, String drivingLicenses, String languages, String preferableWorkTime, boolean available) {
         this.applicationId = applicationId;
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
@@ -28,6 +30,14 @@ public class Application {
         this.languages = languages;
         this.preferableWorkTime = preferableWorkTime;
         this.available = available;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public ObjectId getApplicationId() {
@@ -110,6 +120,17 @@ public class Application {
         this.available = available;
     }
 
+    public void Update(Application toUpdate) {
+        firstName = toUpdate.firstName;
+        lastName = toUpdate.lastName;
+        email = toUpdate.email;
+        phoneNumber = toUpdate.phoneNumber;
+        jobExperience = toUpdate.jobExperience;
+        languages = toUpdate.languages;
+        drivingLicenses = toUpdate.drivingLicenses;
+        preferableWorkTime = toUpdate.preferableWorkTime;
+        available = toUpdate.available;
+    }
     @Override
     public String toString() {
         return "Application{" +
@@ -126,3 +147,6 @@ public class Application {
                 '}';
     }
 }
+
+
+

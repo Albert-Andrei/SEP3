@@ -4,6 +4,7 @@ import org.bson.types.ObjectId;
 
 public class Application {
     private ObjectId applicationId;
+    private String id;
     private String firstName;
     private String lastName;
     private String phoneNumber;
@@ -17,8 +18,9 @@ public class Application {
     public Application() {
     }
 
-    public Application(ObjectId applicationId, String firstName, String lastName, String phoneNumber, String email, String jobExperience, String drivingLicenses, String languages, String preferableWorkTime/*, boolean available*/) {
+    public Application(ObjectId applicationId, String id, String firstName, String lastName, String phoneNumber, String email, String jobExperience, String drivingLicenses, String languages, String preferableWorkTime/*, boolean available*/) {
         this.applicationId = applicationId;
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
@@ -27,9 +29,7 @@ public class Application {
         this.drivingLicenses = drivingLicenses;
         this.languages = languages;
         this.preferableWorkTime = preferableWorkTime;
-/*
         this.available = available;
-*/
     }
 
     public ObjectId getApplicationId() {
@@ -38,6 +38,14 @@ public class Application {
 
     public void setApplicationId(ObjectId applicationId) {
         this.applicationId = applicationId;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getFirstName() {

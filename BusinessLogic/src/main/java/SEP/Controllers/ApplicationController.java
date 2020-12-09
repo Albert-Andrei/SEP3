@@ -18,9 +18,15 @@ public class ApplicationController {
 
     @GetMapping("/get/all")
     @ResponseBody
-    public List<Application> getApplication() throws IOException, ClassNotFoundException {
-        System.out.println(service.getAllApplications().size() + "MESSAGE");
+    public  List<Application>  getApplication() throws IOException, ClassNotFoundException {
         return service.getAllApplications();
+    }
+
+    @GetMapping("/get/{applicationId}")
+        @ResponseBody
+         public Application getApplication(@PathVariable final String applicationId) throws IOException, ClassNotFoundException {
+        return service.getApplication(applicationId);
+
     }
 
 
@@ -31,30 +37,12 @@ public class ApplicationController {
             return application;
         }
 
-        @GetMapping("/get/{applicationId}")
+
+        @PatchMapping("/update")
         @ResponseBody
-        public Application getApplication(@PathVariable final ObjectId applicationId) throws IOException, ClassNotFoundException {
-            service.getApplication(applicationId);
-            return getApplication(applicationId);
+        public Application updateApplication(@PathVariable final Application application) throws IOException, ClassNotFoundException {
+        return service.updateApplication(application);
+
         }
-
-
-
-
-    ;
-
-    /*    @DeleteMapping("/delete")
-        public void remove(@RequestParam int id) {
-            service.removeUser(id);
-        }
-
-        ;
-
-        @PutMapping("/update")
-        public void update(@RequestBody final User user) {
-            service.updateUser(user);
-        }
-
-        ;*/
 
 }

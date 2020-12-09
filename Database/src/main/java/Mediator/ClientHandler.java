@@ -75,27 +75,34 @@ public class ClientHandler implements Runnable {
                         ApplicationListPackage applicationPackage3 = new ApplicationListPackage(NetworkType.GET_ALL_APPLICATIONS, applicationAll1);
 
                         String response3 = gson.toJson(applicationPackage3);
-                        System.out.println(response3 + "MESSAGE");
                         send(outputStream, response3);
                         break;
                     case GET_APPLICATION:
-                        ApplicationPackage applicationPackage1 = gson.fromJson(message, ApplicationPackage.class);
-                        Application application1 = applicationPackage1.getApplication();
+                        QueryPackage queryPackage = gson.fromJson(message,QueryPackage.class);
+                        Object object = queryPackage.getObject();
+                        String idToGetApplication = object.toString();
+                        Application application1 = applicationModel.getApplication(idToGetApplication);
 
-                        Application application2 = applicationModel.getApplication(application1.getApplicationId());
-                        ApplicationPackage applicationPackage2 = new ApplicationPackage(NetworkType.GET_APPLICATION, application2);
-
-                        String response1 = gson.toJson(applicationPackage2);
-                        send(outputStream, response1);
+                        ApplicationPackage applicationPackage1 = new ApplicationPackage(NetworkType.GET_APPLICATION, application1);
+                        String response4 = gson.toJson(applicationPackage1);
+                        send(outputStream,response4);
                         break;
                     case DELETE_APPLICATION:
                         break;
                     case UPDATE_APPLICATION:
+                    /*    ApplicationPackage applicationPackage4 = gson.fromJson(message, ApplicationPackage.class);
+                        Application application3 = applicationPackage4.getApplication();
+
+                        Application application4 = applicationModel.getApplication(application3.getApplicationId());
+                        ApplicationPackage applicationPackage5 = new ApplicationPackage(NetworkType.UPDATE_APPLICATION, application4);
+
+                        String response7 = gson.toJson(applicationPackage5);
+                        send(outputStream, response7);*/
+
                         break;
                 }
 
             } catch (Exception e) {
-                System.out.println(e.getMessage());
                 System.out.println("Client disconnected");
                 break;
             }

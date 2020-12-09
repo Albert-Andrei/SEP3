@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Runtime.Serialization;
 using System.Text;
@@ -11,10 +12,17 @@ namespace AndriuhaAssignment.Data
     public class ApplicationService : IApplicationService
     {
         private HttpClient client;
-        private string uri = "https://localhost:6969";
         public ApplicationService()
         {
             client = new HttpClient();
+        }
+
+        public async Task<List<Application>> GetAllApplicationsAsync()
+        {
+            Task<string> stringAsync = client.GetStringAsync( $"http://localhost:6969/application/get/all");
+            string message = await stringAsync;
+            List<Application> result = JsonSerializer.Deserialize<List<Application>>(message);
+            return result;
         }
 
         public async Task<Application> GetApplicationAsync(ObjectIDGenerator applicationId)

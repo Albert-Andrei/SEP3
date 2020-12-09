@@ -13,8 +13,6 @@ public class ApplicationPackage extends NetworkPackage {
         this.application = application;
     }
 
-
-
     public Application getApplication()
     {
         return application;

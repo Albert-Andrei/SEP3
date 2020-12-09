@@ -23,73 +23,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="70f6378a-4c40-4bb3-b0db-72be20c5e15f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Client/Data/ApplicationService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Client/Data/IApplicationService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Network/NetworkType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Network/NetworkType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Controllers/ApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Controllers/ApplicationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Managers/ApplicationClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Managers/ApplicationClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Managers/ApplicationRemoteModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Managers/ApplicationRemoteModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Models/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Models/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Network/ApplicationListPackage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Network/ApplicationListPackage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Network/ApplicationPackage.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Network/ApplicationPackage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Services/ApplicationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Services/ApplicationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Services/ApplicationServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Services/ApplicationServiceImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Services/UserServiceImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BusinessLogic/src/main/java/SEP/Services/UserServiceImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Andriuha/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Andriuha/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Andriuha/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Andriuha/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Client/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Client/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Client/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/Shared/NavBar.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Shared/NavBar.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Data/ApplicationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Data/ApplicationService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Data/IApplicationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Data/IApplicationService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Client/Pages/MyApplicationComponent.razor" beforeDir="false" afterPath="$PROJECT_DIR$/Client/Pages/MyApplicationComponent.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.Views.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.Views.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.runtimeconfig.dev.json" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.runtimeconfig.dev.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.runtimeconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/Client/bin/Debug/netcoreapp3.1/Client.runtimeconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Client.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Client.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Client.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Client.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.RazorComponent.input.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.RazorComponent.input.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.RazorCoreGenerate.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.RazorCoreGenerate.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.TagHelpers.output.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.TagHelpers.output.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.Views.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.Views.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.Views.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.Views.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.genruntimeconfig.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Client.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Razor/App.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Razor/App.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Razor/Pages/HomeComponent.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Razor/Pages/HomeComponent.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Razor/Pages/Index.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Razor/Pages/Index.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Razor/Pages/SignUpComponent.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Razor/Pages/SignUpComponent.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Razor/Pages/_Host.cshtml.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Razor/Pages/_Host.cshtml.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Razor/Shared/Loading.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Razor/Shared/Loading.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Razor/Shared/LogInComponent.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Razor/Shared/LogInComponent.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Razor/Shared/MainLayout.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Razor/Shared/MainLayout.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Razor/Shared/NavBar.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Razor/Shared/NavBar.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Razor/Shared/SurveyPrompt.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Razor/Shared/SurveyPrompt.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Razor/_Imports.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/Razor/_Imports.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/App.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/App.razor.g.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Client.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Client.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Client.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Client.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/HomeComponent.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/HomeComponent.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Index.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Index.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/SignUpComponent.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/SignUpComponent.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/Loading.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/Loading.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/LogInComponent.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/LogInComponent.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/MainLayout.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/MainLayout.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/NavBar.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/NavBar.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/SurveyPrompt.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/SurveyPrompt.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/_Imports.razor.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/Debug/netcoreapp3.1/RazorDeclaration/_Imports.razor.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Client/obj/rider.project.restore.info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client/wwwroot/css/signup.css" beforeDir="false" afterPath="$PROJECT_DIR$/Client/wwwroot/css/signup.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Database/src/main/java/Mediator/ClientConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/src/main/java/Mediator/ClientConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/src/main/java/Data/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/src/main/java/Data/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Database/src/main/java/Mediator/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/src/main/java/Mediator/ClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Database/src/main/java/Network/NetworkType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/src/main/java/Network/NetworkType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Database/target/classes/Mediator/ClientConnector.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/target/classes/Mediator/ClientConnector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/src/main/java/Models/ApplicationModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/src/main/java/Models/ApplicationModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/src/main/java/Models/ApplicationModelImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/src/main/java/Models/ApplicationModelImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/target/classes/Data/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/target/classes/Data/Application.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Database/target/classes/Mediator/ClientHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/target/classes/Mediator/ClientHandler$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Database/target/classes/Mediator/ClientHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/target/classes/Mediator/ClientHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Database/target/classes/Network/NetworkType.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/target/classes/Network/NetworkType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/target/classes/Models/ApplicationModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/target/classes/Models/ApplicationModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Database/target/classes/Models/ApplicationModelImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Database/target/classes/Models/ApplicationModelImplementation.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,12 +74,12 @@
         <option value="$PROJECT_DIR$/Client/Authentication/CustomAuthenticationStateProvider.cs" />
         <option value="$PROJECT_DIR$/Client/Pages/HomeComponent.razor" />
         <option value="$PROJECT_DIR$/Client/Shared/NavBar.razor" />
-        <option value="$PROJECT_DIR$/Client/Data/IApplicationService.cs" />
-        <option value="$PROJECT_DIR$/Client/Pages/MyApplicationComponent.razor" />
         <option value="$PROJECT_DIR$/Client/Program.cs" />
-        <option value="$PROJECT_DIR$/Client/Data/ApplicationService.cs" />
         <option value="$PROJECT_DIR$/Client/Pages/EmployeeApplication.razor" />
         <option value="$PROJECT_DIR$/Client/Models/Application.cs" />
+        <option value="$PROJECT_DIR$/Client/Data/IApplicationService.cs" />
+        <option value="$PROJECT_DIR$/Client/Data/ApplicationService.cs" />
+        <option value="$PROJECT_DIR$/Client/Pages/MyApplicationComponent.razor" />
       </list>
     </option>
   </component>
@@ -177,7 +142,7 @@
       <workItem from="1606838983913" duration="554000" />
       <workItem from="1606840690135" duration="652000" />
       <workItem from="1607007896166" duration="21497000" />
-      <workItem from="1607365064271" duration="8591000" />
+      <workItem from="1607365064271" duration="15691000" />
     </task>
     <servers />
   </component>
@@ -202,22 +167,22 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1493" height="2" key="GridCell.Tab.0.bottom" timestamp="1607427967386">
+    <state width="723" height="2" key="GridCell.Tab.0.bottom" timestamp="1607441960379">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607427967386" />
-    <state width="1493" height="2" key="GridCell.Tab.0.center" timestamp="1607427967386">
+    <state width="723" height="2" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607441960379" />
+    <state width="723" height="2" key="GridCell.Tab.0.center" timestamp="1607441960379">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607427967386" />
-    <state width="1493" height="2" key="GridCell.Tab.0.left" timestamp="1607427967386">
+    <state width="723" height="2" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607441960379" />
+    <state width="723" height="2" key="GridCell.Tab.0.left" timestamp="1607441960379">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607427967386" />
-    <state width="1493" height="2" key="GridCell.Tab.0.right" timestamp="1607427967386">
+    <state width="723" height="2" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607441960379" />
+    <state width="723" height="2" key="GridCell.Tab.0.right" timestamp="1607441960379">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607427967386" />
+    <state width="723" height="2" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607441960379" />
     <state x="93" y="93" width="1350" height="638" key="VCS.FileHistoryDialog" timestamp="1607082382315">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

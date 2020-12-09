@@ -3,10 +3,7 @@ package SEP.Managers;
 import SEP.Mediator.ConnectionHandler;
 import SEP.Mediator.ConnectionImplementation;
 import SEP.Models.Application;
-import SEP.Network.ApplicationListPackage;
-import SEP.Network.ApplicationPackage;
-import SEP.Network.NetworkPackage;
-import SEP.Network.NetworkType;
+import SEP.Network.*;
 import com.google.gson.Gson;
 import org.bson.types.ObjectId;
 
@@ -47,17 +44,25 @@ public class ApplicationClient implements ApplicationRemoteModel {
     }
 
     @Override
-    public Application getApplication(ObjectId applicationId) throws IOException, ClassNotFoundException {
-        Application toCheck = new Application();
-        toCheck.setApplicationId(applicationId);
-
-        NetworkPackage toServer = new ApplicationPackage(NetworkType.GET_APPLICATION, toCheck);
+    public Application getApplication(String applicationId) throws IOException, ClassNotFoundException {
+        QueryPackage toServer = new QueryPackage(NetworkType.GET_APPLICATION, applicationId);
         String gsonToServer = gson.toJson(toServer);
         handler.sendToDb(gsonToServer);
 
         String response = handler.readFromDb();
         ApplicationPackage applicationPackage = gson.fromJson(response, ApplicationPackage.class);
         return applicationPackage.getApplication();
+    }
 
+    @Override
+    public Application updateApplication(Application application) throws IOException, ClassNotFoundException {
+
+        NetworkPackage toServer = new ApplicationPackage(NetworkType.GET_APPLICATION, application);
+        String gsonToServer = gson.toJson(toServer);
+        handler.sendToDb(gsonToServer);
+
+        String response = handler.readFromDb();
+        ApplicationPackage applicationPackage = gson.fromJson(response, ApplicationPackage.class);
+        return applicationPackage.getApplication();
     }
 }

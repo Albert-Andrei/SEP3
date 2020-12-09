@@ -3,20 +3,19 @@ package Models;
 import Data.Application;
 import com.google.gson.Gson;
 import com.mongodb.BasicDBObject;
-import com.mongodb.DBCursor;
-import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
-import javax.management.Query;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+import static com.mongodb.client.model.Filters.eq;
+
 
 public class ApplicationModelImplementation implements ApplicationModel {
 
@@ -29,41 +28,34 @@ public class ApplicationModelImplementation implements ApplicationModel {
     @Override
     public List<Application> getAllApplications() throws IOException, ClassNotFoundException {
         MongoCursor<Document> cursor = applicationCollection.find().iterator();
-        List<Application> huina = new ArrayList<>();
+        List<Application> applicationList = new ArrayList<>();
         try {
             while (cursor.hasNext()) {
-                String uia = cursor.next().toJson();
+                String application = cursor.next().toJson();
                 Gson gson = new Gson();
-                Application applicationFromDatabase = gson.fromJson(uia, Application.class);
-                huina.add(applicationFromDatabase);
+                Application applicationFromDatabase = gson.fromJson(application, Application.class);
+                applicationList.add(applicationFromDatabase);
             }
-            System.out.println(huina.size());
-            return huina;
+            return applicationList;
         }
         catch (Exception e)
         {
             e.getMessage();
         }
         return null;
-
-
- }
-
+    }
     @Override
-    public Application getApplication(ObjectId applicationId) throws IOException, ClassNotFoundException {
-        BasicDBObject whereQuery = new BasicDBObject();
-        whereQuery.put("_id", applicationId);
-
-        if (applicationCollection.find(whereQuery).first() != null) {
-            String applicationJson = applicationCollection.find(whereQuery).first().toJson();
+    public Application getApplication(String applicationId) throws IOException, ClassNotFoundException {
+        if (applicationCollection.find(eq("_id", new ObjectId(applicationId))).first() != null) {
+            Document application = applicationCollection.find(eq("_id", new ObjectId(applicationId))).first();
             Gson gson = new Gson();
-            System.out.println("Gson from Bd >" + applicationJson);
-            Application applicationFromDatabase = gson.fromJson(applicationJson, Application.class);
-           return applicationFromDatabase;
+            Application applicationID = gson.fromJson(application.toJson(),Application.class);
+            String objectId = application.get("_id").toString();
+            applicationID.setId(objectId);
+            return applicationID;
         }
         return null;
     }
-
 
     /**
      * This method creates a new user in the Database with values that came from tear 2.
@@ -91,20 +83,30 @@ public class ApplicationModelImplementation implements ApplicationModel {
 
     @Override
     public void updateApplication(Application application) throws IOException, ClassNotFoundException {
+
         //Preparing a document
-        Document document = new Document();
-        document.put("firstName", application.getFirstName());
-        document.put("lastName", application.getLastName());
-        document.put("phoneNumber", application.getPhoneNumber());
-        document.put("email", application.getEmail());
-        document.put("jobExperience", application.getJobExperience());
-        document.put("drivingLicenses", application.getDrivingLicenses());
-        document.put("languages", application.getLanguages());
-        document.put("preferableWorkTime", application.getPreferableWorkTime());
-        document.put("available", application.isAvailable());
+
+
+        applicationCollection.updateOne(Filters.eq("firstName", application.getFirstName()), Updates.set("firstName", application.getFirstName()));
+        applicationCollection.updateOne(Filters.eq("lastName", application.getFirstName()), Updates.set("lastName", application.getLastName()));
+        applicationCollection.updateOne(Filters.eq("phoneNumber", application.getFirstName()), Updates.set("phoneNumber", application.getPhoneNumber()));
+        applicationCollection.updateOne(Filters.eq("email", application.getFirstName()), Updates.set("email", application.getEmail()));
+        applicationCollection.updateOne(Filters.eq("jobExperience", application.getFirstName()), Updates.set("jobExperience", application.getJobExperience()));
+        applicationCollection.updateOne(Filters.eq("drivingLicenses", application.getFirstName()), Updates.set("drivingLicenses", application.getDrivingLicenses()));
+        applicationCollection.updateOne(Filters.eq("languages", application.getFirstName()), Updates.set("languages", application.getLanguages()));
+        applicationCollection.updateOne(Filters.eq("preferableWorkTime", application.getFirstName()), Updates.set("preferableWorkTime", application.getPreferableWorkTime()));
+
+/*        applicationCollection.updateOne("firstName", application1.setFirstName(application.getFirstName()));
+        applicationCollection.updateOne("lastName", application.getLastName());
+        applicationCollection.updateOne("phoneNumber", application.getPhoneNumber());
+        applicationCollection.updateOne("email", application.getEmail());
+        applicationCollection.updateOne("jobExperience", application.getJobExperience());
+        applicationCollection.updateOne("drivingLicenses", application.getDrivingLicenses());
+        applicationCollection.updateOne("languages", application.getLanguages());
+        applicationCollection.updateOne("preferableWorkTime", application.getPreferableWorkTime());
+        applicationCollection.updateOne("available", application.isAvailable());*/
 
         //Inserting the document into the collection
-        applicationCollection.insertOne(document);
         System.out.println("Document inserted successfully " + application);
     }
 

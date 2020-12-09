@@ -1,4 +1,6 @@
 import Mediator.ClientConnector;
+import Models.ApplicationModel;
+import Models.ApplicationModelImplementation;
 
 import java.io.IOException;
 

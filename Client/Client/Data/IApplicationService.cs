@@ -7,6 +7,7 @@ namespace AndriuhaAssignment.Data
 {
     public interface IApplicationService
     {
+        Task<List<Application>> GetAllApplicationsAsync();
         Task<Application> GetApplicationAsync(ObjectIDGenerator applicationId);
         Task CreateApplicationAsync(Application application);
         Task<Application> RemoveApplicationAsync(ObjectIDGenerator applicationId);

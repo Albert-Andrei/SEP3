@@ -23,15 +23,20 @@ public class ApplicationServiceImplementation implements ApplicationService {
     }
 
     @Override
-    public Application getApplication(ObjectId applicationId) throws IOException, ClassNotFoundException {
-         remoteModel.getApplication(applicationId);
-         return getApplication(applicationId);
+    public Application getApplication(String applicationId) throws IOException, ClassNotFoundException {
+         return remoteModel.getApplication(applicationId);
+
     }
 
     @Override
     public void createApplication(Application application) throws IOException, ClassNotFoundException {
 
         remoteModel.createApplication(application);
+    }
+
+    @Override
+    public Application updateApplication(Application application) throws IOException, ClassNotFoundException {
+return remoteModel.updateApplication(application);
     }
 
  /*   @Override
