@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ShiftClient implements ShiftRemoteModel{
+
     private Gson gson;
     ConnectionHandler handler;
 

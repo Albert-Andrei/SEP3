@@ -39,7 +39,7 @@
                                 <div class="shiftCard">
                                     <div class="card-content">
 
-                                        <div class="card-info" style="display: flex; justify-content: center; align-content: center;">
+                                        <div class="card-info">
                                         <img src="jobs.jpg" style="width: 200px; height: 200px;">
                                             <div style="display: flex; margin-left: 30px;">
                                                 <div class="left-side">
@@ -48,11 +48,11 @@
                                                         <small>@item.JobTitle</small>
                                                     </h2>
 
-                                                    <p>Hour wage: @item.HourWage DKK</p>
+                                                    <p><b>Hour wage:</b> @item.HourWage DKK</p>
                                                     @if (item.Pending != null)
                                                     {
                                                         <div style="margin-top: 20px;">
-                                                            <p>Applied: @item.Pending.Count</p>
+                                                            <p><b>Applied:</b> @item.Pending.Count</p>
                                                         </div>
                                                     }
                                                 </div>
@@ -60,24 +60,24 @@
                                                     <div class="dates">
                                                         <div>
                                                             <p style="margin: 0;
-                                                                          margin-left: 15px;">Strt Date</p>
+                                                                          margin-left: 15px;"><b>Strt Date</b></p>
                                                             <p style="margin: 0px 10px 0px;">@item.StartDate</p>
                                                         </div>
                                                         <div>
                                                             <p style="margin: 0;
-                                                                          margin-left: 15px;">End Date</p>
+                                                                          margin-left: 15px;"><b>End Date</b></p>
                                                             <p style="margin: 0px 10px 0px;">@item.EndDate</p>
                                                         </div>
                                                     </div>
                                                     <div class="descriptions">
                                                         @if (item.Description != null)
                                                         {
-                                                            <p>Description: </p>
+                                                            <p><b>Description: </b></p>
                                                             <p>@item.Description</p>
                                                         }
                                                         @if (item.Requirements != null)
                                                         {
-                                                            <p>Requirements: </p>
+                                                            <p><b>Requirements: </b></p>
                                                             <p>@item.Requirements</p>
                                                         }
                                                     </div>
@@ -114,6 +114,8 @@ else
     private IList<Shift> allShifts;
     private string errorMessage;
     private int count;
+    [CascadingParameter]
+    protected Task<AuthenticationState> AuthStat { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
@@ -140,6 +142,4 @@ else
         NavigationManager.NavigateTo("/shift");
     }
 
-    [CascadingParameter]
-    protected Task<AuthenticationState> AuthStat { get; set; }
 }

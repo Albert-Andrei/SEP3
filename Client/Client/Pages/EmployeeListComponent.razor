@@ -1,0 +1,143 @@
+@page "/employee-list"
+@using Client.Models
+@using Client.Data.Shifts
+@using Client.Authentication
+@using System.Runtime.Serialization
+@using Client.Data
+@inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject IApplicationService ApplicationService
+@attribute [Authorize(Policy = "SecurityLevel4")]
+
+@if (applicationsToShow != null)
+{
+    @if (count == 0)
+    {
+        <div class="noshifts">
+            <h1 class="text-no">No any available eployees at the moment. Please come back later.</h1>
+            @* <button @onclick="Navigate" class="createShiftBtn">Something</button> *@
+        </div>
+    }
+    else
+    {
+        <div class="create-shift-content">
+            <main>
+                <div class="shift-auth-content" style="width: 95%;">
+
+                    <div class="sus-acolo">
+                        <h2 style="margin-left: 50px;">My Shifts</h2>
+                        <button @onclick="Refresh" class="createShiftBtn">Refresh</button>
+                    </div>
+
+                    <div style="color:red">@errorMessage</div>
+
+                    <hr class="divider"/>
+
+                    <div class="forms" style=" border-radius: 5px;">
+                        <div>
+                            @foreach (var item in applicationsToShow)
+                            {
+                                <div class="shiftCard">
+                                    <div class="card-content">
+
+                                        <div class="card-info">
+                                        <img src="employee.png" style="width: 200px; height: 200px;">
+                                            <div style="display: flex; margin-left: 30px;">
+                                                <div class="left-side">
+                                                    <h2>
+                                                        @item.FirstName
+                                                        <small>@item.LastName</small>
+                                                    </h2>
+
+                                                    <p><b>Phone nr: </b> @item.PhoneNumber DKK</p>
+                                                    @if (item.Email != null)
+                                                    {
+                                                        <div style="margin-top: 20px;">
+                                                            <p><b>Email: </b> @item.Email</p>
+                                                        </div>
+                                                    }
+                                                </div>
+                                                <div class="right-side">
+                                                    <div class="dates">
+                                                        <div>
+                                                            <p style="margin: 0;
+                                                                          margin-left: 15px;"><b>Drive licence</b></p>
+                                                            <p style="margin: 0px 10px 0px;">@item.DrivingLicenses</p>
+                                                        </div>
+                                                        <div>
+                                                            <p style="margin: 0;
+                                                                          margin-left: 15px;"><b>Prefered time</b></p>
+                                                            <p style="margin: 0px 10px 0px;">@item.PreferableWorkTime</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="descriptions">
+                                                        @if (item.Languages != null)
+                                                        {
+                                                            <p><b>Description: </b></p>
+                                                            <p>@item.Languages</p>
+                                                        }
+                                                        @if (item.JobExperience != null)
+                                                        {
+                                                            <p><b>Requirements: </b></p>
+                                                            <p>@item.JobExperience</p>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="remove-card">
+                                            <button  style="    width: 80px; height: 80px; border-radius: 50px;">
+                                                <i class="oi oi-media-play" style="color:lightskyblue"/>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    }
+}
+else
+{
+    <p class="loadingText">
+        <em>Loading...</em>
+    </p>
+}
+
+@code {
+    private IList<Application> applicationsToShow;
+    private IList<Application> allApplications;
+    private string errorMessage;
+    private int count;
+    [CascadingParameter]
+    protected Task<AuthenticationState> AuthStat { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        base.OnInitialized();
+        var user = (await AuthStat).User;
+        if (!user.Identity.IsAuthenticated)
+        {
+            NavigationManager.NavigateTo($"/log-in");
+        }
+        allApplications = await ApplicationService.GetAllApplicationsAsync();
+        applicationsToShow = allApplications;
+        count = applicationsToShow.Count;
+    }
+
+    private void RemoveShift(ObjectIDGenerator shiftId)
+    {
+        Application shiftToRemove = applicationsToShow.First(t => t.ApplicationId == shiftId);
+        // ShiftService.RemoveShiftAsync(shiftId.ToString());
+        applicationsToShow.Remove(shiftToRemove);
+    }
+
+    private void Refresh()
+    {
+        NavigationManager.NavigateTo("/employee-list");
+    }
+}

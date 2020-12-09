@@ -81,7 +81,14 @@
         {
             loading = true;
             await ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidateLogin(username, password);
-            NavigationManager.NavigateTo("/");
+            if (((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidatedUsernameType().Equals("Employer"))
+            {
+                NavigationManager.NavigateTo("/shift-list");
+            }
+            else
+            {
+                NavigationManager.NavigateTo("/");
+            }
             loading = false;
             username = "";
             password = "";

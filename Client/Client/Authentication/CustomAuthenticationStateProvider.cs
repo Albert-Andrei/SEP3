@@ -75,6 +75,11 @@ namespace Client.Authentication
         {
             return cachedUser.UserName;
         }
+        
+        public string ValidatedUsernameType()
+        {
+            return cachedUser.UserType;
+        }
 
         public void Logout()
         {

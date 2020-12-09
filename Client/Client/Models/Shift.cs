@@ -44,8 +44,9 @@ namespace Client.Models
         public string Description { get; set; }
 
         [MaxLength(70)]
-        [JsonPropertyName("requirements")] [NotNull]
-        public string Requirements { get; set; }
+        [JsonPropertyName("requirements")]
+        [NotNull]
+        public string Requirements { get; set; } = "No requirements.";
 
         [Required]
         [NotNull, Range(1, 3000)]

@@ -16,7 +16,6 @@ public class UserServiceImplementation implements UserService {
         this.remoteModel = new UserClient();
     }
 
-
     @Override
     public User validateUser(String username, String password) throws IOException, ClassNotFoundException {
         User userFromDb = remoteModel.validateUser(username, password);
@@ -35,7 +34,6 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     public void createUser(User user) throws IOException, ClassNotFoundException {
-
         if (user.getUserType().equals("Employee"))
         {
             user.setSecurityLevel(3);
@@ -52,6 +50,7 @@ public class UserServiceImplementation implements UserService {
         else {
             throw new IOException("Username already used");
         }
+        remoteModel.createUser(user);
     }
 
 

@@ -53,6 +53,7 @@ public class ShiftModelImplementation implements ShiftModel {
         Document document = new Document();
         document.append("username", shift.getUsername());
         document.append("companyName", shift.getCompanyName());
+        document.append("jobTitle", shift.getJobTitle());
         document.append("hourWage", shift.getHourWage());
         document.append("description", shift.getDescription());
         document.append("requirements", shift.getRequirements());

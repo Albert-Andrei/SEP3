@@ -8,140 +8,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1651e4a6-c568-4009-a280-8a5610da8d22" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Andriuha/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Andriuha/.idea/aws.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Andriuha/.idea/contentModel.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Andriuha/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Andriuha/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Andriuha/.idea/projectSettingsUpdater.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Andriuha/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Andriuha/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Andriuha/riderModule.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Andriuha.sln" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/.idea/.idea.AndriuhaAssignment.dir/.idea/aws.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/.idea/.idea.AndriuhaAssignment.dir/.idea/contentModel.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/.idea/.idea.AndriuhaAssignment.dir/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/.idea/.idea.AndriuhaAssignment.dir/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/.idea/.idea.AndriuhaAssignment.dir/.idea/projectSettingsUpdater.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/.idea/.idea.AndriuhaAssignment.dir/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/.idea/.idea.AndriuhaAssignment.dir/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/.idea/.idea.AndriuhaAssignment.dir/riderModule.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/.idea/.idea.Front-End.dir/.idea/aws.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/.idea/.idea.Front-End.dir/.idea/contentModel.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/.idea/.idea.Front-End.dir/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/.idea/.idea.Front-End.dir/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/.idea/.idea.Front-End.dir/.idea/projectSettingsUpdater.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/.idea/.idea.Front-End.dir/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/.idea/.idea.Front-End.dir/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/.idea/.idea.Front-End.dir/riderModule.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/AndriuhaAssignment.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/App.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/Authentication/CustomAuthenticationStateProvider.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/Data/IUserService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/Data/UserService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/Models/User.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/Pages/HomeComponent.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/Pages/Index.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/Pages/SignUpComponent.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/Pages/_Host.cshtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/Properties/launchSettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/Shared/Loading.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/Shared/LogInComponent.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/Shared/MainLayout.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/Shared/NavBar.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/Shared/SurveyPrompt.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/Startup.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/_Imports.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/appsettings.Development.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/appsettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/bin/Debug/netcoreapp3.1/AndriuhaAssignment.Views.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/bin/Debug/netcoreapp3.1/AndriuhaAssignment.Views.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/bin/Debug/netcoreapp3.1/AndriuhaAssignment.deps.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/bin/Debug/netcoreapp3.1/AndriuhaAssignment.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/bin/Debug/netcoreapp3.1/AndriuhaAssignment.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/bin/Debug/netcoreapp3.1/AndriuhaAssignment.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/bin/Debug/netcoreapp3.1/AndriuhaAssignment.runtimeconfig.dev.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/bin/Debug/netcoreapp3.1/AndriuhaAssignment.runtimeconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/bin/Debug/netcoreapp3.1/Properties/launchSettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/bin/Debug/netcoreapp3.1/appsettings.Development.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/bin/Debug/netcoreapp3.1/appsettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/AndriuhaAssignment.csproj.nuget.dgspec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/AndriuhaAssignment.csproj.nuget.g.props" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/AndriuhaAssignment.csproj.nuget.g.targets" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/.NETCoreApp,Version=v3.1.AssemblyAttributes.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/AndriuhaAssignment.AssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/AndriuhaAssignment.AssemblyInfoInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/AndriuhaAssignment.MvcApplicationPartsAssemblyInfo.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/AndriuhaAssignment.RazorAssemblyInfo.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/AndriuhaAssignment.RazorAssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/AndriuhaAssignment.RazorComponent.input.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/AndriuhaAssignment.RazorCoreGenerate.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/AndriuhaAssignment.RazorTargetAssemblyInfo.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/AndriuhaAssignment.RazorTargetAssemblyInfo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/AndriuhaAssignment.TagHelpers.input.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/AndriuhaAssignment.TagHelpers.output.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/AndriuhaAssignment.Views.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/AndriuhaAssignment.Views.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/AndriuhaAssignment.assets.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/AndriuhaAssignment.csproj.CopyComplete" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/AndriuhaAssignment.csproj.CoreCompileInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/AndriuhaAssignment.csproj.FileListAbsolute.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/AndriuhaAssignment.csprojAssemblyReference.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/AndriuhaAssignment.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/AndriuhaAssignment.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/AndriuhaAssignment.genruntimeconfig.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/AndriuhaAssignment.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/Razor/App.razor.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/Razor/Pages/HomeComponent.razor.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/Razor/Pages/Index.razor.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/Razor/Pages/SignUpComponent.razor.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/Razor/Pages/_Host.cshtml.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/Razor/Shared/Loading.razor.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/Razor/Shared/LogInComponent.razor.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/Razor/Shared/MainLayout.razor.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/Razor/Shared/NavBar.razor.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/Razor/Shared/SurveyPrompt.razor.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/Razor/_Imports.razor.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/RazorDeclaration/AndriuhaAssignment.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/RazorDeclaration/AndriuhaAssignment.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/RazorDeclaration/App.razor.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/HomeComponent.razor.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/Index.razor.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/RazorDeclaration/Pages/SignUpComponent.razor.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/Loading.razor.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/LogInComponent.razor.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/MainLayout.razor.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/NavBar.razor.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/RazorDeclaration/Shared/SurveyPrompt.razor.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/RazorDeclaration/_Imports.razor.g.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/staticwebassets/AndriuhaAssignment.StaticWebAssets.Manifest.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/Debug/netcoreapp3.1/staticwebassets/AndriuhaAssignment.StaticWebAssets.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/project.assets.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/project.nuget.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/project.packagespec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/obj/rider.project.restore.info" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/wwwroot/Background-LogIn_2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/wwwroot/background-logIn.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/wwwroot/css/bootstrap/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/wwwroot/css/bootstrap/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/wwwroot/css/loading.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/wwwroot/css/navigation.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/wwwroot/css/open-iconic/FONT-LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/wwwroot/css/open-iconic/ICON-LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/wwwroot/css/open-iconic/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/wwwroot/css/open-iconic/font/css/open-iconic-bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/wwwroot/css/open-iconic/font/fonts/open-iconic.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/wwwroot/css/open-iconic/font/fonts/open-iconic.otf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/wwwroot/css/open-iconic/font/fonts/open-iconic.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/wwwroot/css/open-iconic/font/fonts/open-iconic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/wwwroot/css/open-iconic/font/fonts/open-iconic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/wwwroot/css/signup.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/wwwroot/css/site.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/wwwroot/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Front-End/wwwroot/imagne.png" beforeDir="false" />
-    </list>
+    <list default="true" id="1651e4a6-c568-4009-a280-8a5610da8d22" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -161,6 +28,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Launch Settings Profile.AndriuhaAssignment">
     <configuration name="AndriuhaAssignment" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
@@ -203,13 +71,14 @@
       <option name="presentableId" value="Default" />
       <updated>1606838693228</updated>
       <workItem from="1606838714999" duration="252000" />
+      <workItem from="1607007818926" duration="22000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -221,6 +90,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

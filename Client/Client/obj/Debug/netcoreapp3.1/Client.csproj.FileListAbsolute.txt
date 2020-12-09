@@ -121,3 +121,70 @@ D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Ra
 D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\ShiftListComponent.razor.g.cs
 D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\ShiftListComponent.razor.g.cs
 >>>>>>> b69f125f09fe6a9d45c6e95085bfb53860153b32
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\bin\Debug\netcoreapp3.1\Client.exe
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\bin\Debug\netcoreapp3.1\Client.deps.json
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\bin\Debug\netcoreapp3.1\Client.runtimeconfig.json
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\bin\Debug\netcoreapp3.1\Client.runtimeconfig.dev.json
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\bin\Debug\netcoreapp3.1\Client.dll
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\bin\Debug\netcoreapp3.1\Client.pdb
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\bin\Debug\netcoreapp3.1\Client.Views.dll
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\bin\Debug\netcoreapp3.1\Client.Views.pdb
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Client.csprojAssemblyReference.cache
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Client.AssemblyInfoInputs.cache
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Client.AssemblyInfo.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Client.csproj.CoreCompileInputs.cache
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Client.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Client.RazorComponent.input.cache
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\App.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\EmployeeApplication.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\HomeComponent.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\Index.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\ShiftsComponent.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\SignUpComponent.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\Loading.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\LogInComponent.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\MainLayout.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\NavBar.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Shared\SurveyPrompt.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\_Imports.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Client.RazorComponent.output.cache
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Client.dll
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Client.TagHelpers.input.cache
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Client.TagHelpers.output.cache
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Client.RazorCoreGenerate.cache
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\App.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\EmployeeApplication.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\HomeComponent.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\Index.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\ShiftsComponent.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\SignUpComponent.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Shared\Loading.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Shared\LogInComponent.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Shared\MainLayout.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Shared\NavBar.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Shared\SurveyPrompt.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\_Imports.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\_Host.cshtml.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Client.RazorAssemblyInfo.cache
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Client.RazorAssemblyInfo.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\staticwebassets\Client.StaticWebAssets.Manifest.cache
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\staticwebassets\Client.StaticWebAssets.xml
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\scopedcss\bundle\Client.styles.css
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Client.RazorTargetAssemblyInfo.cache
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Client.RazorTargetAssemblyInfo.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Client.Views.pdb
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Client.dll
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Client.pdb
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Client.genruntimeconfig.cache
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Client.csproj.CopyComplete
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\MyApplicationComponent.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\MyApplicationComponent.razor.g.cs
+>>>>>>> 025cb0e39618d610e0cb705bd69f85a53a9c0df6
+D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\EmployeeApplication.razor.g.cs
+D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\EmployeeApplication.razor.g.cs
+D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\EmployeeListComponent.razor.g.cs
+D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\EmployeeListComponent.razor.g.cs
+D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\ShiftListForEmployee.razor.g.cs
+D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\ShiftListForEmployee.razor.g.cs

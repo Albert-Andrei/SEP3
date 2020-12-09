@@ -1,9 +1,11 @@
 package Mediator;
-
 import Data.Shift;
 import Data.User;
 import Models.ShiftModel;
 import Models.ShiftModelImplementation;
+import Data.Application;
+import Data.User;
+import Models.ApplicationModel;
 import Models.UserModel;
 import Network.*;
 import com.google.gson.Gson;
@@ -11,6 +13,7 @@ import com.google.gson.Gson;
 import java.util.List;
 import java.io.*;
 import java.net.Socket;
+import java.util.List;
 
 public class ClientHandler implements Runnable {
     private Socket socket;
@@ -18,15 +21,17 @@ public class ClientHandler implements Runnable {
     private OutputStream outputStream;
     private UserModel userModelManager;
     private ShiftModel shiftModelManager;
+    private ApplicationModel applicationModel;
     private Gson gson;
 
 
-    public ClientHandler(Socket socket, UserModel userModelManager, ShiftModel shiftModelManager) throws IOException {
+    public ClientHandler(Socket socket, UserModel userModelManager, ShiftModel shiftModelManager, ApplicationModel applicationModel) throws IOException {
         this.socket = socket;
         inputStream = socket.getInputStream();
         outputStream = socket.getOutputStream();
         this.userModelManager = userModelManager;
         this.shiftModelManager = shiftModelManager;
+        this.applicationModel = applicationModel;
         this.gson = new Gson();
     }
 
@@ -90,6 +95,45 @@ public class ClientHandler implements Runnable {
 
                     case ERROR:
                         send(outputStream, "ERROR");
+                        break;
+                    case CREATE_APPLICATION:
+                        ApplicationPackage applicationPackage = gson.fromJson(message, ApplicationPackage.class);
+                        Application application = applicationPackage.getApplication();
+
+                        applicationModel.createApplication(application);
+                        break;
+                    case GET_ALL_APPLICATIONS:
+                        ApplicationListPackage applicationPackageAll = gson.fromJson(message, ApplicationListPackage.class);
+                        List<Application> applicationAll = applicationPackageAll.getApplicationList();
+
+                        List<Application> applicationAll1 = applicationModel.getAllApplications();
+                        ApplicationListPackage applicationPackage3 = new ApplicationListPackage(NetworkType.GET_ALL_APPLICATIONS, applicationAll1);
+
+                        String response3 = gson.toJson(applicationPackage3);
+                        send(outputStream, response3);
+                        break;
+                    case GET_APPLICATION:
+                        QueryPackage queryPackage = gson.fromJson(message,QueryPackage.class);
+                        Object object = queryPackage.getObject();
+                        String idToGetApplication = object.toString();
+                        Application application1 = applicationModel.getApplication(idToGetApplication);
+
+                        ApplicationPackage applicationPackage1 = new ApplicationPackage(NetworkType.GET_APPLICATION, application1);
+                        String response4 = gson.toJson(applicationPackage1);
+                        send(outputStream,response4);
+                        break;
+                    case DELETE_APPLICATION:
+                        break;
+                    case UPDATE_APPLICATION:
+                    /*    ApplicationPackage applicationPackage4 = gson.fromJson(message, ApplicationPackage.class);
+                        Application application3 = applicationPackage4.getApplication();
+
+                        Application application4 = applicationModel.getApplication(application3.getApplicationId());
+                        ApplicationPackage applicationPackage5 = new ApplicationPackage(NetworkType.UPDATE_APPLICATION, application4);
+
+                        String response7 = gson.toJson(applicationPackage5);
+                        send(outputStream, response7);*/
+
                         break;
                 }
 

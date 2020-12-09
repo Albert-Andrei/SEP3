@@ -1,0 +1,149 @@
+@page "/empl-shifts"
+@using Client.Models
+@using Client.Data.Shifts
+@using Client.Authentication
+@using System.Runtime.Serialization
+@inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject IShiftService ShiftService
+@attribute [Authorize(Policy = "SecurityLevel3")]
+
+@if (shiftsToShow != null)
+{
+    @if (count == 0)
+    {
+        <div class="noshifts">
+            <h1 class="text-no">There are not available shifts, please come back later.</h1>
+        </div>
+    }
+    else
+    {
+        <div class="create-shift-content">
+            <main>
+                <div class="shift-auth-content" style="width: 95%;">
+
+                    <div class="sus-acolo">
+                        <h2 style="margin-left: 50px;">My Shifts</h2>
+                    </div>
+
+                    <div style="color:red">@errorMessage</div>
+
+                    <hr class="divider"/>
+
+                    <div class="forms" style=" border-radius: 5px;">
+                        <div>
+                            @foreach (var item in shiftsToShow)
+                            {
+                                <div class="shiftCard">
+                                    <div class="card-content">
+
+                                        <div class="card-info">
+                                        <img src="jobs.jpg" style="width: 200px; height: 200px;">
+                                            <div style="display: flex; margin-left: 30px;">
+                                                <div class="left-side">
+                                                    <h2>
+                                                        @item.CompanyName
+                                                        <small>@item.JobTitle</small>
+                                                    </h2>
+
+                                                    <p><b>Hour wage:</b> @item.HourWage DKK</p>
+                                                    @if (item.Pending != null)
+                                                    {
+                                                        <div style="margin-top: 20px;">
+                                                            <p><b>Applied:</b> @item.Pending.Count</p>
+                                                        </div>
+                                                    }
+                                                </div>
+                                                <div class="right-side">
+                                                    <div class="dates">
+                                                        <div>
+                                                            <p style="margin: 0;
+                                                                          margin-left: 15px;"><b>Strt Date</b></p>
+                                                            <p style="margin: 0px 10px 0px;">@item.StartDate</p>
+                                                        </div>
+                                                        <div>
+                                                            <p style="margin: 0;
+                                                                          margin-left: 15px;"><b>End Date</b></p>
+                                                            <p style="margin: 0px 10px 0px;">@item.EndDate</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="descriptions">
+                                                        @if (item.Description != null)
+                                                        {
+                                                            <p><b>Description: </b></p>
+                                                            <p>@item.Description</p>
+                                                        }
+                                                        @if (item.Requirements != null)
+                                                        {
+                                                            <p><b>Requirements: </b></p>
+                                                            <p>@item.Requirements</p>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="remove-card">
+                                            <button @onclick="Apply" style="width: 80px; height: 80px; border-radius: 50px;">
+                                                @if (!apply)
+                                                {
+                                                    <i style="color: green">Apply</i>  
+                                                }
+                                                else
+                                                {
+                                                <i class="oi oi-check" style="color:green"/>
+                                                }
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    }
+}
+else
+{
+    <p class="loadingText">
+        <em>Loading...</em>
+    </p>
+}
+
+@code {
+    private IList<Shift> shiftsToShow;
+    private IList<Shift> allShifts;
+    private string errorMessage;
+    private bool apply = false;
+    private int count;
+    [CascadingParameter]
+    protected Task<AuthenticationState> AuthStat { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        base.OnInitialized();
+        var user = (await AuthStat).User;
+        if (!user.Identity.IsAuthenticated)
+        {
+            NavigationManager.NavigateTo($"/log-in");
+        }
+        allShifts = await ShiftService.GetAllShifts();
+        shiftsToShow = allShifts;
+        count = shiftsToShow.Count;
+    }
+
+    private void Apply()
+    {
+        if (apply == false)
+        {
+            apply = true;
+        }
+        else
+        {
+            apply = false;
+        }
+    }
+
+}

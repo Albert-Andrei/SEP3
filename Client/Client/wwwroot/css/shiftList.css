@@ -55,6 +55,7 @@
     border: 1px solid black;    
     border-radius: 5px;
     margin-top: 20px;
+    padding: 5px;
 }
 
 .remove-card {
@@ -88,4 +89,11 @@
 
 p {
     margin: 0px;
+}
+
+.card-info {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    align-content: center;
 }

@@ -34,6 +34,7 @@ namespace Client
             services.AddServerSideBlazor();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IShiftService, ShiftService>();
+            services.AddScoped<IApplicationService, ApplicationService>();
             services.AddScoped<AuthenticationStateProvider, CustomAuthenticationStateProvider>();
             services.AddAuthorization(options =>
             {
@@ -51,7 +52,7 @@ namespace Client
                 {
                     Claim levelClaim = context.User.FindFirst(claim => claim.Type.Equals("Level"));
                     if (levelClaim == null) return false;
-                    return int.Parse(levelClaim.Value) >= 3;
+                    return int.Parse(levelClaim.Value) == 3;
                 }));
                 
                 options.AddPolicy("SecurityLevel4", a => a.RequireAuthenticatedUser().RequireAssertion(context =>
