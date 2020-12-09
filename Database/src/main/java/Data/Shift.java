@@ -6,31 +6,44 @@ import com.google.gson.annotations.SerializedName;
 import org.bson.types.ObjectId;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 public class Shift {
     private ObjectId _id;
+    @Expose(serialize = true, deserialize = true)
     private String username;
+    @Expose(serialize = true, deserialize = true)
     private String companyName;
+    @Expose(serialize = true, deserialize = true)
+    private String jobTitle;
+    @Expose(serialize = true, deserialize = true)
+    private String description;
+    @Expose(serialize = true, deserialize = true)
+    private String requirements;
+    @Expose(serialize = true, deserialize = true)
+    private float hourWage;
+    @Expose(serialize = true, deserialize = true)
+    private List<String> pendingList;
+    @Expose(serialize = true, deserialize = true)
+    private List<String> approvedList;
+    @Expose(serialize = true, deserialize = true)
+    private List<String> rejectedList;
     @Expose(serialize = true, deserialize = false)
     private Date endDate;
     @Expose(serialize = true, deserialize = false)
     private Date startDate;
-    private String description;
-    private String requirements;
-    private float hourWage;
-    private List<String> pendingList;
-    private List<String> approvedList;
-    private List<String> rejectedList;
 
     public Shift() {
+        pendingList = new ArrayList<>();
     }
 
-    public Shift(ObjectId _id, String username, String companyName, Date endDate, Date startDate, String description, String requirements, float hourWage, List<String> pendingList, List<String> approvedList, List<String> rejectedList) {
+    public Shift(ObjectId _id, String username, String companyName, String jobTitle, Date endDate, Date startDate, String description, String requirements, float hourWage, List<String> pendingList, List<String> approvedList, List<String> rejectedList) {
         this._id = _id;
         this.username = username;
         this.companyName = companyName;
+        this.jobTitle =jobTitle;
         this.endDate = endDate;
         this.startDate = startDate;
         this.description = description;
@@ -39,6 +52,14 @@ public class Shift {
         this.pendingList = pendingList;
         this.approvedList = approvedList;
         this.rejectedList = rejectedList;
+    }
+
+    public String getJobTitle() {
+        return jobTitle;
+    }
+
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
     }
 
     public ObjectId get_id() {

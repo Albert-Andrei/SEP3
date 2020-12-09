@@ -28,15 +28,30 @@ public class UserServiceImplementation implements UserService {
         } else if (!userFromDb.getPassword().equals(password)) {
             oopse.setUsername("Wrong password");
             return oopse;
-        } else
-        {
+        } else {
             return userFromDb;
         }
     }
 
     @Override
     public void createUser(User user) throws IOException, ClassNotFoundException {
-        remoteModel.createUser(user);
+
+        if (user.getUserType().equals("Employee"))
+        {
+            user.setSecurityLevel(3);
+        } else {
+            user.setSecurityLevel(4);
+        }
+
+        System.out.println(user.getUsername().toLowerCase() + " <New user + usermae");
+        User userFromDb = remoteModel.validateUser(user.getUsername(), user.getPassword());
+
+        if (userFromDb == null) {
+            remoteModel.createUser(user);
+        }
+        else {
+            throw new IOException("Username already used");
+        }
     }
 
 

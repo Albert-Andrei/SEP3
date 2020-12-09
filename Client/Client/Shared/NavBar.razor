@@ -15,20 +15,29 @@
                         </NavLink>
                     </li>
                     <li class="nav_li">
-                        <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                        <NavLink class="nav-link" href="AboutComponent" Match="NavLinkMatch.All">
                             <span class="oi oi-home" aria-hidden="true"></span> About
                         </NavLink>
                     </li>
                     <li class="nav_li">
-                        <NavLink class="nav-link" href="shift-list" Match="NavLinkMatch.All">
-                            <span class="oi oi-home" aria-hidden="true"></span> My Shifts
+                        <NavLink class="nav-link" href="ContactComponent" Match="NavLinkMatch.All">
+                            <span class="oi oi-home" aria-hidden="true"></span> Contact Us
                         </NavLink>
                     </li>
-                    <li class="nav_li">
-                        <NavLink class="nav-link" href="shift" Match="NavLinkMatch.All">
-                            <span class="oi oi-home" aria-hidden="true"></span> Employees
-                        </NavLink>
-                    </li>
+                    <AuthorizeView Policy="SecurityLevel4">
+                        <li class="nav_li">
+                            <NavLink class="nav-link" href="shift-list" Match="NavLinkMatch.All">
+                                <span class="oi oi-home" aria-hidden="true"></span> My Shifts
+                            </NavLink>
+                        </li>
+                    </AuthorizeView>
+                    <AuthorizeView Policy="SecurityLevel4">
+                        <li class="nav_li">
+                            <NavLink class="nav-link" href="application-list" Match="NavLinkMatch.All">
+                                <span class="oi oi-home" aria-hidden="true"></span> Employees
+                            </NavLink>
+                        </li>
+                    </AuthorizeView>
                 </ul>
             </div>
         </div>

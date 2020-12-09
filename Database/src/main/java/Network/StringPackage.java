@@ -8,6 +8,10 @@ public class StringPackage extends NetworkPackage {
         this.string = string;
     }
 
+    public StringPackage(NetworkType type) {
+        super(type);
+    }
+
     public String getString() {
         return string;
     }

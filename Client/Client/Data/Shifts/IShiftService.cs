@@ -7,8 +7,9 @@ namespace Client.Data.Shifts
     public interface IShiftService
     {
         Task<IList<Shift>> GetAllShiftsOneUser(string username);
+        Task<IList<Shift>> GetAllShifts();
         Task AddShiftAsync(Shift shift);
-        Task RemoveShiftAsync(int shiftId);
+        Task RemoveShiftAsync(string shiftId);
         Task UpdateShiftAsync(Shift shift);
     }
 }

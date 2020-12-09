@@ -51,8 +51,12 @@ namespace Client.Data
             );
             Console.Out.WriteLine(todoSerialized);
 
-            HttpResponseMessage response = await client.PostAsync("http://localhost:6969/users/create", content);
-            Console.Out.WriteLine(response.ToString());
+            var response = await client.PostAsync("http://localhost:6969/users/create", content);
+            string cont = await  response.Content.ReadAsStringAsync();
+            if (cont.Equals(""))
+            {
+                throw new Exception("Username already used");
+            }
         }
     }
 }

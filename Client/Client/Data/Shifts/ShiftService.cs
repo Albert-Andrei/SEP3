@@ -20,16 +20,25 @@ namespace Client.Data.Shifts
         
         public async Task<IList<Shift>> GetAllShiftsOneUser(string username)
         {
-            string uri = "http://localhost:6969/shifts/get?";
+            string uri = "http://localhost:6969/shifts?";
             
             if (username != null)
             {
                 uri += $"&username={username}";
             }
-
+            
             // string message = await client.GetStringAsync($"http://localhost:6969/shifts/get?&username={username}");
             string message = await client.GetStringAsync(uri);
-            Console.Out.WriteLine(message);
+            Console.Out.WriteLine(message + "< result from getShift request");
+            List<Shift> result = JsonSerializer.Deserialize<List<Shift>>(message);
+            return result;
+        }
+
+        public async Task<IList<Shift>> GetAllShifts()
+        {
+            string uri = "http://localhost:6969/shifts/all";
+            string message = await client.GetStringAsync(uri);
+            Console.Out.WriteLine(message + "< result from getAllSfhits");
             List<Shift> result = JsonSerializer.Deserialize<List<Shift>>(message);
             return result;
         }
@@ -38,6 +47,7 @@ namespace Client.Data.Shifts
         {
             string todoSerialized = JsonSerializer.Serialize(shift);
 
+            Console.Out.WriteLine(todoSerialized + " < Shift to create");
             StringContent content = new StringContent(
                 todoSerialized,
                 Encoding.UTF8,
@@ -45,11 +55,11 @@ namespace Client.Data.Shifts
             );
             Console.Out.WriteLine(todoSerialized);
 
-            HttpResponseMessage response = await client.PostAsync("http://localhost:6969/shifts/create", content);
+            HttpResponseMessage response = await client.PostAsync("http://localhost:6969/shifts", content);
             Console.Out.WriteLine(response.ToString());
         }
 
-        public Task RemoveShiftAsync(int shiftId)
+        public Task RemoveShiftAsync(string shiftId)
         {
             throw new System.NotImplementedException();
         }

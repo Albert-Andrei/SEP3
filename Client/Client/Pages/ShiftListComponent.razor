@@ -2,55 +2,137 @@
 @using Client.Models
 @using Client.Data.Shifts
 @using Client.Authentication
+@using System.Runtime.Serialization
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject IShiftService ShiftService
+@attribute [Authorize(Policy = "SecurityLevel4")]
 
-@if (shiftsToShow == null)
+@if (shiftsToShow != null)
+{
+    @if (count == 0)
+    {
+        <div class="noshifts">
+            <h1 class="text-no">You have no shifts, please add some.</h1>
+            <button @onclick="Navigate" class="createShiftBtn">Create Shift</button>
+        </div>
+    }
+    else
+    {
+        <div class="create-shift-content">
+            <main>
+                <div class="shift-auth-content" style="width: 95%;">
+
+                    <div class="sus-acolo">
+                        <h2 style="margin-left: 50px;">My Shifts</h2>
+                        <button @onclick="Navigate" class="createShiftBtn">Create Shift</button>
+                    </div>
+
+                    <div style="color:red">@errorMessage</div>
+
+                    <hr class="divider"/>
+
+                    <div class="forms" style=" border-radius: 5px;">
+                        <div>
+                            @foreach (var item in shiftsToShow)
+                            {
+                                <div class="shiftCard">
+                                    <div class="card-content">
+
+                                        <div class="card-info" style="display: flex; justify-content: center; align-content: center;">
+                                        <img src="jobs.jpg" style="width: 200px; height: 200px;">
+                                            <div style="display: flex; margin-left: 30px;">
+                                                <div class="left-side">
+                                                    <h2>
+                                                        @item.CompanyName
+                                                        <small>@item.JobTitle</small>
+                                                    </h2>
+
+                                                    <p>Hour wage: @item.HourWage DKK</p>
+                                                    @if (item.Pending != null)
+                                                    {
+                                                        <div style="margin-top: 20px;">
+                                                            <p>Applied: @item.Pending.Count</p>
+                                                        </div>
+                                                    }
+                                                </div>
+                                                <div class="right-side">
+                                                    <div class="dates">
+                                                        <div>
+                                                            <p style="margin: 0;
+                                                                          margin-left: 15px;">Strt Date</p>
+                                                            <p style="margin: 0px 10px 0px;">@item.StartDate</p>
+                                                        </div>
+                                                        <div>
+                                                            <p style="margin: 0;
+                                                                          margin-left: 15px;">End Date</p>
+                                                            <p style="margin: 0px 10px 0px;">@item.EndDate</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="descriptions">
+                                                        @if (item.Description != null)
+                                                        {
+                                                            <p>Description: </p>
+                                                            <p>@item.Description</p>
+                                                        }
+                                                        @if (item.Requirements != null)
+                                                        {
+                                                            <p>Requirements: </p>
+                                                            <p>@item.Requirements</p>
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="remove-card">
+                                            <button @onclick="@(() => RemoveShift(item.ShiftId))" style="    width: 80px;
+                                                                                                             height: 80px;
+                                                                                                             border-radius: 50px;">
+                                                <i class="oi oi-trash" style="color:red"/>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    }
+}
+else
 {
     <p class="loadingText">
         <em>Loading...</em>
     </p>
-}
-else  if (!shiftsToShow.Any())
-{
-<div class="noshifts">
-    <h1 class="text-no">You have no shifts, please add some.</h1>
-    <button @onclick="Navigate" class="createShiftBtn">Create Shift</button>
-</div>
-}
-else
-{
-<div class="create-shift-content">
-    <main>
-        <div class="shift-auth-content" style="width: 95%;">
-
-            <div class="sus-acolo">
-                <h2 style="margin-left: 50px;">My Shifts</h2>
-                <button @onclick="Navigate" class="createShiftBtn">Create Shift</button>
-            </div>
-
-            <div style="color:red">@errorMessage</div>
-
-            <hr class="divider"/>
-
-            <div class="forms" style="width: 95%; border-radius: 5px;">
-
-            </div>
-        </div>
-    </main>
-</div>
 }
 
 @code {
     private IList<Shift> shiftsToShow;
     private IList<Shift> allShifts;
     private string errorMessage;
+    private int count;
 
     protected override async Task OnInitializedAsync()
     {
+        base.OnInitialized();
+        var user = (await AuthStat).User;
+        if (!user.Identity.IsAuthenticated)
+        {
+            NavigationManager.NavigateTo($"/log-in");
+        }
         allShifts = await ShiftService.GetAllShiftsOneUser(((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidatedUsername());
         shiftsToShow = allShifts;
+        count = shiftsToShow.Count;
+    }
+
+    private void RemoveShift(ObjectIDGenerator shiftId)
+    {
+        Shift shiftToRemove = shiftsToShow.First(t => t.ShiftId == shiftId);
+        ShiftService.RemoveShiftAsync(shiftId.ToString());
+        shiftsToShow.Remove(shiftToRemove);
     }
 
     private void Navigate()
@@ -58,4 +140,6 @@ else
         NavigationManager.NavigateTo("/shift");
     }
 
+    [CascadingParameter]
+    protected Task<AuthenticationState> AuthStat { get; set; }
 }

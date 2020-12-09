@@ -15,12 +15,13 @@ namespace Client.Authentication
         private readonly IJSRuntime jsRuntime;
         private readonly IUserService userService;
         private User cachedUser;
-        public string username = "test";
+        public string username;
 
         public CustomAuthenticationStateProvider(IJSRuntime jsRuntime, IUserService userService)
         {
             this.jsRuntime = jsRuntime;
             this.userService = userService;
+            username = "notauthorized";
         }
 
         public override async Task<AuthenticationState> GetAuthenticationStateAsync()
@@ -62,7 +63,6 @@ namespace Client.Authentication
                 jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", serialisedData);
                 cachedUser = user;
                 this.username = user.UserName;
-                Console.Out.WriteLine(user.UserId  + "<<<<<<<<<<<<ID");
             }
             catch (Exception e)
             {
@@ -73,12 +73,13 @@ namespace Client.Authentication
         }
         public string ValidatedUsername()
         {
-            return username;
+            return cachedUser.UserName;
         }
 
         public void Logout()
         {
             cachedUser = null;
+            username = null;
             var user = new ClaimsPrincipal(new ClaimsIdentity());
             jsRuntime.InvokeVoidAsync("sessionStorage.setItem", "currentUser", "");
             NotifyAuthenticationStateChanged(Task.FromResult(new AuthenticationState(user)));

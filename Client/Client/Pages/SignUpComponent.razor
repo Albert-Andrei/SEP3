@@ -35,8 +35,8 @@
                                 <fieldset>
                                     <label>Username</label>
                                     <InputText autocomplete="email" class="text-input" type="text"
-                                           name="email"
-                                           @bind-Value="newUser.UserName" required/>
+                                               name="email" @oninput="(arg) => change(arg)"
+                                               @bind-Value="newUser.UserName" required/>
                                 </fieldset>
                                 <ValidationMessage For="@(() => newUser.UserName)"/>
                             </div>
@@ -57,17 +57,17 @@
                                 <fieldset>
                                     <label>Password</label>
                                     <InputText placeholder="8+ characters " class="text-input"
-                                           type="password"
-                                           @bind-Value="newUser.Password" required/>
+                                               type="password" @oninput="(arg) => change(arg)"
+                                               @bind-Value="newUser.Password" required/>
                                     <ValidationMessage For="@(() => newUser.Password)"/>
                                 </fieldset>
                             </div>
                             <div class="box">
                                 <fieldset>
                                     <label>Confirm password</label>
-                                    <input placeholder="Same as previous"
-                                           class="text-input" type="password"
-                                           required/>
+                                    <InputText placeholder="8+ characters " class="text-input"
+                                               type="password" @oninput="(arg) => change(arg)"
+                                               @bind-Value="PasswordToCheck" required/>
                                     <ValidationMessage For="@(() => newUser.Password)"/>
                                 </fieldset>
                             </div>
@@ -86,8 +86,8 @@
                                 <fieldset>
                                     <label>Last Name</label>
                                     <InputText autocomplete="family-name" class="text-input"
-                                           type="text" name="family-name"
-                                           @bind-Value="newUser.LastName" required/>
+                                               type="text" name="family-name"
+                                               @bind-Value="newUser.LastName" required/>
                                 </fieldset>
                             </div>
                         </div>
@@ -97,13 +97,13 @@
                                 <fieldset>
                                     <label>Email</label>
                                     <InputText autocomplete="email" class="text-input" type="text"
-                                           name="email" @bind-Value="newUser.Email" required/>
+                                               name="email" @bind-Value="newUser.Email" required/>
                                 </fieldset>
                             </div>
                         </div>
                     </div>
                     <div style="color:red">@errorMessage</div>
-                    <button type="submit" class="signupBtn">Create Account</button>
+                    <button type="button" class="signupBtn" @onclick="PerformCreate">Create Account</button>
                 </div>
             </main>
         </div>
@@ -112,16 +112,54 @@
 
 @code {
     private string errorMessage;
+    private string PasswordToCheck;
     private User newUser = new User();
     List<string> type = new List<string>() {"Employee", "Employer"};
     string selectedType = "Employee";
 
-    private void CreateNewUser()
+    public async Task PerformCreate()
     {
-        newUser.UserType = selectedType;
-        UserService.CreateUserAsync(newUser);
-        NavigationManager.NavigateTo("/log-in");
+        try
+        {
+            if (!PasswordToCheck.Equals(newUser.Password))
+            {
+                errorMessage = "Passwords don't match";
+            }
+            else
+            {
+                errorMessage = "";
+                await CreateNewUser();
+            }
+        }
+        catch (Exception e)
+        {
+            errorMessage = "";
+            Console.WriteLine(e);
+            throw;
+        }
     }
 
+    private void change(ChangeEventArgs changeEventArgs)
+    {
+        if (!string.IsNullOrEmpty(changeEventArgs.Value.ToString()))
+        {
+            errorMessage = "";
+        }
+    }
+
+    private async Task CreateNewUser()
+    {
+        newUser.UserType = selectedType;
+        try
+        {
+            await UserService.CreateUserAsync(newUser);
+            NavigationManager.NavigateTo("/log-in");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            errorMessage = e.Message;
+        }
+    }
 
 }

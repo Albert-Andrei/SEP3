@@ -9,6 +9,9 @@ public class StringPackage extends NetworkPackage {
         super(type);
         this.string = string;
     }
+    public StringPackage(NetworkType type) {
+        super(type);
+    }
 
     public String getString() {
         return string;

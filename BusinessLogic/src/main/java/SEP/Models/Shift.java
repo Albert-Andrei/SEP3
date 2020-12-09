@@ -2,6 +2,7 @@ package SEP.Models;
 
 import org.bson.types.ObjectId;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -9,22 +10,25 @@ public class Shift {
     private ObjectId _id;
     private String username;
     private String companyName;
-    private Date endDate;
-    private Date startDate;
+    private String jobTitle;
     private String description;
     private String requirements;
     private float hourWage;
     private List<String> pendingList;
     private List<String> approvedList;
     private List<String> rejectedList;
+    private Date endDate;
+    private Date startDate;
 
     public Shift() {
+        pendingList = new ArrayList<>();
     }
 
-    public Shift(ObjectId _id, String username, String companyName, Date endDate, Date startDate, String description, String requirements, float hourWage, List<String> pendingList, List<String> approvedList, List<String> rejectedList) {
+    public Shift(ObjectId _id, String username, String companyName, String jobTitle, Date endDate, Date startDate, String description, String requirements, float hourWage, List<String> pendingList, List<String> approvedList, List<String> rejectedList) {
         this._id = _id;
         this.username = username;
         this.companyName = companyName;
+        this.jobTitle = jobTitle;
         this.endDate = endDate;
         this.startDate = startDate;
         this.description = description;
@@ -33,6 +37,14 @@ public class Shift {
         this.pendingList = pendingList;
         this.approvedList = approvedList;
         this.rejectedList = rejectedList;
+    }
+
+    public String getJobTitle() {
+        return jobTitle;
+    }
+
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
     }
 
     public ObjectId get_id() {

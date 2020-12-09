@@ -23,6 +23,10 @@ public class ClientConnector implements Runnable {
         MongoClient mongoClient = MongoClients.create(
                 "mongodb+srv://shared:12345@cluster0.anhd1.mongodb.net/Cluster0?retryWrites=true&w=majority"
         );
+
+//        septesting123@gmail.com
+//        fuckingmongobd
+
         MongoDatabase database = mongoClient.getDatabase("SEP");
         this.userModel = new UserModelImplementation(database);
         this.shiftModel = new ShiftModelImplementation(database);

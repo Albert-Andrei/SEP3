@@ -31,12 +31,13 @@ namespace Client.Models
         [Required]
         [NotNull]
         [JsonPropertyName("startDate")]
-        public DateTime StartDate { get; set; } = DateTime.Now.Date;
+        public DateTime StartDate { get; set; }
 
         [Required]
         [NotNull]
+        // [ValidDate]
         [JsonPropertyName("endDate")]
-        public DateTime EndDate { get; set; } = DateTime.Now.Date;
+        public DateTime EndDate { get; set; }
         
         [Required, MaxLength(70)]
         [JsonPropertyName("description")] [NotNull]
@@ -47,7 +48,8 @@ namespace Client.Models
         public string Requirements { get; set; }
 
         [Required]
-        [JsonPropertyName("hourWage")] [NotNull]
+        [NotNull, Range(1, 3000)]
+        [JsonPropertyName("hourWage")]
         public float HourWage { get; set; }
         
         
@@ -95,6 +97,23 @@ namespace Client.Models
             s += Approved + " ";
             s += Rejected + " ";
             return s;
+        }
+    }
+    
+    public class ValidDate : ValidationAttribute
+    {
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        {
+            DateTime date = DateTime.Now.Date;
+            DateTime val = (DateTime) value;
+            if (val >= date)
+            {
+                return ValidationResult.Success;
+            }
+
+            Console.Out.WriteLine("Date error");
+            return new ValidationResult(
+                "Start date can't be bigger than end date");
         }
     }
 }

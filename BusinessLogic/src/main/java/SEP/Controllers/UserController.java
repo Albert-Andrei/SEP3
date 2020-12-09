@@ -27,19 +27,24 @@ public class UserController {
     @PostMapping("/create")
     @ResponseBody
     public User createUser(@RequestBody final User user) throws IOException, ClassNotFoundException {
-        System.out.println("Esti Contact > " + user);
-        service.createUser(user);
-        return user;
+        System.out.println("Esti Contact, User to create> " + user);
+        try {
+            service.createUser(user);
+            return user;
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 
     ;
 
-    @GetMapping("/get")
-    public void get() throws IOException, ClassNotFoundException {
-        service.createUser(null);
-    }
-
-    ;
+//    @GetMapping("/get")
+//    public void get() throws IOException, ClassNotFoundException {
+//        service.createUser(null);
+//    }
+//
+//    ;
 
     @DeleteMapping("/delete")
     public void remove(@RequestParam int id) {

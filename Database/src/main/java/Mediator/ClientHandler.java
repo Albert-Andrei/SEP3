@@ -7,6 +7,7 @@ import Models.ShiftModelImplementation;
 import Models.UserModel;
 import Network.*;
 import com.google.gson.Gson;
+
 import java.util.List;
 import java.io.*;
 import java.net.Socket;
@@ -64,7 +65,7 @@ public class ClientHandler implements Runnable {
                         ShiftPackage shiftToCreateFromClient = gson.fromJson(message, ShiftPackage.class);
                         Shift shiftToCreate = shiftToCreateFromClient.getShift();
 
-                        System.out.println("Opa db");
+                        System.out.println("Opa db> " + shiftToCreate);
                         shiftModelManager.CreateShift(shiftToCreate);
                         break;
 
@@ -77,6 +78,14 @@ public class ClientHandler implements Runnable {
 
                         String listOfShifts = gson.toJson(outgoingListPackage);
                         send(outputStream, listOfShifts);
+                        break;
+
+                    case GET_ALL_SHIFTS:
+                        List<Shift> listOfAllShifts = shiftModelManager.GetAllShifts();
+                        ListPackage outgoingListOfAllPackage = new ListPackage(NetworkType.SEND_ALL_SHIFTS, listOfAllShifts);
+
+                        String AllShifts = gson.toJson(outgoingListOfAllPackage);
+                        send(outputStream, AllShifts);
                         break;
 
                     case ERROR:

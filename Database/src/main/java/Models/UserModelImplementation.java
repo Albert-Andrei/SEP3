@@ -47,8 +47,6 @@ public class UserModelImplementation implements UserModel {
 
     @Override
     public void CreateUser(User user) {
-        //Setting the SecurityLevel
-        user.setSecurityLevel(3);
         //Preparing a document
         Document document = new Document();
         document.append("username", user.getUsername());

@@ -8,6 +8,7 @@ import SEP.Network.*;
 import com.google.gson.Gson;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ShiftClient implements ShiftRemoteModel{
@@ -37,6 +38,17 @@ public class ShiftClient implements ShiftRemoteModel{
     public List<Shift> getShiftsForOneUser(String username) throws IOException, ClassNotFoundException {
 
         NetworkPackage toServer = new StringPackage(NetworkType.SEND_USERNAME, username);
+        String gsonToServer = gson.toJson(toServer);
+        handler.sendToDb(gsonToServer);
+
+        String respose = handler.readFromDb();
+        ListPackage list = gson.fromJson(respose, ListPackage.class);
+        return list.getShiftList();
+    }
+
+    @Override
+    public List<Shift> getAllShifts() throws IOException, ClassNotFoundException {
+        NetworkPackage toServer = new StringPackage(NetworkType.GET_ALL_SHIFTS);
         String gsonToServer = gson.toJson(toServer);
         handler.sendToDb(gsonToServer);
 

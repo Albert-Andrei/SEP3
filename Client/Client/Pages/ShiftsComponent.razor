@@ -6,7 +6,7 @@
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject IShiftService ShiftService
-@* @attribute [Authorize(Policy = "SecurityLevel4")] *@
+@attribute [Authorize(Policy = "SecurityLevel4")]
 
 <EditForm Model="@newShift" OnValidSubmit="@CreateNewShift">
     <DataAnnotationsValidator/>
@@ -45,9 +45,11 @@
                         <div class="box">
                             <fieldset>
                                 <label>Start Date & Time</label>
-                                <input type="datetime-local"
+                                <input id="datePicker"
+                                       type="datetime-local"
                                        name="meeting-time"
-                                       Value="@newShift.StartDate">
+                                       min="@startDate"
+                                       value="@startDate">
                             </fieldset>
                             <ValidationMessage For="@(() => newShift.StartDate)"/>
                         </div>
@@ -55,9 +57,11 @@
                         <div class="box">
                             <fieldset>
                                 <label>End Date & Time</label>
-                                <input type="datetime-local"
+                                <input id="datePicker"
+                                       type="datetime-local"
                                        name="meeting-time"
-                                       Value="@newShift.EndDate">
+                                       min="@endDate"
+                                       value="@endDate">
                             </fieldset>
                             <ValidationMessage For="@(() => newShift.EndDate)"/>
                         </div>
@@ -67,7 +71,7 @@
                         <div class="box">
                             <fieldset>
                                 <label>Hour Wage</label>
-                                <InputNumber class="text-input" @bind-Value="newShift.HourWage"/>
+                                <InputNumber class="text-input" @bind-Value="newShift.HourWage" required/>
                             </fieldset>
                             <ValidationMessage For="@(() => newShift.HourWage)"/>
                         </div>
@@ -77,7 +81,7 @@
                         <fieldset>
                             <label>Description</label>
                             <InputTextArea class="long-text" type="text"
-                                           @bind-Value="newShift.Description"/>
+                                           @bind-Value="newShift.Description" required/>
                         </fieldset>
                         <ValidationMessage For="@(() => newShift.Description)"/>
                     </div>
@@ -102,25 +106,32 @@
 
     string errorMessage;
     private Shift newShift = new Shift();
+    private DateTime startDate;
+    private DateTime endDate;
 
+    protected override async Task OnInitializedAsync()
+    {
+        base.OnInitialized();
+        var user = (await AuthStat).User;
+        if (!user.Identity.IsAuthenticated)
+        {
+            NavigationManager.NavigateTo($"/log-in");
+        }
+        startDate = DateTime.Now.Date;
+        endDate = DateTime.Now.Date;
+    }
+    
     private void CreateNewShift()
     {
+        newShift.StartDate = startDate;
+        newShift.EndDate = endDate;
         newShift.UserName = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidatedUsername();
         Console.Out.WriteLine(newShift.ToString());
         ShiftService.AddShiftAsync(newShift);
         NavigationManager.NavigateTo("/shift-list");
     }
 
-    // [CascadingParameter]
-    // protected Task<AuthenticationState> AuthStat { get; set; }
-    //
-    // protected async override Task OnInitializedAsync()
-    // {
-    //     base.OnInitialized();
-    //     var user = (await AuthStat).User;
-    //     if (!user.Identity.IsAuthenticated)
-    //     {
-    //         NavigationManager.NavigateTo($"/log-in");
-    //     }
-    // }
+    [CascadingParameter]
+    protected Task<AuthenticationState> AuthStat { get; set; }
+    
 }

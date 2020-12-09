@@ -35,6 +35,11 @@ public class ShiftServiceImplementation implements ShiftService {
         return remoteModel.getShiftsForOneUser(username);
     }
 
+    @Override
+    public List<Shift> GetAllShifts() throws IOException, ClassNotFoundException {
+        return remoteModel.getAllShifts();
+    }
+
     /**
      * Calls the method CreateShift from remote model
      * @param shift

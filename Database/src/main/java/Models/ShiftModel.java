@@ -8,4 +8,5 @@ import java.util.List;
 public interface ShiftModel {
     void CreateShift(Shift shift);
     List<Shift> GetAllShiftsForOneUser(String username) throws ParseException;
+    List<Shift> GetAllShifts() throws ParseException;
 }
