@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mirek\\Documents\\GitHub\\SEP3\\Client\\Client\\Client.csproj": {}
+    "D:\\VIA\\Semester 3\\Semester project\\SEP3\\Client\\Client\\Client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mirek\\Documents\\GitHub\\SEP3\\Client\\Client\\Client.csproj": {
+    "D:\\VIA\\Semester 3\\Semester project\\SEP3\\Client\\Client\\Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mirek\\Documents\\GitHub\\SEP3\\Client\\Client\\Client.csproj",
+        "projectUniqueName": "D:\\VIA\\Semester 3\\Semester project\\SEP3\\Client\\Client\\Client.csproj",
         "projectName": "Client",
-        "projectPath": "C:\\Users\\mirek\\Documents\\GitHub\\SEP3\\Client\\Client\\Client.csproj",
-        "packagesPath": "C:\\Users\\mirek\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mirek\\Documents\\GitHub\\SEP3\\Client\\Client\\obj\\",
+        "projectPath": "D:\\VIA\\Semester 3\\Semester project\\SEP3\\Client\\Client\\Client.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "D:\\VIA\\Semester 3\\Semester project\\SEP3\\Client\\Client\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mirek\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -24,7 +24,6 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -36,7 +35,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -47,16 +45,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.8, 3.1.8]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[3.1.9, 3.1.9]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -65,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
         }
       }
     }
