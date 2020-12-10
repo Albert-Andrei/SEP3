@@ -57,4 +57,6 @@ public class ShiftClient implements ShiftRemoteModel{
         ListPackage list = gson.fromJson(respose, ListPackage.class);
         return list.getShiftList();
     }
+
+
 }

@@ -50,7 +50,7 @@
                         <div style="color:red">@errorMessage</div>
                         <button type="button" class="logInBtn" @onclick="PerformLogin" style="display: @displyBtn">Log In</button>
                         <div class="SignUpPar">
-                            <p style="display: @displyBtn; margin: 0; padding: 0;"  @onclick="Navigate" >Sign Up</p>
+                            <p style="display: @displyBtn; margin: 0; padding: 0;" @onclick="Navigate">Sign Up</p>
                         </div>
                     </div>
                 </div>
@@ -60,7 +60,12 @@
 
     </NotAuthorized>
     <Authorized>
-        <button @onclick="PerformLogout" class="logout" type="button"> Log out</button>
+        <div class="logoutview">
+            <h1 class="text-no" style="text-align: center">It was a pleasure to work with you, see you later.</h1>
+            <div>
+                <button @onclick="PerformLogout" class="logout" type="button"> Log out</button>
+            </div>
+        </div>
     </Authorized>
 </AuthorizeView>
 
