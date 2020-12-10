@@ -1,5 +1,5 @@
 .contact{
-    width:400px;
+    width:470px;
     text-align:center;
     display:block;
     
@@ -10,4 +10,9 @@
 
 #index-gallery{
     width:465px;
+}
+
+.headers{
+    display: flex;
+    justify-content: center;
 }

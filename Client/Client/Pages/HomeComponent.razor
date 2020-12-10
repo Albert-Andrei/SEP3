@@ -3,8 +3,12 @@
 
 <link href="css/HomeComponent.razor.css" media="screen" rel="stylesheet">
 
+<div class="photo">
+    <img src="temp.png"  width="200" height="100">
+        </div>
+
 <div class="photo1">
-    <img src="work.png"  width="600" height="600">
+    <img src="work.png"  width="400" height="600">
         </div>
 <div class="photo2">
     <img src="work2.png"  width="600" height="600">
@@ -22,11 +26,9 @@
     </div>
     <button @onclick="NavigateToLogin" class="buttonSign" >log in</button>
 </div>
-<div class="navbarhome" id="myNavbar">
-  <a href="AboutComponent" >About</a>
-  
-  <a class="right" href="ContactComponent">Contact us</a>
- 
+<div class="navbars">
+  <a href="AboutComponent">About this project</a>
+  <a href="ContactComponent">Contact Us</a>
   
 </div>
 
