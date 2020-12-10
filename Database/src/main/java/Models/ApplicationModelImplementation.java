@@ -8,13 +8,16 @@ import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
+import com.mongodb.client.result.UpdateResult;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Updates.set;
 
 
 public class ApplicationModelImplementation implements ApplicationModel {
@@ -84,17 +87,25 @@ public class ApplicationModelImplementation implements ApplicationModel {
     @Override
     public void updateApplication(Application application) throws IOException, ClassNotFoundException {
 
+        Application application1 = new Application();
+        application1.Update(application);
+
+        Bson filter = eq("firstName");
+        Bson updateOperation = set("firstName", application1);
+        UpdateResult updateResult = applicationCollection.updateOne(filter, updateOperation);
+        return updateResult;
+
+        System.out.println("=> Updating the doc with {\"student_id\":10000}. Adding comment.");
         //Preparing a document
 
-
-        applicationCollection.updateOne(Filters.eq("firstName", application.getFirstName()), Updates.set("firstName", application.getFirstName()));
-        applicationCollection.updateOne(Filters.eq("lastName", application.getFirstName()), Updates.set("lastName", application.getLastName()));
-        applicationCollection.updateOne(Filters.eq("phoneNumber", application.getFirstName()), Updates.set("phoneNumber", application.getPhoneNumber()));
-        applicationCollection.updateOne(Filters.eq("email", application.getFirstName()), Updates.set("email", application.getEmail()));
-        applicationCollection.updateOne(Filters.eq("jobExperience", application.getFirstName()), Updates.set("jobExperience", application.getJobExperience()));
-        applicationCollection.updateOne(Filters.eq("drivingLicenses", application.getFirstName()), Updates.set("drivingLicenses", application.getDrivingLicenses()));
-        applicationCollection.updateOne(Filters.eq("languages", application.getFirstName()), Updates.set("languages", application.getLanguages()));
-        applicationCollection.updateOne(Filters.eq("preferableWorkTime", application.getFirstName()), Updates.set("preferableWorkTime", application.getPreferableWorkTime()));
+        applicationCollection.updateOne(Filters.eq("firstName", application., set("firstName", application.getFirstName()));
+        applicationCollection.updateOne(Filters.eq("lastName", application.getFirstName()), set("lastName", application.getLastName()));
+        applicationCollection.updateOne(Filters.eq("phoneNumber", application.getFirstName()), set("phoneNumber", application.getPhoneNumber()));
+        applicationCollection.updateOne(Filters.eq("email", application.getFirstName()), set("email", application.getEmail()));
+        applicationCollection.updateOne(Filters.eq("jobExperience", application.getFirstName()), set("jobExperience", application.getJobExperience()));
+        applicationCollection.updateOne(Filters.eq("drivingLicenses", application.getFirstName()), set("drivingLicenses", application.getDrivingLicenses()));
+        applicationCollection.updateOne(Filters.eq("languages", application.getFirstName()), set("languages", application.getLanguages()));
+        applicationCollection.updateOne(Filters.eq("preferableWorkTime", application.getFirstName()), set("preferableWorkTime", application.getPreferableWorkTime()));
 
 /*        applicationCollection.updateOne("firstName", application1.setFirstName(application.getFirstName()));
         applicationCollection.updateOne("lastName", application.getLastName());

@@ -90,15 +90,14 @@ public class ClientHandler implements Runnable {
                     case DELETE_APPLICATION:
                         break;
                     case UPDATE_APPLICATION:
-                    /*    ApplicationPackage applicationPackage4 = gson.fromJson(message, ApplicationPackage.class);
+                        ApplicationPackage applicationPackage4 = gson.fromJson(message, ApplicationPackage.class);
                         Application application3 = applicationPackage4.getApplication();
 
-                        Application application4 = applicationModel.getApplication(application3.getApplicationId());
+                        Application application4 = applicationModel.updateApplication(application3.getApplicationId());
                         ApplicationPackage applicationPackage5 = new ApplicationPackage(NetworkType.UPDATE_APPLICATION, application4);
 
                         String response7 = gson.toJson(applicationPackage5);
-                        send(outputStream, response7);*/
-
+                        send(outputStream, response7);
                         break;
                 }
 
