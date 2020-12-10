@@ -91,14 +91,15 @@ public class ApplicationModelImplementation implements ApplicationModel {
             Gson gson = new Gson();
             Application applicationToUpdate = gson.fromJson(application123.toJson(),Application.class);
             applicationToUpdate.Update(application);
+            System.out.println(applicationToUpdate.toString());
             applicationCollection.updateOne(eq("_id", application.getApplicationId()), new Document("$set", new Document("firstName", applicationToUpdate.getFirstName())));
-            applicationCollection.updateOne(eq("_id", application.getApplicationId()), new Document("$set", new Document("firstName", applicationToUpdate.getLastName())));
-            applicationCollection.updateOne(eq("_id", application.getApplicationId()), new Document("$set", new Document("firstName", applicationToUpdate.getEmail())));
-            applicationCollection.updateOne(eq("_id", application.getApplicationId()), new Document("$set", new Document("firstName", applicationToUpdate.getPhoneNumber())));
-            applicationCollection.updateOne(eq("_id", application.getApplicationId()), new Document("$set", new Document("firstName", applicationToUpdate.getJobExperience())));
-            applicationCollection.updateOne(eq("_id", application.getApplicationId()), new Document("$set", new Document("firstName", applicationToUpdate.getLanguages())));
-            applicationCollection.updateOne(eq("_id", application.getApplicationId()), new Document("$set", new Document("firstName", applicationToUpdate.getDrivingLicenses())));
-            applicationCollection.updateOne(eq("_id", application.getApplicationId()), new Document("$set", new Document("firstName", applicationToUpdate.getPreferableWorkTime())));
+            applicationCollection.updateOne(eq("_id", application.getApplicationId()), new Document("$set", new Document("lastName", applicationToUpdate.getLastName())));
+            applicationCollection.updateOne(eq("_id", application.getApplicationId()), new Document("$set", new Document("email", applicationToUpdate.getEmail())));
+            applicationCollection.updateOne(eq("_id", application.getApplicationId()), new Document("$set", new Document("phoneNumber", applicationToUpdate.getPhoneNumber())));
+            applicationCollection.updateOne(eq("_id", application.getApplicationId()), new Document("$set", new Document("jobExperience", applicationToUpdate.getJobExperience())));
+            applicationCollection.updateOne(eq("_id", application.getApplicationId()), new Document("$set", new Document("languages", applicationToUpdate.getLanguages())));
+            applicationCollection.updateOne(eq("_id", application.getApplicationId()), new Document("$set", new Document("drivingLicenses", applicationToUpdate.getDrivingLicenses())));
+            applicationCollection.updateOne(eq("_id", application.getApplicationId()), new Document("$set", new Document("preferableWorkTime", applicationToUpdate.getPreferableWorkTime())));
             // Available
 /*
             applicationCollection.updateOne(eq("_id", application.getApplicationId()), new Document("$set", new Document("firstName", applicationToUpdate.())));

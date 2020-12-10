@@ -128,8 +128,12 @@ public class ClientHandler implements Runnable {
                         String getApplicationStringId = application3.getId();
                         applicationModel.updateApplication(getApplicationStringId,application3);
                         break;
-                    case DELETE_APPLICATION:
-                        // Dont need
+                    case DELETE_SHIFT:
+                        QueryPackage shiftPackage = gson.fromJson(message,QueryPackage.class);
+                        Object object1 = shiftPackage.getObject();
+                        String idToGetShift = object1.toString();
+                        shiftModelManager.removeShift(idToGetShift);
+
                         break;
                 }
 

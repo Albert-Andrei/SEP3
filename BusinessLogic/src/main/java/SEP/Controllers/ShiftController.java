@@ -70,9 +70,9 @@ public class ShiftController {
         return service.GetAllShifts();
     }
 
-    @DeleteMapping("/delete")
-    public void remove(@RequestParam int id) {
-
+    @DeleteMapping("/delete/{shiftId}")
+    public void remove(@PathVariable("shiftId") String shiftId) throws IOException, ClassNotFoundException {
+         service.RemoveShiftAsync(shiftId);
     }
 
     ;

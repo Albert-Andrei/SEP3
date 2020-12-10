@@ -1,5 +1,6 @@
 package Models;
 
+import Data.Application;
 import Data.Shift;
 import Data.User;
 import com.google.gson.Gson;
@@ -13,7 +14,10 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
+import org.bson.conversions.Bson;
+import org.bson.types.ObjectId;
 
+import java.io.IOException;
 import java.sql.DatabaseMetaData;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -23,6 +27,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+
+import static com.mongodb.client.model.Filters.eq;
 
 public class ShiftModelImplementation implements ShiftModel {
 
@@ -135,5 +141,12 @@ public class ShiftModelImplementation implements ShiftModel {
                 toReturn.add(opa);
             }
             return toReturn;
+    }
+
+    @Override
+    public void removeShift(String shiftId) throws IOException, ClassNotFoundException {
+        if (shiftCollection.find(eq("_id", new ObjectId(shiftId))).first() != null) {
+        shiftCollection.deleteOne(new Document("_id", new ObjectId(shiftId)));;
+    }
     }
 }

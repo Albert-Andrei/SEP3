@@ -57,4 +57,11 @@ public class ShiftClient implements ShiftRemoteModel{
         ListPackage list = gson.fromJson(respose, ListPackage.class);
         return list.getShiftList();
     }
+
+    @Override
+    public void removeShift(String shiftId) throws IOException, ClassNotFoundException {
+        NetworkPackage toServer = new QueryPackage(NetworkType.DELETE_SHIFT, shiftId);
+        String gsonToServer = gson.toJson(toServer);
+        handler.sendToDb(gsonToServer);
+    }
 }

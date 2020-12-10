@@ -53,7 +53,8 @@ public class ShiftServiceImplementation implements ShiftService {
     }
 
     @Override
-    public void RemoveShiftAsync(int shiftId) {
+    public void RemoveShiftAsync(String shiftId) throws IOException, ClassNotFoundException {
+        remoteModel.removeShift(shiftId);
 
     }
 
