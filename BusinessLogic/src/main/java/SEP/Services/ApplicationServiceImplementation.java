@@ -35,8 +35,8 @@ public class ApplicationServiceImplementation implements ApplicationService {
     }
 
     @Override
-    public Application updateApplication(Application application) throws IOException, ClassNotFoundException {
-return remoteModel.updateApplication(application);
+    public void updateApplication(Application application) throws IOException, ClassNotFoundException {
+         remoteModel.updateApplication(application);
     }
 
  /*   @Override

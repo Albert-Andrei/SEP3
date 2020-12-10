@@ -179,8 +179,6 @@ C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Clien
 C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Client.pdb
 C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Client.genruntimeconfig.cache
 C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Client.csproj.CopyComplete
-C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\MyApplicationComponent.razor.g.cs
-C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\MyApplicationComponent.razor.g.cs
 >>>>>>> 025cb0e39618d610e0cb705bd69f85a53a9c0df6
 D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\EmployeeApplication.razor.g.cs
 D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\EmployeeApplication.razor.g.cs
@@ -188,3 +186,13 @@ D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Ra
 D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\EmployeeListComponent.razor.g.cs
 D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\ShiftListForEmployee.razor.g.cs
 D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\ShiftListForEmployee.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\AboutComponent.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\ContactComponent.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\EmployeeListComponent.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\ShiftListComponent.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\ShiftListForEmployee.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\AboutComponent.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\ContactComponent.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\EmployeeListComponent.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\ShiftListComponent.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\ShiftListForEmployee.razor.g.cs

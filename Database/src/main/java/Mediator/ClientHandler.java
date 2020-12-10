@@ -122,23 +122,18 @@ public class ClientHandler implements Runnable {
                         String response4 = gson.toJson(applicationPackage1);
                         send(outputStream,response4);
                         break;
-                    case DELETE_APPLICATION:
-                        break;
                     case UPDATE_APPLICATION:
-                    /*    ApplicationPackage applicationPackage4 = gson.fromJson(message, ApplicationPackage.class);
+                        ApplicationPackage applicationPackage4 = gson.fromJson(message, ApplicationPackage.class);
                         Application application3 = applicationPackage4.getApplication();
-
-                        Application application4 = applicationModel.getApplication(application3.getApplicationId());
-                        ApplicationPackage applicationPackage5 = new ApplicationPackage(NetworkType.UPDATE_APPLICATION, application4);
-
-                        String response7 = gson.toJson(applicationPackage5);
-                        send(outputStream, response7);*/
-
+                        String getApplicationStringId = application3.getId();
+                        applicationModel.updateApplication(getApplicationStringId,application3);
+                        break;
+                    case DELETE_APPLICATION:
+                        // Dont need
                         break;
                 }
 
             } catch (Exception e) {
-                System.out.println(e);
                 System.out.println("Client disconnected");
                 break;
             }

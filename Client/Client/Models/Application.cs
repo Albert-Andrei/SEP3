@@ -10,7 +10,9 @@ namespace Client.Models
     public class Application
     {
         [JsonPropertyName("_id")] public ObjectIDGenerator ApplicationId { get; set; }
-
+        
+        [JsonPropertyName("id")] public string StringId { get; set; }
+        
         [Required, MaxLength(30)]
         [NotNull]
         [JsonPropertyName("firstName")]

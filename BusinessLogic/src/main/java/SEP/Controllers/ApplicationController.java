@@ -24,6 +24,7 @@ public class ApplicationController {
     @GetMapping("/get/{applicationId}")
         @ResponseBody
          public Application getApplication(@PathVariable final String applicationId) throws IOException, ClassNotFoundException {
+        System.out.println(applicationId);
         return service.getApplication(applicationId);
 
     }
@@ -37,10 +38,12 @@ public class ApplicationController {
         }
 
 
-        @PatchMapping("/update")
+        @PutMapping("/update/{applicationId}")
         @ResponseBody
-        public Application updateApplication(@PathVariable final Application application) throws IOException, ClassNotFoundException {
-        return service.updateApplication(application);
+        public Application updateApplication(@PathVariable("applicationId") String applicationId, @RequestBody final Application application) throws IOException, ClassNotFoundException {
+         service.updateApplication(application);
+         return application;
+
 
         }
 

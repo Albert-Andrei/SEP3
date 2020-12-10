@@ -56,14 +56,11 @@ public class ApplicationClient implements ApplicationRemoteModel {
     }
 
     @Override
-    public Application updateApplication(Application application) throws IOException, ClassNotFoundException {
+    public void updateApplication(Application application) throws IOException, ClassNotFoundException {
 
-        NetworkPackage toServer = new ApplicationPackage(NetworkType.GET_APPLICATION, application);
+        NetworkPackage toServer = new ApplicationPackage(NetworkType.UPDATE_APPLICATION, application);
         String gsonToServer = gson.toJson(toServer);
         handler.sendToDb(gsonToServer);
 
-        String response = handler.readFromDb();
-        ApplicationPackage applicationPackage = gson.fromJson(response, ApplicationPackage.class);
-        return applicationPackage.getApplication();
     }
 }

@@ -10,7 +10,7 @@ public interface ApplicationModel {
     List<Application> getAllApplications() throws IOException, ClassNotFoundException;
     Application getApplication(String applicationId) throws IOException, ClassNotFoundException;
     void createApplication(Application application) throws IOException, ClassNotFoundException;
-    void updateApplication(Application application) throws IOException, ClassNotFoundException;
-    void removeApplication(Application application) throws IOException, ClassNotFoundException;
+    void updateApplication(String applicationId, Application application) throws IOException, ClassNotFoundException;
+    void removeApplication(Application application) throws IOException, ClassNotFoundException; // Useless
 
 }
