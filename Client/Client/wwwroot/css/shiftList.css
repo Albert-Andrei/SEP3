@@ -60,7 +60,8 @@
 
 .remove-card {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
     align-content: center;
     align-items: center;
     width: 100px;
@@ -80,7 +81,7 @@
 }
 
 .left-side {
-    width: 250px;
+    width: 300px;
 }
 
 .descriptions {
@@ -96,4 +97,36 @@ p {
     justify-content: flex-start;
     width: 100%;
     align-content: center;
+}
+
+.remove-card-m {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 156px;
+}
+
+.remove-btn {
+    width: 70px;
+    height: 70px;
+    border: lightgray;
+    border-radius: 80px;
+    color: white;
+    background-color: lightgray;
+}
+
+.manage-btn {
+    width: 70px;
+    height: 70px;
+    border: 2px dodgerblue;
+    border-radius: 80px;
+    color: white;
+    background-color: dodgerblue;
+}
+
+.b-smal {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
 }

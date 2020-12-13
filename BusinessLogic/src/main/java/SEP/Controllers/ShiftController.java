@@ -70,16 +70,18 @@ public class ShiftController {
         return service.GetAllShifts();
     }
 
-    @DeleteMapping("/delete")
-    public void remove(@RequestParam int id) {
-
+    @DeleteMapping("{shiftId}")
+    @ResponseBody
+    public void remove(@PathVariable("shiftId") String shiftId) throws IOException, ClassNotFoundException {
+         service.RemoveShiftAsync(shiftId);
     }
 
     ;
 
-    @PutMapping("/update")
-    public void update(@RequestBody final User user) {
-
+    @PutMapping("apply/{shiftId}/{username}")
+    public void update(@PathVariable("shiftId") String shiftId, @PathVariable("username") String username) throws IOException, ClassNotFoundException {
+        System.out.println(shiftId + ", "+ username);
+        service.ApplyToShiftAsync(shiftId, username);
     }
 
     ;

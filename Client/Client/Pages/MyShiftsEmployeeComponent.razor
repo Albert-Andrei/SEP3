@@ -1,4 +1,4 @@
-@page "/shift-list"
+@page "/empl-shifts"
 @using Client.Models
 @using Client.Data.Shifts
 @using Client.Authentication
@@ -6,15 +6,14 @@
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
 @inject IShiftService ShiftService
-@attribute [Authorize(Policy = "SecurityLevel4")]
+@attribute [Authorize(Policy = "SecurityLevel3")]
 
 @if (shiftsToShow != null)
 {
     @if (count == 0)
     {
         <div class="noshifts">
-            <h1 class="text-no">You have no shifts, please add some.</h1>
-            <button @onclick="Navigate" class="createShiftBtn">Create Shift</button>
+            <h1 class="text-no">Apply to a shift and it will be displayed here</h1>
         </div>
     }
     else
@@ -24,8 +23,7 @@
                 <div class="shift-auth-content" style="width: 95%;">
 
                     <div class="sus-acolo">
-                        <h2 style="margin-left: 50px;">My Shifts</h2>
-                        <button @onclick="Navigate" class="createShiftBtn">Create Shift</button>
+                        <h2 style="margin-left: 50px;">Applied shifts</h2>
                     </div>
 
                     <div style="color:red">@errorMessage</div>
@@ -44,38 +42,19 @@
                                             <div style="display: flex; margin-left: 30px;">
                                                 <div class="left-side">
                                                     <h2>
-                                                        @item.CompanyName <br/>
+                                                        @item.CompanyName
                                                         <small>@item.JobTitle</small>
                                                     </h2>
 
                                                     <p><b>Hour wage:</b> @item.HourWage DKK</p>
-
-                                                    <div class="b-smal">
-                                                        @if (item.Pending != null)
-                                                        {
-                                                            <div>
-                                                                <p>
-                                                                    <b>Pending:</b> @item.Pending.Count
+                                                    @if (item.Pending != null)
+                                                    {
+                                                        <div style="margin-top: 20px;">
+                                                            <p>
+                                                                <b>Applied:</b> @item.Pending.Count + @item.Approved.Count + @item.Rejected.Count
                                                                 </p>
-                                                            </div>
-                                                        }
-                                                        @if (item.Approved != null)
-                                                        {
-                                                            <div style="margin-left: 10px;">
-                                                                <p>
-                                                                    <b>Approved:</b> @item.Approved.Count
-                                                                </p>
-                                                            </div>
-                                                        }
-                                                        @if (item.Rejected != null)
-                                                        {
-                                                            <div style="margin-left: 10px;">
-                                                                <p>
-                                                                    <b>Rejected:</b> @item.Rejected.Count
-                                                                </p>
-                                                            </div>
-                                                        }
-                                                    </div>
+                                                        </div>
+                                                    }
                                                 </div>
                                                 <div class="right-side">
                                                     <div class="dates">
@@ -114,13 +93,30 @@
                                             </div>
                                         </div>
 
-                                        <div class="remove-card">
-                                            <button @onclick="@(() => RemoveShift(item.ShiftId))" class="remove-btn">
-                                                <i class="oi oi-trash" style="color:red"/>
-                                            </button>
-                                            @if (item.Pending != null || item.Approved != null || item.Rejected != null)
+                                        <div class="remove-card-m">
+                                            @if (State() == "Rejected")
                                             {
-                                                <button @onclick="@(() => Manage(item.ShiftId))" class="manage-btn">Manage</button>
+                                                <h5 style="color: red">
+                                                    @State()
+                                                </h5>
+                                            }
+                                            else if (State() == "Approved")
+                                            {
+                                                <h5 style="color: green">
+                                                    @State()
+                                                </h5>
+                                            }
+                                            else if (State() == "Pending")
+                                            {
+                                                <h5 style="color: gray">
+                                                    @State()
+                                                </h5>
+                                            }
+                                            else
+                                            {
+                                                <h5 style="color: gray">
+                                                    @State()
+                                                </h5>
                                             }
                                         </div>
                                     </div>
@@ -144,6 +140,9 @@ else
     private IList<Shift> shiftsToShow;
     private IList<Shift> allShifts;
     private string errorMessage;
+    private string username;
+    private bool apply = false;
+
     private int count;
 
     [CascadingParameter]
@@ -157,27 +156,94 @@ else
         {
             NavigationManager.NavigateTo($"/log-in");
         }
-        allShifts = await ShiftService.GetAllShiftsOneUser(((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidatedUsername());
-        shiftsToShow = allShifts;
+        username = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidatedUsername();
+        allShifts = await ShiftService.GetAllShifts();
+        shiftsToShow = new List<Shift>();
+        foreach (var shift in allShifts)
+        {
+            if (shift.Approved.Count != 0)
+            {
+                foreach (var name in shift.Approved)
+                {
+                    if (name == username)
+                    {
+                        shiftsToShow.Add(shift);
+                    }
+                    else
+                    {
+                        Console.Out.WriteLine(username + " approved to:  " + shift);
+                    }
+                }
+            }
+            else if (shift.Rejected.Count != 0)
+            {
+                foreach (var name in shift.Rejected)
+                {
+                    if (name == username)
+                    {
+                        shiftsToShow.Add(shift);
+                    }
+                    else
+                    {
+                        Console.Out.WriteLine(username + " Rejected to:  " + shift);
+                    }
+                }
+            }
+            else if (shift.Pending.Count != 0)
+            {
+                foreach (var name in shift.Pending)
+                {
+                    if (name == username)
+                    {
+                        shiftsToShow.Add(shift);
+                    }
+                    else
+                    {
+                        Console.Out.WriteLine(username + " applied to:  " + shift);
+                    }
+                }
+            }
+        }
         count = shiftsToShow.Count;
     }
 
-    private void RemoveShift(string shiftId)
+    private string State()
     {
-        Shift shiftToRemove = shiftsToShow.First(t => t.ShiftId == shiftId);
-        ShiftService.RemoveShiftAsync(shiftId);
-        shiftsToShow.Remove(shiftToRemove);
-        OnInitializedAsync();
-    }
-
-    private void Manage(string id)
-    {
-        NavigationManager.NavigateTo($"/manage-shift?id={id}");
-    }
-
-    private void Navigate()
-    {
-        NavigationManager.NavigateTo("/shift");
+        foreach (var shift in shiftsToShow)
+        {
+            if (shift.Pending.Count != 0)
+            {
+                        Console.Out.WriteLine("aici");
+                foreach (var name in shift.Pending)
+                {
+                    if (name == username)
+                    {
+                        return "Pending";
+                    }
+                }
+            }
+            else if (shift.Approved.Count != 0)
+            {
+                foreach (var name in shift.Approved)
+                {
+                    if (name == username)
+                    {
+                        return "Approved";
+                    }
+                }
+            }
+            else if (shift.Rejected.Count != 0)
+            {
+                foreach (var name in shift.Rejected)
+                {
+                    if (name == username)
+                    {
+                        return "Rejected";
+                    }
+                }
+            }
+        }
+        return "I don't know :(";
     }
 
 }

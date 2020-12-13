@@ -9,6 +9,6 @@ public interface ShiftService {
     List<Shift> GetShiftsAsyncForOne(String username) throws IOException, ClassNotFoundException;
     List<Shift> GetAllShifts() throws IOException, ClassNotFoundException;
     void AddShiftAsync(Shift shift) throws IOException, ClassNotFoundException;
-    void RemoveShiftAsync(int shiftId);
-    void UpdateShiftAsync(Shift shift);
+    void RemoveShiftAsync(String shiftId) throws IOException, ClassNotFoundException;
+    void ApplyToShiftAsync(String shiftId, String username) throws IOException, ClassNotFoundException;
 }

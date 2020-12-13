@@ -18,7 +18,7 @@ public class UserController {
     @PostMapping("/post")
     @ResponseBody
     public User list(@RequestBody final User user) throws IOException, ClassNotFoundException {
-        System.out.println("Opa this is request for log in((((( Privet b");
+//        System.out.println("Opa this is request for log in((((( Privet b");
         return service.validateUser(user.getUsername(), user.getPassword());
     }
 

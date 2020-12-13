@@ -10,6 +10,6 @@ namespace Client.Data.Shifts
         Task<IList<Shift>> GetAllShifts();
         Task AddShiftAsync(Shift shift);
         Task RemoveShiftAsync(string shiftId);
-        Task UpdateShiftAsync(Shift shift);
+        Task ApplyToShiftAsync(string shiftId, string username);
     }
 }

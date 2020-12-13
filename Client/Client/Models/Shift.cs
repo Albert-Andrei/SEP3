@@ -16,7 +16,8 @@ namespace Client.Models
         [NotNull]
         public string UserName { get; set; }
 
-        [JsonPropertyName("_id")] public ObjectIDGenerator ShiftId { get; set; }
+        [JsonPropertyName("shiftId")]
+        public string ShiftId { get; set; }
 
         [Required, MaxLength(30)]
         [NotNull]
@@ -46,7 +47,7 @@ namespace Client.Models
         [MaxLength(70)]
         [JsonPropertyName("requirements")]
         [NotNull]
-        public string Requirements { get; set; } = "No requirements.";
+        public string Requirements { get; set; }
 
         [Required]
         [NotNull, Range(1, 3000)]
@@ -69,7 +70,7 @@ namespace Client.Models
             // EndDate = DateTime.Now.Date;
         }
 
-        public Shift(string userName, ObjectIDGenerator shiftId, string companyName, string jobTitle, string description, string requirements, float hourWage, IList<string> pending, IList<string> approved, IList<string> rejected)
+        public Shift(string userName, string shiftId, string companyName, string jobTitle, string description, string requirements, float hourWage, IList<string> pending, IList<string> approved, IList<string> rejected)
         {
             UserName = userName;
             ShiftId = shiftId;

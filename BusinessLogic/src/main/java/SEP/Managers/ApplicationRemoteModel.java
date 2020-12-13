@@ -10,6 +10,6 @@ public interface ApplicationRemoteModel {
     List<Application> getAllApplications() throws  IOException, ClassNotFoundException;
     void createApplication(Application application) throws IOException, ClassNotFoundException;
     Application getApplication(String applicationId) throws IOException, ClassNotFoundException;
-    Application updateApplication(Application application) throws IOException, ClassNotFoundException;
+    void updateApplication(Application application) throws IOException, ClassNotFoundException;
 
 }

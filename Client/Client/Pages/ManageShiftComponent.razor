@@ -1,0 +1,13 @@
+@page "/manage-shift"
+@using System.Web
+@inject NavigationManager NavigationManager
+
+<h3>ManageShift</h3>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        string id = HttpUtility.ParseQueryString(NavigationManager.ToAbsoluteUri(NavigationManager.Uri).Query).Get("id");
+        Console.Out.WriteLine(id);
+    }
+}

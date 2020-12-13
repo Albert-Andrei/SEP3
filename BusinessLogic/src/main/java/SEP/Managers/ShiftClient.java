@@ -51,6 +51,7 @@ public class ShiftClient implements ShiftRemoteModel{
     public List<Shift> getAllShifts() throws IOException, ClassNotFoundException {
         NetworkPackage toServer = new StringPackage(NetworkType.GET_ALL_SHIFTS);
         String gsonToServer = gson.toJson(toServer);
+
         handler.sendToDb(gsonToServer);
 
         String respose = handler.readFromDb();
@@ -58,5 +59,24 @@ public class ShiftClient implements ShiftRemoteModel{
         return list.getShiftList();
     }
 
+    @Override
+    public void removeShift(String shiftId) throws IOException, ClassNotFoundException {
+        NetworkPackage toServer = new StringPackage(NetworkType.DELETE_SHIFT, shiftId);
+        String gsonToServer = gson.toJson(toServer);
+        handler.sendToDb(gsonToServer);
+    }
 
+    @Override
+    public void applyToShift(String shiftId, String username) throws IOException, ClassNotFoundException {
+        StringPackage toServer = new StringPackage(NetworkType.APPLY_TO_SHIFT, shiftId);
+        String gsonToServer = gson.toJson(toServer);
+        handler.sendToDb(gsonToServer);
+
+        System.out.println("Sent 1 > " + gsonToServer);
+
+        StringPackage toServer2 = new StringPackage(NetworkType.APPLY_TO_SHIFT, username);
+        String gsonToServer2 = gson.toJson(toServer2);
+        handler.sendToDb(gsonToServer2);
+        System.out.println("Sent 2 > " + gsonToServer2);
+    }
 }

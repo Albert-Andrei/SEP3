@@ -1,4 +1,5 @@
 package Mediator;
+
 import Data.Shift;
 import Data.User;
 import Models.ShiftModel;
@@ -23,6 +24,7 @@ public class ClientHandler implements Runnable {
     private ShiftModel shiftModelManager;
     private ApplicationModel applicationModel;
     private Gson gson;
+    private String calhoz = null;
 
 
     public ClientHandler(Socket socket, UserModel userModelManager, ShiftModel shiftModelManager, ApplicationModel applicationModel) throws IOException {
@@ -113,32 +115,44 @@ public class ClientHandler implements Runnable {
                         send(outputStream, response3);
                         break;
                     case GET_APPLICATION:
-                        QueryPackage queryPackage = gson.fromJson(message,QueryPackage.class);
+                        QueryPackage queryPackage = gson.fromJson(message, QueryPackage.class);
                         Object object = queryPackage.getObject();
                         String idToGetApplication = object.toString();
                         Application application1 = applicationModel.getApplication(idToGetApplication);
 
                         ApplicationPackage applicationPackage1 = new ApplicationPackage(NetworkType.GET_APPLICATION, application1);
                         String response4 = gson.toJson(applicationPackage1);
-                        send(outputStream,response4);
-                        break;
-                    case DELETE_APPLICATION:
+                        send(outputStream, response4);
                         break;
                     case UPDATE_APPLICATION:
-                    /*    ApplicationPackage applicationPackage4 = gson.fromJson(message, ApplicationPackage.class);
+                        ApplicationPackage applicationPackage4 = gson.fromJson(message, ApplicationPackage.class);
                         Application application3 = applicationPackage4.getApplication();
+                        String getApplicationStringId = application3.getId();
+                        applicationModel.updateApplication(getApplicationStringId, application3);
+                        break;
+                    case DELETE_SHIFT:
+                        StringPackage idToRemove = gson.fromJson(message, StringPackage.class);
+                        String toRemove = idToRemove.getString();
+                        shiftModelManager.removeShift(toRemove);
+                        break;
+                    case APPLY_TO_SHIFT:
+                        if (calhoz == null) {
+                            StringPackage shiftId = gson.fromJson(message, StringPackage.class);
+                            String shiftIdString = shiftId.getString();
+                            calhoz = shiftIdString;
+                            System.out.println("Received 1 > " + shiftIdString);
+                        } else {
+                            StringPackage usernameToAdd = gson.fromJson(message, StringPackage.class);
+                            String usernameToAddString = usernameToAdd.getString();
+                            System.out.println("Received 2 > " + usernameToAddString);
+                            shiftModelManager.applyToShift(calhoz, usernameToAddString);
 
-                        Application application4 = applicationModel.getApplication(application3.getApplicationId());
-                        ApplicationPackage applicationPackage5 = new ApplicationPackage(NetworkType.UPDATE_APPLICATION, application4);
-
-                        String response7 = gson.toJson(applicationPackage5);
-                        send(outputStream, response7);*/
-
+                            calhoz = null;
+                        }
                         break;
                 }
 
             } catch (Exception e) {
-                System.out.println(e);
                 System.out.println("Client disconnected");
                 break;
             }
