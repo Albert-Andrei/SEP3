@@ -11,7 +11,6 @@ public interface ApplicationService {
     Application getApplication(String applicationId) throws IOException, ClassNotFoundException;
     void createApplication(Application application) throws IOException, ClassNotFoundException;
     void updateApplication(Application application) throws IOException, ClassNotFoundException;
-/*
-    void removeApplication(int id) throws IOException, ClassNotFoundException;
-*/
+    Application getApplicationMyApplication(String user) throws IOException, ClassNotFoundException;
+
 }

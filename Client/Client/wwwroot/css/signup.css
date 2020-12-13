@@ -145,6 +145,39 @@ hr.divider:after {
         margin: 20px 20px 10px 0px;
     }
 
+    .contentMyApplication {
+        width: 80%;
+        background: #fff;
+        height: 100%;
+        margin: 5px 0px -8px;
+    }
+
+    .imageMyApplication{
+        height: 350px;
+        width: 350px;
+    }
+
+    .imageMyApplicationDiv{
+        background: #f2d184;
+        color: #866118;
+        width: 810px;
+        margin-left: 175px;
+        margin-block: 50px;
+    }
+
+    .logoMyApplicationDiv{
+        background: #f2d184;
+        color: #866118;
+        margin-left: -65px;
+    }
+    .logoCreateApplicationDiv{
+        background: #f2d184;
+        color: #866118;
+        margin-left: -18px;
+        
+    }
+  
+
     main {
         display: flex;
         align-items: center;
@@ -159,6 +192,7 @@ hr.divider:after {
         margin: 0;
         height: 100%;
     }
+    
 }
 
 .forms {
@@ -217,11 +251,36 @@ label {
     border-radius: 8px;
     color: white;
     background-color: dodgerblue;
+    float: right;
 }
 
 .signupBtn:hover {
     transition: 0.3s;
     background-color: lightskyblue;
+}
+
+.signupBtnMyApplication{
+    width: 45%;
+    height: 45px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: 2px dodgerblue;
+    border-radius: 8px;
+    color: white;
+    background-color: dodgerblue;
+    float: right;
+    font-weight: bold;
+}
+
+.signupBtnMyApplication:hover {
+    transition: 0.3s;
+    background-color: lightskyblue;
+}
+
+.errorMsg
+{
+    font-weight: bold;
+    padding-top: 40px;
 }
 
 .dropdown-state {

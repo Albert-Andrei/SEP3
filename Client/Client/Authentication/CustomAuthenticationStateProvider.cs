@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Client.Data;
 using Client.Models;
 using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.JSInterop;
 
 namespace Client.Authentication
@@ -19,6 +20,7 @@ namespace Client.Authentication
 
         public CustomAuthenticationStateProvider(IJSRuntime jsRuntime, IUserService userService)
         {
+            
             this.jsRuntime = jsRuntime;
             this.userService = userService;
             username = "notauthorized";
@@ -80,7 +82,7 @@ namespace Client.Authentication
         {
             return cachedUser.UserType;
         }
-
+        
         public void Logout()
         {
             cachedUser = null;

@@ -1,19 +1,15 @@
+
 <div id="navbar" class="navbar">
     <div class="navbar-main">
-        <div class="logo-routing">
-            <div class="logo">
-                <a style="margin: 0;" class="navbar-brand" href="">Logo</a>
-                <button class="navbar-toggler">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
-            <div>
-                <ul class="nav">
+        <ul class="nav">
+                    <li class="nav_li">
+                        <img class="LogoForNav" src="logoForNav.PNG">
+                    </li>
                     <li class="nav_li">
                         <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                             <span class="oi oi-home" aria-hidden="true"></span> Home
                         </NavLink>
-                    </li>
+                        </li>
                     <li class="nav_li">
                         <NavLink class="nav-link" href="AboutComponent" Match="NavLinkMatch.All">
                             <span class="oi oi-home" aria-hidden="true"></span> About
@@ -38,23 +34,26 @@
                             </NavLink>
                         </li>
                     </AuthorizeView>
-                    <AuthorizeView Policy="SecurityLevel3">
-                    <li class="nav_li">
-                        <NavLink class="nav-link" href="EmployeeApplication" Match="NavLinkMatch.All">
-                            <span class="oi oi-home" aria-hidden="true"></span> Employee Application
-                        </NavLink>
-                    </li>
-                    </AuthorizeView>
-                    <AuthorizeView Policy="SecurityLevel3">
-                    <li class="nav_li">
-                        <NavLink class="nav-link" href="empl-shifts" Match="NavLinkMatch.All">
-                            <span class="oi oi-home" aria-hidden="true"></span> Shifts
-                        </NavLink>
-                    </li>
+            <AuthorizeView Policy="SecurityLevel3">
+                <li class="nav_li">
+                    <NavLink class="nav-link" href="MyApplication" Match="NavLinkMatch.All">
+                        <span class="oi oi-home" aria-hidden="true"></span> My Application
+                    </NavLink>
+                </li>
+            </AuthorizeView>
+                        <li class="nav_li">
+                            <NavLink class="nav-link" href="CreateApplication" Match="NavLinkMatch.All">
+                                <span class="oi oi-home" aria-hidden="true"></span> Create Application
+                            </NavLink>
+                        </li>
+            <AuthorizeView Policy="SecurityLevel3">
+                        <li class="nav_li">
+                            <NavLink class="nav-link" href="empl-shifts" Match="NavLinkMatch.All">
+                                <span class="oi oi-home" aria-hidden="true"></span> Shifts
+                            </NavLink>
+                        </li>
                     </AuthorizeView>
                 </ul>
-            </div>
-        </div>
         <div class="login-main">
             <ul class="nav">
                 <li class="nav_li">
@@ -69,5 +68,4 @@
 
 
 @code {
-
 }

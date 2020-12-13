@@ -5,6 +5,8 @@
     <e p="C:\Users\mirek\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Client.-977980885.00" t="ExcludeRecursive" />
     <e p="C:\Users\mirek\AppData\Roaming\JetBrains\Rider2020.2\consoles\db" t="IncludeRecursive" />
     <e p="C:\Users\mirek\AppData\Roaming\JetBrains\Rider2020.2\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\mirek\AppData\Roaming\JetBrains\Rider2020.2\javascript\extLibs\http_cdnjs.cloudflare.com_ajax_libs_font-awesome_4.7.0_css_font-awesome.css" t="IncludeRecursive" />
+    <e p="C:\Users\mirek\AppData\Roaming\JetBrains\Rider2020.2\javascript\extLibs\http_www.w3schools.com_w3css_4_w3.css" t="IncludeRecursive" />
     <e p="C:\Users\mirek\Documents\GitHub\SEP3\Client" t="IncludeFlat">
       <e p="Client" t="IncludeRecursive">
         <e p="_Imports.razor" t="Include" />
@@ -35,6 +37,7 @@
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
               <e p="Client.AssemblyInfo.cs" t="Include" />
+              <e p="Client.RazorAssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -46,6 +49,7 @@
           <e p="EmployeeListComponent.razor" t="Include" />
           <e p="HomeComponent.razor" t="Include" />
           <e p="Index.razor" t="Include" />
+          <e p="MyApplication.razor" t="Include" />
           <e p="ShiftListComponent.razor" t="Include" />
           <e p="ShiftListForEmployee.razor" t="Include" />
           <e p="ShiftsComponent.razor" t="Include" />
@@ -102,7 +106,11 @@
           <e p="favicon.ico" t="Include" />
           <e p="imagne.png" t="Include" />
           <e p="jobs.jpg" t="Include" />
+          <e p="logoCreateApplication.PNG" t="Include" />
+          <e p="logoForNav.PNG" t="Include" />
+          <e p="LogoMyApplication.png" t="Include" />
           <e p="mirka.jpg" t="Include" />
+          <e p="newLogoForNav.PNG" t="Include" />
           <e p="tautvydas.png" t="Include" />
           <e p="work.png" t="Include" />
           <e p="work2.png" t="Include" />

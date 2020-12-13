@@ -1,11 +1,11 @@
-@page "/EmployeeApplication"
-@using System.Collections
+@page "/CreateApplication"
+@using Client.Authentication
 @using Client.Data
 @using Client.Models
 @inject NavigationManager NavigationManager
 @inject IApplicationService ApplicationService
-
-
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@attribute [Authorize(Policy = "SecurityLevel3")]
 <EditForm Model="@application" OnValidSubmit="@CreateNewApplication">
     <DataAnnotationsValidator/>
     
@@ -13,7 +13,7 @@
         <div class="auth-sidebar">
             <div class="auth-sidebar-content">
                 <div class="header">
-                    <a href="/" class="signup-logo">Logo</a>
+                    <img class="logoCreateApplicationDiv" src="logoCreateApplication.PNG">
                     <h1>Discover all available possibilities of our platform</h1>
                 </div>
             </div>
@@ -128,15 +128,30 @@
     string selectedType1;
     string selectedType2;
     string selectedType3;
+    [CascadingParameter]
+    protected Task<AuthenticationState> AuthStat { get; set; }
+    protected override async Task OnInitializedAsync()
+    {
+        base.OnInitialized();
+        var user = (await AuthStat).User;
+        if (!user.Identity.IsAuthenticated)
+        {
+            NavigationManager.NavigateTo($"/log-in");
+        }
+    }
     
-    private void CreateNewApplication()
+    private  void CreateNewApplication()
     {
         application.Languages = selectedType1;
         application.DrivingLicenses = selectedType2;
         application.PreferableWorkTime = selectedType3;
+        application.User = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidatedUsername();
+        Console.Out.WriteLine(application.ToString());
         ApplicationService.CreateApplicationAsync(application);
-        NavigationManager.NavigateTo("/log-in");
+        ApplicationService.GetApplicationAsync(errorMessage);
+        NavigationManager.NavigateTo("/MyApplication");
     }
+
     
 }
 

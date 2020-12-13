@@ -125,14 +125,24 @@ public class ClientHandler implements Runnable {
                     case UPDATE_APPLICATION:
                         ApplicationPackage applicationPackage4 = gson.fromJson(message, ApplicationPackage.class);
                         Application application3 = applicationPackage4.getApplication();
-                        String getApplicationStringId = application3.getId();
-                        applicationModel.updateApplication(getApplicationStringId,application3);
+                        applicationModel.updateApplication(application3);
                         break;
                     case DELETE_SHIFT:
                         QueryPackage shiftPackage = gson.fromJson(message,QueryPackage.class);
                         Object object1 = shiftPackage.getObject();
                         String idToGetShift = object1.toString();
                         shiftModelManager.removeShift(idToGetShift);
+
+                        break;
+                    case GET_MY_APPLICATION:
+                        ApplicationPackage incomingApplicationPackage = gson.fromJson(message, ApplicationPackage.class);
+                        Application application2 = incomingApplicationPackage.getApplication();
+
+                        Application returnedApplication = applicationModel.getApplicationMyApplication(application2.getUser());
+                        ApplicationPackage outgoingUserPackage1 = new ApplicationPackage(NetworkType.USER, returnedApplication);
+
+                        String response5 = gson.toJson(outgoingUserPackage1);
+                        send(outputStream, response5);
 
                         break;
                 }

@@ -24,10 +24,19 @@ public class ApplicationModelImplementation implements ApplicationModel {
 
     private final MongoCollection<Document> applicationCollection;
 
+
+
     public ApplicationModelImplementation(MongoDatabase database) {
         applicationCollection = database.getCollection("Applications");;
+
     }
 
+    /**
+     *
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     @Override
     public List<Application> getAllApplications() throws IOException, ClassNotFoundException {
         MongoCursor<Document> cursor = applicationCollection.find().iterator();
@@ -47,6 +56,14 @@ public class ApplicationModelImplementation implements ApplicationModel {
         }
         return null;
     }
+
+    /**
+     *
+     * @param applicationId
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     @Override
     public Application getApplication(String applicationId) throws IOException, ClassNotFoundException {
         if (applicationCollection.find(eq("_id", new ObjectId(applicationId))).first() != null) {
@@ -65,53 +82,79 @@ public class ApplicationModelImplementation implements ApplicationModel {
      *
      * **/
 
+    /**
+     *
+     * @param application
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     @Override
     public void createApplication(Application application) throws IOException, ClassNotFoundException {
         //Preparing a document
         Document document = new Document();
-        document.put("firstName", application.getFirstName());
-        document.put("lastName", application.getLastName());
-        document.put("phoneNumber", application.getPhoneNumber());
-        document.put("email", application.getEmail());
-        document.put("jobExperience", application.getJobExperience());
-        document.put("drivingLicenses", application.getDrivingLicenses());
-        document.put("languages", application.getLanguages());
-        document.put("preferableWorkTime", application.getPreferableWorkTime());
-        document.put("available", application.isAvailable());
-
+        document.append("id", application.getId() );
+        document.append("firstName", application.getFirstName());
+        document.append("lastName", application.getLastName());
+        document.append("phoneNumber", application.getPhoneNumber());
+        document.append("email", application.getEmail());
+        document.append("jobExperience", application.getJobExperience());
+        document.append("drivingLicenses", application.getDrivingLicenses());
+        document.append("languages", application.getLanguages());
+        document.append("preferableWorkTime", application.getPreferableWorkTime());
+        document.append("available", application.isAvailable());
+        document.append("user", application.getUser());
         //Inserting the document into the collection
         applicationCollection.insertOne(document);
+
+
         System.out.println("Document inserted successfully " + application);
     }
 
+    /**
+     *
+     * @param application
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     @Override
-    public void updateApplication(String applicationId, Application application) throws IOException, ClassNotFoundException {
-        if (applicationCollection.find(eq("_id", new ObjectId(applicationId))).first() != null) {
-            Document application123 = applicationCollection.find(eq("_id", new ObjectId(applicationId))).first();
+    public void updateApplication(Application application) throws IOException, ClassNotFoundException {
+        BasicDBObject whereQuery = new BasicDBObject();
+        whereQuery.put("user", application.getUser());
+
+        if (applicationCollection.find(whereQuery).first() != null) {
+            String userJson = applicationCollection.find(whereQuery).first().toJson();
             Gson gson = new Gson();
-            Application applicationToUpdate = gson.fromJson(application123.toJson(),Application.class);
+            Application applicationToUpdate = gson.fromJson(userJson,Application.class);
             applicationToUpdate.Update(application);
-            System.out.println(applicationToUpdate.toString());
-            applicationCollection.updateOne(eq("_id", application.getApplicationId()), new Document("$set", new Document("firstName", applicationToUpdate.getFirstName())));
-            applicationCollection.updateOne(eq("_id", application.getApplicationId()), new Document("$set", new Document("lastName", applicationToUpdate.getLastName())));
-            applicationCollection.updateOne(eq("_id", application.getApplicationId()), new Document("$set", new Document("email", applicationToUpdate.getEmail())));
-            applicationCollection.updateOne(eq("_id", application.getApplicationId()), new Document("$set", new Document("phoneNumber", applicationToUpdate.getPhoneNumber())));
-            applicationCollection.updateOne(eq("_id", application.getApplicationId()), new Document("$set", new Document("jobExperience", applicationToUpdate.getJobExperience())));
-            applicationCollection.updateOne(eq("_id", application.getApplicationId()), new Document("$set", new Document("languages", applicationToUpdate.getLanguages())));
-            applicationCollection.updateOne(eq("_id", application.getApplicationId()), new Document("$set", new Document("drivingLicenses", applicationToUpdate.getDrivingLicenses())));
-            applicationCollection.updateOne(eq("_id", application.getApplicationId()), new Document("$set", new Document("preferableWorkTime", applicationToUpdate.getPreferableWorkTime())));
-            // Available
-/*
-            applicationCollection.updateOne(eq("_id", application.getApplicationId()), new Document("$set", new Document("firstName", applicationToUpdate.())));
-*/
+            applicationCollection.updateOne(eq("user", application.getUser()), new Document("$set", new Document("firstName", applicationToUpdate.getFirstName())));
+            applicationCollection.updateOne(eq("user", application.getUser()), new Document("$set", new Document("lastName", applicationToUpdate.getLastName())));
+            applicationCollection.updateOne(eq("user", application.getUser()), new Document("$set", new Document("email", applicationToUpdate.getEmail())));
+            applicationCollection.updateOne(eq("user", application.getUser()), new Document("$set", new Document("phoneNumber", applicationToUpdate.getPhoneNumber())));
+            applicationCollection.updateOne(eq("user", application.getUser()), new Document("$set", new Document("jobExperience", applicationToUpdate.getJobExperience())));
+            applicationCollection.updateOne(eq("user", application.getUser()), new Document("$set", new Document("languages", applicationToUpdate.getLanguages())));
+            applicationCollection.updateOne(eq("user", application.getUser()), new Document("$set", new Document("drivingLicenses", applicationToUpdate.getDrivingLicenses())));
+            applicationCollection.updateOne(eq("user", application.getUser()), new Document("$set", new Document("preferableWorkTime", applicationToUpdate.getPreferableWorkTime())));
         }
     }
 
+    /**
+     *
+     * @param user
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     @Override
-    public void removeApplication(Application application) throws IOException, ClassNotFoundException {
-        Bson filter = eq("_id", application.getApplicationId());
-        applicationCollection.deleteOne(filter);
+    public Application getApplicationMyApplication(String user) throws IOException, ClassNotFoundException {
+        BasicDBObject whereQuery = new BasicDBObject();
+        whereQuery.put("user", user);
+        if (applicationCollection.find(whereQuery).first() != null) {
+            String userJson = applicationCollection.find(whereQuery).first().toJson();
+            Gson gson = new Gson();
+            Application userFromDatabase = gson.fromJson(userJson, Application.class);
+            return userFromDatabase;
+        }
+        return null;
     }
-
 
 }

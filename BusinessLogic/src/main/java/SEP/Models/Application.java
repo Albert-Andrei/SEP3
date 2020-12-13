@@ -14,11 +14,12 @@ public class Application {
     private String languages;
     private String preferableWorkTime;
     private boolean available;
+    private String user;
 
     public Application() {
     }
 
-    public Application(ObjectId applicationId, String id, String firstName, String lastName, String phoneNumber, String email, String jobExperience, String drivingLicenses, String languages, String preferableWorkTime/*, boolean available*/) {
+    public Application(ObjectId applicationId, String id, String firstName, String lastName, String phoneNumber, String email, String jobExperience, String drivingLicenses, String languages, String preferableWorkTime, boolean available, String user) {
         this.applicationId = applicationId;
         this.id = id;
         this.firstName = firstName;
@@ -30,6 +31,15 @@ public class Application {
         this.languages = languages;
         this.preferableWorkTime = preferableWorkTime;
         this.available = available;
+        this.user = user;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
     }
 
     public ObjectId getApplicationId() {

@@ -1,0 +1,171 @@
+
+@page "/MyApplication"
+
+@using Client.Data
+@using Client.Models
+@using Client.Authentication
+
+@inject NavigationManager NavigationManager
+@inject IApplicationService ApplicationService
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@attribute [Authorize(Policy = "SecurityLevel3")]
+
+<EditForm Model="@application" OnValidSubmit="@UpdateApplication">
+    <DataAnnotationsValidator/>
+    @if (_application != null)
+{
+    <div class="sign-up">
+        <div class="imageMyApplicationDiv">
+            <img class="imageMyApplication" src="employee.png">
+            <div class="logoMyApplicationDiv">
+                <img class="logoMyApplication" src="LogoMyApplication.png">
+            </div>
+        </div>
+        
+        <div class="contentMyApplication">
+              
+            <main>
+
+                <div class="auth-content">
+
+                    <div class="forms" autocomplete="on">
+                        <div class="name">
+                            <div class="box">
+                                <fieldset>
+                                    <label>First Name</label>
+                                    <input class="text-input"
+                                           type="text"
+                                           @bind="application.FirstName" required />
+                                </fieldset>
+                            </div>
+                            <div class="box">
+                                <fieldset>
+                                    <label>Last Name</label>
+                                    <input class="text-input"
+
+                                           type="text"
+                                           @bind="application.LastName" required />
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="name">
+                            <div class="box">
+                                <fieldset>
+                                    <label>Email</label>
+                                    <input class="text-input" type="text"
+                                           @bind="application.Email" required />
+                                </fieldset>
+                            </div>
+                            <div class="box">
+                                <fieldset>
+                                    <label>Phone Number</label>
+                                    <input class="text-input"
+                                           type="text"
+                                           @bind="application.PhoneNumber" required />
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="longbox">
+                            <div class="email">
+                                <fieldset>
+                                    <label>Job Experience</label>
+                                    <textarea class="text-input" type="text"
+                                         @bind="application.JobExperience" required ></textarea>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <div class="row">
+                                                    <div class="col-4 dropdown-state">
+                                                        <label for="state">Danish Skill Level</label>
+                                                        <select name="type" class="state" @bind="@application.Languages">
+                                                            @foreach (var t in languages)
+                                                            {
+                                                                <option multiple value=@t>@t</option>
+                                                            }
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-4 dropdown-state">
+                                                        <label for="state">Driving Licenses</label>
+                                                        <select name="type" class="state" @bind="@application.DrivingLicenses">
+                                                            @foreach (var t in car)
+                                                            {
+                                                                <option value=@t>@t</option>
+                                                            }
+                                                        </select>
+                                                    </div><div class="col-4 dropdown-state">
+                                                        <label for="state">Preferable Work Hours</label>
+                                                        <select name="type" class="state" @bind="@application.PreferableWorkTime">
+                                                            @foreach (var t in time)
+                                                            {
+                                                                <option value=@t>@t</option>
+                                                            }
+                                                            </select>
+                                                        </div>
+                                                </div>
+                    </div><div class="container">
+                              <div class="row">
+                                  <div style="@errorMessageStyle" class="col-md-6 errorMsg">@errorMessage </div>
+                        <button type="submit" class="signupBtnMyApplication col-md-6">Update Application</button>
+                    </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+   }
+   else 
+   {
+       <p class="loadingText">
+           <em>Loading...</em>
+       </p>
+   }
+</EditForm>
+
+
+@code {
+    private string errorMessage;
+    private string errorMessageStyle = "visibility:hidden";
+    private Application application = new Application();
+    private Application _application;
+    [CascadingParameter]
+    protected Task<AuthenticationState> AuthStat { get; set; }
+    List<string> car = new List<string>() {"Yes", "No"};
+    List<string> time = new List<string>() {"Day (6-14)", "Evening (14-22)", "Night (22-6)"};
+    List<string> languages = new List<string>() {"Native", "Proficient" ,"Advanced","Intermediate", "Elementary", "None"};
+
+    protected override async Task OnInitializedAsync()
+    {            
+        var user = (await AuthStat).User;
+        if (!user.Identity.IsAuthenticated)
+        {
+            NavigationManager.NavigateTo($"/log-in");
+        }
+        application.User = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidatedUsername();
+        application = await ApplicationService.GetMyApplicationAsync(application.User);
+        if (application.Available)
+        {
+            NavigationManager.NavigateTo($"/CreateApplication");
+        }
+        else _application = application;
+        
+    }
+
+    private void UpdateApplication()
+    {
+        try
+        {
+            ApplicationService.UpdateApplicationAsync(_application);
+            errorMessageStyle = "color:green";
+            errorMessage = "Application Successfully Update";
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            errorMessageStyle = "color:red";
+            errorMessage = "Failed To Update";
+        }
+        
+    }
+}
+    
+    

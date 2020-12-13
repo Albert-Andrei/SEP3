@@ -11,48 +11,42 @@ namespace Client.Models
     {
         [JsonPropertyName("_id")] public ObjectIDGenerator ApplicationId { get; set; }
         
-        [JsonPropertyName("id")] public string StringId { get; set; }
-        
         [Required, MaxLength(30)]
-        [NotNull]
         [JsonPropertyName("firstName")]
         public string FirstName { get; set; }
 
         [Required, MaxLength(30)]
-        [NotNull]
         [JsonPropertyName("lastName")]
         public string LastName { get; set; }
 
         [Required, MaxLength(15)]
         [ValidatePhoneNr]
-        [NotNull]
         [JsonPropertyName("phoneNumber")]
         public string PhoneNumber { get; set; }
 
         [Required, MaxLength(30)]
-        [NotNull]
         [JsonPropertyName("email")]
         public string Email { get; set; }
         
-        [NotNull]
         [JsonPropertyName("jobExperience")]
         public string JobExperience { get; set; }
         
-        [NotNull]
         [JsonPropertyName("drivingLicenses")]
         public string DrivingLicenses { get; set; }
         
-        [NotNull]
         [JsonPropertyName("languages")]
         public string Languages { get; set; }
         
-        [NotNull]
         [JsonPropertyName("preferableWorkTime")]
         public string PreferableWorkTime { get; set; }
 
-        [JsonPropertyName("availability")]
-        public bool Available { get; set; } = true;
+        [JsonPropertyName("available")]
+        public bool Available { get; set; } 
         
+        [JsonPropertyName("user")]
+        public string User { get; set; }
+
+     
 
         private class ValidatePhoneNr : ValidationAttribute
         {

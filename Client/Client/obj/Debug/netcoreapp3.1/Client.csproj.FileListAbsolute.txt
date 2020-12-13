@@ -196,3 +196,5 @@ C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor
 C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\EmployeeListComponent.razor.g.cs
 C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\ShiftListComponent.razor.g.cs
 C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\ShiftListForEmployee.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\MyApplication.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\MyApplication.razor.g.cs

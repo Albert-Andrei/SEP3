@@ -1,8 +1,10 @@
 package Data;
 
+import com.google.gson.annotations.Expose;
 import org.bson.types.ObjectId;
 
 public class Application {
+
     private ObjectId applicationId;
     private String id;
     private String firstName;
@@ -13,12 +15,15 @@ public class Application {
     private String drivingLicenses;
     private String languages;
     private String preferableWorkTime;
-    private boolean available = true;
+    private boolean available;
+    @Expose(serialize = true, deserialize = true)
+    private String user;
+
 
     public Application() {
     }
 
-    public Application(ObjectId applicationId, String id, String firstName, String lastName, String phoneNumber, String email, String jobExperience, String drivingLicenses, String languages, String preferableWorkTime, boolean available) {
+    public Application(ObjectId applicationId, String id, String firstName, String lastName, String phoneNumber, String email, String jobExperience, String drivingLicenses, String languages, String preferableWorkTime, boolean available, String user) {
         this.applicationId = applicationId;
         this.id = id;
         this.firstName = firstName;
@@ -30,6 +35,24 @@ public class Application {
         this.languages = languages;
         this.preferableWorkTime = preferableWorkTime;
         this.available = available;
+        this.user = user;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setMyUser(String user) {
+        this.user = user;
+    }
+
+
+    public ObjectId getApplicationId() {
+        return applicationId;
+    }
+
+    public void setApplicationId(ObjectId applicationId) {
+        this.applicationId = applicationId;
     }
 
     public String getId() {
@@ -38,14 +61,6 @@ public class Application {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public ObjectId getApplicationId() {
-        return applicationId;
-    }
-
-    public void setApplicationId(ObjectId applicationId) {
-        this.applicationId = applicationId;
     }
 
     public String getFirstName() {
@@ -131,6 +146,7 @@ public class Application {
         preferableWorkTime = toUpdate.preferableWorkTime;
         available = toUpdate.available;
     }
+
     @Override
     public String toString() {
         return "Application{" +
@@ -145,8 +161,8 @@ public class Application {
                 ", preferableWorkTime='" + preferableWorkTime + '\'' +
                 ", available=" + available +
                 '}';
-    }
-}
 
+}
+}
 
 
