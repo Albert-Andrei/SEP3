@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Client.Models;
+using Microsoft.AspNetCore.Components;
 
 namespace Client.Data
 {
@@ -27,7 +28,7 @@ namespace Client.Data
             return result;
         }
 
-        public async Task<Application> GetApplicationAsync(ObjectIDGenerator applicationId)
+        public async Task<Application> GetApplicationAsync(string applicationId)
         {
             Task<string> stringAsync = client.GetStringAsync( $"http://localhost:6969/application/get/{applicationId}");
             string message = await stringAsync;
@@ -45,15 +46,26 @@ namespace Client.Data
                     "application/json");
                 await client.PostAsync("http://localhost:6969/application/create", content);
         }
-
-        public async Task<Application> RemoveApplicationAsync(ObjectIDGenerator applicationId)
+        
+        public async Task UpdateApplicationAsync(Application application)
         {
-            throw new System.NotImplementedException();
+            string applicationAsJson = JsonSerializer.Serialize(application);
+            HttpContent content = new StringContent(applicationAsJson,
+                Encoding.UTF8,
+                "application/json");
+            await client.PutAsync($"http://localhost:6969/application/update/{application.User}", content);
         }
 
-        public async Task<Application> UpdateApplicationAsync(Application application)
+        public async Task<Application> GetMyApplicationAsync(string user)
         {
-            throw new System.NotImplementedException();
+            Task<string> stringAsync =
+                    client.GetStringAsync($"http://localhost:6969/application/get-by-user/{user}");
+                string message = await stringAsync;
+                Console.Out.WriteLine("result" + message);
+                Application result = JsonSerializer.Deserialize<Application>(message);
+                return result;
+            
         }
+        
     }
 }

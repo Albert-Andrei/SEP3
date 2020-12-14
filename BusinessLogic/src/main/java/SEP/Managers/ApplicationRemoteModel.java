@@ -11,5 +11,7 @@ public interface ApplicationRemoteModel {
     void createApplication(Application application) throws IOException, ClassNotFoundException;
     Application getApplication(String applicationId) throws IOException, ClassNotFoundException;
     void updateApplication(Application application) throws IOException, ClassNotFoundException;
+    Application getApplicationMyApplication(String user) throws IOException, ClassNotFoundException;
+
 
 }

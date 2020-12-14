@@ -154,6 +154,34 @@ public class ShiftModelImplementation implements ShiftModel {
     }
 
     @Override
+    public Shift GetShiftById(String shiftId) throws ParseException {
+        Gson gson = new GsonBuilder()
+                .excludeFieldsWithoutExposeAnnotation()
+                .create();
+        if (shiftCollection.find(eq("_id", new ObjectId(shiftId))).first() != null) {
+            Document shift = shiftCollection.find(eq("_id", new ObjectId(shiftId))).first();
+            String json = shift.toJson();
+
+            String startDate = shift.get("startDate").toString();
+            String endDate = shift.get("endDate").toString();
+            String stringId = shift.get("_id").toString();
+
+            // Formatter for the input date
+            final DateFormat inputFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
+            // The parsed date
+            final Date startDateParsed = inputFormat.parse(startDate);
+            final Date endDateParsed = inputFormat.parse(endDate);
+
+            Shift shiftById = gson.fromJson(json,Shift.class);
+            shiftById.setStartDate(startDateParsed);
+            shiftById.setEndDate(endDateParsed);
+            shiftById.setShiftId(stringId);
+            return shiftById;
+        }
+        return null;
+    }
+
+    @Override
     public void removeShift(String shiftId) throws IOException, ClassNotFoundException {
         try {
             if (shiftCollection.find(eq("_id", new ObjectId(shiftId))).first() != null) {
@@ -168,6 +196,40 @@ public class ShiftModelImplementation implements ShiftModel {
     public void applyToShift(String shiftId, String username) throws IOException, ClassNotFoundException {
         if (shiftCollection.find(eq("_id", new ObjectId(shiftId))).first() != null) {
             shiftCollection.updateOne(eq("_id", new ObjectId(shiftId)), Updates.addToSet("pendingList", username));
+        }
+    }
+
+    @Override
+    public void Approve(String shiftId, String username) throws IOException, ClassNotFoundException {
+        if (shiftCollection.find(eq("_id", new ObjectId(shiftId))).first() != null) {
+            shiftCollection.updateOne(eq("_id", new ObjectId(shiftId) ), Updates.pull("pendingList", username));
+            shiftCollection.updateOne(eq("_id", new ObjectId(shiftId) ), Updates.addToSet("approvedList", username));
+        }
+    }
+
+    @Override
+    public void Reject(String shiftId, String username) throws IOException, ClassNotFoundException {
+        if (shiftCollection.find(eq("_id", new ObjectId(shiftId))).first() != null) {
+
+//            try {
+////                Shift shift = GetShiftById(shiftId);
+////
+////                for ( String uname : shift.getPendingList()) {
+////                    if (uname == username)
+////                    {
+////                        shiftCollection.updateOne(eq("_id", new ObjectId(shiftId) ), Updates.pull("pendingList", username));
+////                        shiftCollection.updateOne(eq("_id", new ObjectId(shiftId) ), Updates.addToSet("rejectedList", username));
+////                    } else
+////                    {
+////
+////                    }
+////                }
+//            } catch (ParseException e) {
+//                e.printStackTrace();
+//            }
+            shiftCollection.updateOne(eq("_id", new ObjectId(shiftId) ), Updates.pull("pendingList", username));
+            shiftCollection.updateOne(eq("_id", new ObjectId(shiftId) ), Updates.pull("approvedList", username));
+            shiftCollection.updateOne(eq("_id", new ObjectId(shiftId) ), Updates.addToSet("rejectedList", username));
         }
     }
 }

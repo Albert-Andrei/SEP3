@@ -3,8 +3,10 @@
 @using Client.Data.Shifts
 @using Client.Authentication
 @using System.Runtime.Serialization
+@using Client.Data
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
+@inject IApplicationService ApplicationService
 @inject IShiftService ShiftService
 @attribute [Authorize(Policy = "SecurityLevel3")]
 
@@ -50,8 +52,8 @@
                                                     @if (item.Pending != null)
                                                     {
                                                         <div style="margin-top: 20px;">
-                                                            <p>
-                                                                <b>Applied:</b> @item.Pending.Count + @item.Approved.Count + @item.Rejected.Count
+                                                            <p>    
+                                                                <b>Applied:</b> @item.Pending.Count
                                                                 </p>
                                                         </div>
                                                     }
@@ -94,28 +96,33 @@
                                         </div>
 
                                         <div class="remove-card-m">
-                                            @if (State() == "Rejected")
+                                            @{ string stateToShow = State();}
+                                            @if (stateToShow == "Rejected")
                                             {
                                                 <h5 style="color: red">
-                                                    @State()
+                                                    @* @State() *@
+                                                    Rejected
                                                 </h5>
                                             }
-                                            else if (State() == "Approved")
+                                            else if (stateToShow == "Approved")
                                             {
                                                 <h5 style="color: green">
-                                                    @State()
+                                                    @* @State() *@
+                                                    Approved
                                                 </h5>
                                             }
-                                            else if (State() == "Pending")
+                                            else if (stateToShow == "Pending")
                                             {
                                                 <h5 style="color: gray">
-                                                    @State()
+                                                    @* @State() *@
+                                                    Pending
                                                 </h5>
                                             }
                                             else
                                             {
                                                 <h5 style="color: gray">
-                                                    @State()
+                                                    @* @State() *@
+                                                    huita
                                                 </h5>
                                             }
                                         </div>
@@ -139,6 +146,7 @@ else
 @code {
     private IList<Shift> shiftsToShow;
     private IList<Shift> allShifts;
+    private IList<Shift> toCheck;
     private string errorMessage;
     private string username;
     private bool apply = false;
@@ -157,9 +165,14 @@ else
             NavigationManager.NavigateTo($"/log-in");
         }
         username = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidatedUsername();
+        Application application = await ApplicationService.GetMyApplicationAsync(username);
+        if (application.User == null)
+        {
+            NavigationManager.NavigateTo($"/CreateApplication");
+        }
         allShifts = await ShiftService.GetAllShifts();
         shiftsToShow = new List<Shift>();
-        foreach (var shift in allShifts)
+        foreach (Shift shift in allShifts)
         {
             if (shift.Approved.Count != 0)
             {
@@ -175,7 +188,8 @@ else
                     }
                 }
             }
-            else if (shift.Rejected.Count != 0)
+            
+            if (shift.Rejected.Count != 0)
             {
                 foreach (var name in shift.Rejected)
                 {
@@ -189,7 +203,8 @@ else
                     }
                 }
             }
-            else if (shift.Pending.Count != 0)
+            
+            if (shift.Pending.Count != 0)
             {
                 foreach (var name in shift.Pending)
                 {
@@ -205,40 +220,63 @@ else
             }
         }
         count = shiftsToShow.Count;
+        
+        
+        toCheck = new List<Shift>();
+        foreach(var item in shiftsToShow)
+        {
+            toCheck.Add(new Shift { 
+                UserName = item.UserName,
+                    ShiftId = item.ShiftId,
+                    CompanyName = item.CompanyName,
+                    JobTitle = item.JobTitle,
+                    Description = item.Description,
+                    Requirements = item.Requirements,
+                    HourWage = item.HourWage,
+                    Pending = item.Pending,
+                    Approved = item.Approved,
+                    Rejected = item.Rejected,
+            });
+        }
     }
 
     private string State()
     {
-        foreach (var shift in shiftsToShow)
+        if (toCheck.Count != 0)
         {
-            if (shift.Pending.Count != 0)
+            foreach (Shift shift in toCheck)
             {
-                        Console.Out.WriteLine("aici");
-                foreach (var name in shift.Pending)
+                if (shift.Pending.Count != 0)
                 {
-                    if (name == username)
+                    foreach (var name in shift.Pending)
                     {
-                        return "Pending";
+                        if (name == username)
+                        {
+                            toCheck.Remove(shift);
+                            return "Pending";
+                        }
                     }
                 }
-            }
-            else if (shift.Approved.Count != 0)
-            {
-                foreach (var name in shift.Approved)
+                else if (shift.Approved.Count != 0)
                 {
-                    if (name == username)
+                    foreach (var name in shift.Approved)
                     {
-                        return "Approved";
+                        if (name == username)
+                        {
+                            toCheck.Remove(shift);
+                            return "Approved";
+                        }
                     }
                 }
-            }
-            else if (shift.Rejected.Count != 0)
-            {
-                foreach (var name in shift.Rejected)
+                else if (shift.Rejected.Count != 0)
                 {
-                    if (name == username)
+                    foreach (var name in shift.Rejected)
                     {
-                        return "Rejected";
+                        if (name == username)
+                        {
+                            toCheck.Remove(shift);
+                            return "Rejected";
+                        }
                     }
                 }
             }

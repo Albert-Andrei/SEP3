@@ -51,7 +51,7 @@
                                                     {
                                                         <div style="margin-top: 20px;">
                                                             <p>
-                                                               <b>Applied:</b> @item.Pending.Count + @item.Approved.Count + @item.Rejected.Count
+                                                               <b>Applied:</b> @item.Pending.Count
                                                                 </p>
                                                         </div>
                                                     }
@@ -205,11 +205,15 @@ else
             if (shift.ShiftId == shiftId)
             {
                 ShiftService.ApplyToShiftAsync(shiftId, username);
-                NavigationManager.NavigateTo($"/empl-shifts");
+                // NavigationManager.NavigateTo($"/empl-shifts");
+                shiftsToShow.Remove(shift);
+                StateHasChanged();
                 Console.Out.WriteLine("To check...");
-                // NavigationManager.NavigateTo($"/empl-shifts",forceLoad:true);
             }
         }
+        // NavigationManager.NavigateTo($"/empl-shifts",forceLoad:true);
     }
+
+    
 
 }

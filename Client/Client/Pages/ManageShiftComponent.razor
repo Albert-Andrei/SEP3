@@ -1,13 +1,371 @@
 @page "/manage-shift"
 @using System.Web
+@using Client.Data
+@using Client.Data.Shifts
+@using Client.Models
 @inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject IApplicationService ApplicationService
+@inject IShiftService ShiftService
 
-<h3>ManageShift</h3>
+@if (shift == null)
+{
+    <p class="loadingText">
+        <em>Loading...</em>
+    </p>
+}
+else
+{
+    if (privet == false)
+    {
+        <div class="noshifts">
+            <h1 class="text-no">Something went wrong :( <br/> Please come back later.</h1>
+            @* <button @onclick="Navigate" class="createShiftBtn">Something</button> *@
+        </div>
+    }
+    else
+    {
+        <div class="create-shift-content">
+        <main>
+        <div class="shift-auth-content" style="width: 95%;">
+
+        <div class="sus-acolo">
+            <h2 style="margin-left: 50px;">Selected shift</h2>
+        </div>
+
+        <div style="color:red">@errorMessage</div>
+
+        <div class="forms" style=" border-radius: 5px;">
+        <div>
+        <div class="shiftCard">
+            <div class="card-content">
+                <div class="card-info">
+                    <img src="jobs.jpg" style="width: 200px; height: 200px;">
+                    <div style="display: flex; margin-left: 30px;">
+                        <div class="left-side">
+                            <h2>
+                                @shift.CompanyName <br/>
+                                <small>@shift.JobTitle</small>
+                            </h2>
+
+                            <p><b>Hour wage:</b> @shift.HourWage DKK</p>
+
+                            <div class="b-smal">
+                                @if (shift.Pending != null)
+                                {
+                                    <div>
+                                        <p>
+                                            <b>Pending:</b> @shift.Pending.Count
+                                        </p>
+                                    </div>
+                                }
+                                @if (shift.Approved != null)
+                                {
+                                    <div style="margin-left: 10px;">
+                                        <p>
+                                            <b>Approved:</b> @shift.Approved.Count
+                                        </p>
+                                    </div>
+                                }
+                                @if (shift.Rejected != null)
+                                {
+                                    <div style="margin-left: 10px;">
+                                        <p>
+                                            <b>Rejected:</b> @shift.Rejected.Count
+                                        </p>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                        <div class="right-side">
+                            <div class="dates">
+                                <div>
+                                    <p style="margin: 0;
+                                                                          margin-left: 15px;">
+                                        <b>Strt Date</b>
+                                    </p>
+                                    <p style="margin: 0px 10px 0px;">@shift.StartDate</p>
+                                </div>
+                                <div>
+                                    <p style="margin: 0;
+                                                                          margin-left: 15px;">
+                                        <b>End Date</b>
+                                    </p>
+                                    <p style="margin: 0px 10px 0px;">@shift.EndDate</p>
+                                </div>
+                            </div>
+                            <div class="descriptions">
+                                @if (shift.Description != null)
+                                {
+                                    <p>
+                                        <b>Description: </b>
+                                    </p>
+                                    <p>@shift.Description</p>
+                                }
+                                @if (shift.Requirements != null)
+                                {
+                                    <p>
+                                        <b>Requirements: </b>
+                                    </p>
+                                    <p>@shift.Requirements</p>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="divider"/>
+
+        @if (pendingList.Count != 0)
+        {
+            <br/>
+            <h4>Pending:</h4>
+
+            @foreach (var item in pendingList)
+            {
+                <div class="shiftCard">
+                    <div class="card-content">
+
+                        <div class="card-info">
+                            <img src="employee.png" style="width: 200px; height: 200px;">
+                            <div style="display: flex; margin-left: 30px;">
+                                <div class="left-side">
+                                    <h2>
+                                        @item.FirstName
+                                        <small>@item.LastName</small>
+                                    </h2>
+
+                                    <p><b>Phone nr: </b> @item.PhoneNumber DKK</p>
+                                    @if (item.Email != null)
+                                    {
+                                        <div style="margin-top: 20px;">
+                                            <p>
+                                                <b>Email: </b> @item.Email
+                                            </p>
+                                        </div>
+                                    }
+                                </div>
+                                <div class="right-side">
+                                    <div class="dates">
+                                        <div>
+                                            <p style="margin: 0;
+                                                                                                      margin-left: 15px;">
+                                                <b>Drive licence</b>
+                                            </p>
+                                            <p style="margin: 0px 10px 0px;">@item.DrivingLicenses</p>
+                                        </div>
+                                        <div>
+                                            <p style="margin: 0;
+                                                                                                      margin-left: 15px;">
+                                                <b>Prefered time</b>
+                                            </p>
+                                            <p style="margin: 0px 10px 0px;">@item.PreferableWorkTime</p>
+                                        </div>
+                                    </div>
+                                    <div class="descriptions">
+                                        @if (item.Languages != null)
+                                        {
+                                            <p>
+                                                <b>Description: </b>
+                                            </p>
+                                            <p>@item.Languages</p>
+                                        }
+                                        @if (item.JobExperience != null)
+                                        {
+                                            <p>
+                                                <b>Requirements: </b>
+                                            </p>
+                                            <p>@item.JobExperience</p>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="remove-card">
+                            <button @onclick="@(() => Approve(item.User))" class="manage-btn" style="background-color: green">Approve</button>
+
+                            <button @onclick="@(() => Reject(item.User))" class="manage-btn" style="background-color: red">Reject</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+
+        @if (approvedList.Count != 0)
+        {
+            <br/>
+            <h4>Approved:</h4>
+            @foreach (var item in approvedList)
+            {
+                <div class="shiftCard">
+                    <div class="card-content">
+
+                        <div class="card-info">
+                            <img src="employee.png" style="width: 200px; height: 200px;">
+                            <div style="display: flex; margin-left: 30px;">
+                                <div class="left-side">
+                                    <h2>
+                                        @item.FirstName
+                                        <small>@item.LastName</small>
+                                    </h2>
+
+                                    <p><b>Phone nr: </b> @item.PhoneNumber DKK</p>
+                                    @if (item.Email != null)
+                                    {
+                                        <div style="margin-top: 20px;">
+                                            <p>
+                                                <b>Email: </b> @item.Email
+                                            </p>
+                                        </div>
+                                    }
+                                </div>
+                                <div class="right-side">
+                                    <div class="dates">
+                                        <div>
+                                            <p style="margin: 0;
+                                                                                                      margin-left: 15px;">
+                                                <b>Drive licence</b>
+                                            </p>
+                                            <p style="margin: 0px 10px 0px;">@item.DrivingLicenses</p>
+                                        </div>
+                                        <div>
+                                            <p style="margin: 0;
+                                                                                                      margin-left: 15px;">
+                                                <b>Prefered time</b>
+                                            </p>
+                                            <p style="margin: 0px 10px 0px;">@item.PreferableWorkTime</p>
+                                        </div>
+                                    </div>
+                                    <div class="descriptions">
+                                        @if (item.Languages != null)
+                                        {
+                                            <p>
+                                                <b>Description: </b>
+                                            </p>
+                                            <p>@item.Languages</p>
+                                        }
+                                        @if (item.JobExperience != null)
+                                        {
+                                            <p>
+                                                <b>Requirements: </b>
+                                            </p>
+                                            <p>@item.JobExperience</p>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="remove-card">
+                            <button @onclick="@(() => Reject(item.User))" class="manage-btn" style="background-color: red">Reject</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        
+        </div>
+        </div>
+        </div>
+        </main>
+        </div>
+    }
+}
 
 @code {
+    private string errorMessage;
+    List<Application> pendingList;
+    List<Application> approvedList;
+    List<Application> rejectedList;
+    bool privet = false;
+    Shift shift;
+
     protected override async Task OnInitializedAsync()
     {
+        errorMessage = "";
+        pendingList = new List<Application>();
+        approvedList = new List<Application>();
+        rejectedList = new List<Application>();
         string id = HttpUtility.ParseQueryString(NavigationManager.ToAbsoluteUri(NavigationManager.Uri).Query).Get("id");
-        Console.Out.WriteLine(id);
+        shift = await ShiftService.GetShiftById(id);
+        if (shift != null)
+        {
+            privet = true;
+        }
+
+        if (shift.Pending.Count != 0)
+        {
+            foreach (var name in shift.Pending)
+            {
+                Application application = await ApplicationService.GetMyApplicationAsync(name);
+                pendingList.Add(application);
+            }
+        }
+
+        if (shift.Approved.Count != 0)
+        {
+            foreach (var name in shift.Approved)
+            {
+                Application application = await ApplicationService.GetMyApplicationAsync(name);
+                approvedList.Add(application);
+            }
+        }
+
+        if (shift.Pending.Count != 0)
+        {
+            foreach (var name in shift.Pending)
+            {
+                Application application = await ApplicationService.GetMyApplicationAsync(name);
+                rejectedList.Add(application);
+            }
+        }
     }
+
+    private void Approve(String username)
+    {
+        Console.Out.WriteLine(username);
+        foreach (var application in pendingList)
+        {
+            if (application.User == username)
+            {
+                ShiftService.ApproveAsync(shift.ShiftId, username);
+                NavigationManager.NavigateTo("/manage-shift");
+            }
+        }
+    }
+
+    private void Reject(String username)
+    {
+        Console.Out.WriteLine(username);
+        if (pendingList.Count != 0)
+        {
+            foreach (var application in pendingList)
+            {
+                if (application.User == username)
+                {
+                    ShiftService.RejectAsync(shift.ShiftId, username);
+                    OnInitializedAsync();
+                }
+            }
+        }
+        else if (approvedList.Count != 0)
+        {
+            foreach (var application in approvedList)
+            {
+                if (application.User == username)
+                {
+                    ShiftService.RejectAsync(shift.ShiftId, username);
+                    OnInitializedAsync();
+                }
+            }
+        }
+        else
+        {
+            errorMessage = "Something went wrong here...";
+            Console.Out.WriteLine("Something went wrong here...");
+        }
+    }
+
 }

@@ -37,14 +37,6 @@ public class UserController {
         }
     }
 
-
-//    @GetMapping("/get")
-//    public void get() throws IOException, ClassNotFoundException {
-//        service.createUser(null);
-//    }
-//
-//    ;
-
     @DeleteMapping("/delete")
     public void remove(@RequestParam int id) {
         service.removeUser(id);
