@@ -8,23 +8,35 @@ import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Updates;
+import com.mongodb.client.result.DeleteResult;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import static com.mongodb.client.model.Filters.eq;
+import static com.mongodb.client.model.Updates.set;
 
 
 public class ApplicationModelImplementation implements ApplicationModel {
 
     private final MongoCollection<Document> applicationCollection;
 
+
+
     public ApplicationModelImplementation(MongoDatabase database) {
         applicationCollection = database.getCollection("Applications");;
+
     }
 
+    /**
+     *
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     @Override
     public List<Application> getAllApplications() throws IOException, ClassNotFoundException {
         MongoCursor<Document> cursor = applicationCollection.find().iterator();
@@ -44,14 +56,20 @@ public class ApplicationModelImplementation implements ApplicationModel {
         }
         return null;
     }
+
+    /**
+     *
+     * @param applicationId
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     @Override
     public Application getApplication(String applicationId) throws IOException, ClassNotFoundException {
         if (applicationCollection.find(eq("_id", new ObjectId(applicationId))).first() != null) {
             Document application = applicationCollection.find(eq("_id", new ObjectId(applicationId))).first();
             Gson gson = new Gson();
             Application applicationID = gson.fromJson(application.toJson(),Application.class);
-            String objectId = application.get("_id").toString();
-            applicationID.setId(objectId);
             return applicationID;
         }
         return null;
@@ -62,58 +80,78 @@ public class ApplicationModelImplementation implements ApplicationModel {
      *
      * **/
 
+    /**
+     *
+     * @param application
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     @Override
     public void createApplication(Application application) throws IOException, ClassNotFoundException {
         //Preparing a document
         Document document = new Document();
-        document.put("firstName", application.getFirstName());
-        document.put("lastName", application.getLastName());
-        document.put("phoneNumber", application.getPhoneNumber());
-        document.put("email", application.getEmail());
-        document.put("jobExperience", application.getJobExperience());
-        document.put("drivingLicenses", application.getDrivingLicenses());
-        document.put("languages", application.getLanguages());
-        document.put("preferableWorkTime", application.getPreferableWorkTime());
-        document.put("available", application.isAvailable());
-
+        document.append("firstName", application.getFirstName());
+        document.append("lastName", application.getLastName());
+        document.append("phoneNumber", application.getPhoneNumber());
+        document.append("email", application.getEmail());
+        document.append("jobExperience", application.getJobExperience());
+        document.append("drivingLicenses", application.getDrivingLicenses());
+        document.append("languages", application.getLanguages());
+        document.append("preferableWorkTime", application.getPreferableWorkTime());
+        document.append("available", application.isAvailable());
+        document.append("user", application.getUser());
         //Inserting the document into the collection
         applicationCollection.insertOne(document);
+
+
         System.out.println("Document inserted successfully " + application);
     }
 
+    /**
+     *
+     * @param application
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     @Override
     public void updateApplication(Application application) throws IOException, ClassNotFoundException {
+        BasicDBObject whereQuery = new BasicDBObject();
+        whereQuery.put("user", application.getUser());
 
-        //Preparing a document
-
-
-        applicationCollection.updateOne(Filters.eq("firstName", application.getFirstName()), Updates.set("firstName", application.getFirstName()));
-        applicationCollection.updateOne(Filters.eq("lastName", application.getFirstName()), Updates.set("lastName", application.getLastName()));
-        applicationCollection.updateOne(Filters.eq("phoneNumber", application.getFirstName()), Updates.set("phoneNumber", application.getPhoneNumber()));
-        applicationCollection.updateOne(Filters.eq("email", application.getFirstName()), Updates.set("email", application.getEmail()));
-        applicationCollection.updateOne(Filters.eq("jobExperience", application.getFirstName()), Updates.set("jobExperience", application.getJobExperience()));
-        applicationCollection.updateOne(Filters.eq("drivingLicenses", application.getFirstName()), Updates.set("drivingLicenses", application.getDrivingLicenses()));
-        applicationCollection.updateOne(Filters.eq("languages", application.getFirstName()), Updates.set("languages", application.getLanguages()));
-        applicationCollection.updateOne(Filters.eq("preferableWorkTime", application.getFirstName()), Updates.set("preferableWorkTime", application.getPreferableWorkTime()));
-
-/*        applicationCollection.updateOne("firstName", application1.setFirstName(application.getFirstName()));
-        applicationCollection.updateOne("lastName", application.getLastName());
-        applicationCollection.updateOne("phoneNumber", application.getPhoneNumber());
-        applicationCollection.updateOne("email", application.getEmail());
-        applicationCollection.updateOne("jobExperience", application.getJobExperience());
-        applicationCollection.updateOne("drivingLicenses", application.getDrivingLicenses());
-        applicationCollection.updateOne("languages", application.getLanguages());
-        applicationCollection.updateOne("preferableWorkTime", application.getPreferableWorkTime());
-        applicationCollection.updateOne("available", application.isAvailable());*/
-
-        //Inserting the document into the collection
-        System.out.println("Document inserted successfully " + application);
+        if (applicationCollection.find(whereQuery).first() != null) {
+            String userJson = applicationCollection.find(whereQuery).first().toJson();
+            Gson gson = new Gson();
+            Application applicationToUpdate = gson.fromJson(userJson,Application.class);
+            applicationToUpdate.Update(application);
+            applicationCollection.updateOne(eq("user", application.getUser()), new Document("$set", new Document("firstName", applicationToUpdate.getFirstName())));
+            applicationCollection.updateOne(eq("user", application.getUser()), new Document("$set", new Document("lastName", applicationToUpdate.getLastName())));
+            applicationCollection.updateOne(eq("user", application.getUser()), new Document("$set", new Document("email", applicationToUpdate.getEmail())));
+            applicationCollection.updateOne(eq("user", application.getUser()), new Document("$set", new Document("phoneNumber", applicationToUpdate.getPhoneNumber())));
+            applicationCollection.updateOne(eq("user", application.getUser()), new Document("$set", new Document("jobExperience", applicationToUpdate.getJobExperience())));
+            applicationCollection.updateOne(eq("user", application.getUser()), new Document("$set", new Document("languages", applicationToUpdate.getLanguages())));
+            applicationCollection.updateOne(eq("user", application.getUser()), new Document("$set", new Document("drivingLicenses", applicationToUpdate.getDrivingLicenses())));
+            applicationCollection.updateOne(eq("user", application.getUser()), new Document("$set", new Document("preferableWorkTime", applicationToUpdate.getPreferableWorkTime())));
+        }
     }
 
+    /**
+     *
+     * @param user
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     @Override
-    public void removeApplication(Application application) throws IOException, ClassNotFoundException {
-
+    public Application getApplicationMyApplication(String user) throws IOException, ClassNotFoundException {
+        BasicDBObject whereQuery = new BasicDBObject();
+        whereQuery.put("user", user);
+        if (applicationCollection.find(whereQuery).first() != null) {
+            String userJson = applicationCollection.find(whereQuery).first().toJson();
+            Gson gson = new Gson();
+            Application userFromDatabase = gson.fromJson(userJson, Application.class);
+            return userFromDatabase;
+        }
+        return null;
     }
-
 
 }

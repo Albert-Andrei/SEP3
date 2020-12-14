@@ -11,6 +11,5 @@ public interface ApplicationModel {
     Application getApplication(String applicationId) throws IOException, ClassNotFoundException;
     void createApplication(Application application) throws IOException, ClassNotFoundException;
     void updateApplication(Application application) throws IOException, ClassNotFoundException;
-    void removeApplication(Application application) throws IOException, ClassNotFoundException;
-
+    Application getApplicationMyApplication(String user) throws IOException, ClassNotFoundException;
 }

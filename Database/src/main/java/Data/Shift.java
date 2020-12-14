@@ -12,6 +12,7 @@ import java.util.List;
 
 public class Shift {
     private ObjectId _id;
+    private String shiftId;
     @Expose(serialize = true, deserialize = true)
     private String username;
     @Expose(serialize = true, deserialize = true)
@@ -37,11 +38,14 @@ public class Shift {
 
     public Shift() {
         pendingList = new ArrayList<>();
+        approvedList = new ArrayList<>();
+        rejectedList = new ArrayList<>();
     }
 
-    public Shift(ObjectId _id, String username, String companyName, String jobTitle, Date endDate, Date startDate, String description, String requirements, float hourWage, List<String> pendingList, List<String> approvedList, List<String> rejectedList) {
+    public Shift(ObjectId _id, String username, String shiftId, String companyName, String jobTitle, Date endDate, Date startDate, String description, String requirements, float hourWage, List<String> pendingList, List<String> approvedList, List<String> rejectedList) {
         this._id = _id;
         this.username = username;
+        this.shiftId = shiftId;
         this.companyName = companyName;
         this.jobTitle =jobTitle;
         this.endDate = endDate;
@@ -52,6 +56,14 @@ public class Shift {
         this.pendingList = pendingList;
         this.approvedList = approvedList;
         this.rejectedList = rejectedList;
+    }
+
+    public String getShiftId() {
+        return shiftId;
+    }
+
+    public void setShiftId(String shiftId) {
+        this.shiftId = shiftId;
     }
 
     public String getJobTitle() {

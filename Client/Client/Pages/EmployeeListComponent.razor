@@ -25,7 +25,7 @@
                 <div class="shift-auth-content" style="width: 95%;">
 
                     <div class="sus-acolo">
-                        <h2 style="margin-left: 50px;">My Shifts</h2>
+                        <h2 style="margin-left: 50px;">Available Employees</h2>
                         <button @onclick="Refresh" class="createShiftBtn">Refresh</button>
                     </div>
 
@@ -139,5 +139,6 @@ else
     private void Refresh()
     {
         NavigationManager.NavigateTo("/employee-list");
+        OnInitializedAsync();
     }
 }

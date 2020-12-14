@@ -10,6 +10,13 @@
     transition: 0.5s;
 }
 
+.LogoForNav
+{
+    width: auto;
+    height: 50px;
+    margin-left: 10px;
+}
+
 @media (min-width: 768px) {
 
     .sidebar {
@@ -28,7 +35,7 @@
         justify-content: space-between;
     }
 
-    .nav-link, .navbar-brand, .nav-link-login {
+    .nav-link, .navbar-brand, .nav-link-login, .nav-link-out{
         font-family: 'Montserrat', sans-serif;
         font-weight: 500;
         font-size: 20px;
@@ -37,7 +44,7 @@
         transition: 0.5s;   
     }
 
-    .nav-link-login {
+    .nav-link-login, .nav-link-out{
         color: #edf0f1;
         display: block;
         padding: .5rem 1rem;
@@ -116,6 +123,20 @@
         width: 100%;
         height: 100%;
         background: #42b733;
+        transition: 1s;
+        transform-origin: right;
+        transform: scaleX(0);
+        z-index: -1;
+    }
+
+    .nav-link-out:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: red;
         transition: 1s;
         transform-origin: right;
         transform: scaleX(0);

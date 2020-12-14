@@ -40,6 +40,11 @@ public class ShiftServiceImplementation implements ShiftService {
         return remoteModel.getAllShifts();
     }
 
+    @Override
+    public Shift GetShiftById(String shiftId) throws IOException, ClassNotFoundException {
+        return remoteModel.GetShiftById(shiftId);
+    }
+
     /**
      * Calls the method CreateShift from remote model
      * @param shift
@@ -53,12 +58,23 @@ public class ShiftServiceImplementation implements ShiftService {
     }
 
     @Override
-    public void RemoveShiftAsync(int shiftId) {
+    public void RemoveShiftAsync(String shiftId) throws IOException, ClassNotFoundException {
+        remoteModel.removeShift(shiftId);
 
     }
 
     @Override
-    public void UpdateShiftAsync(Shift shift) {
+    public void ApplyToShiftAsync(String shiftId, String username) throws IOException, ClassNotFoundException {
+        remoteModel.applyToShift(shiftId, username);
+    }
 
+    @Override
+    public void ApproveAsync(String shiftId, String username) throws IOException, ClassNotFoundException {
+        remoteModel.Approve(shiftId, username);
+    }
+
+    @Override
+    public void RejectAsync(String shiftId, String username) throws IOException, ClassNotFoundException {
+        remoteModel.Reject(shiftId, username);
     }
 }

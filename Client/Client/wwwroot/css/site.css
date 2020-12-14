@@ -55,9 +55,6 @@ app {
     text-overflow: ellipsis;
 }
 
-.content {
-}
-
 .navbar-toggler {
     background-color: rgba(255, 255, 255, 0.1);
 }
@@ -261,14 +258,12 @@ body {
 }
 
 .logout {
-    margin-top: 200px;
     color: white;
     background: black;
     text-align: center;
     height: 40px;
     width: 250px;
     border-radius: 7px;
-    margin-left: 400px;
     text-decoration: none;
 }
 
@@ -326,4 +321,17 @@ body {
     height: 92.3%;
     width: 83.3%;
     opacity: 80%;
+}
+
+.logoutview {
+    margin: 10px 30px 10px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    padding: 30px 60px 10px;
+    background: #fff;
+    height: 100%;
+    border-radius: 5px;
 }

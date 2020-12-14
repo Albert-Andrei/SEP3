@@ -3,10 +3,10 @@ package SEP.Services;
 import SEP.Managers.ApplicationClient;
 import SEP.Managers.ApplicationRemoteModel;
 import SEP.Models.Application;
-import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.List;
 
 @Service
@@ -35,17 +35,20 @@ public class ApplicationServiceImplementation implements ApplicationService {
     }
 
     @Override
-    public Application updateApplication(Application application) throws IOException, ClassNotFoundException {
-return remoteModel.updateApplication(application);
-    }
-
- /*   @Override
-    public void updateApplication(Application application) {
-
+    public void updateApplication(Application application) throws IOException, ClassNotFoundException {
+         remoteModel.updateApplication(application);
     }
 
     @Override
-    public void removeUser(int id) {*/
+    public Application getApplicationMyApplication(String user) throws IOException, ClassNotFoundException {
+        if(remoteModel.getApplicationMyApplication(user) == null)
+        {
+            Application application = new Application();
+            application.setAvailable(true);
+            return application;
+        }
+         return remoteModel.getApplicationMyApplication(user);
+    }
 
     }
 

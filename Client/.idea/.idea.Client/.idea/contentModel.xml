@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-<<<<<<< HEAD
-    <e p="C:\Users\tbile\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\tbile\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Client.-2011878043.00" t="ExcludeRecursive" />
-    <e p="C:\Users\tbile\AppData\Roaming\JetBrains\Rider2020.2\consoles\db" t="IncludeRecursive" />
-    <e p="C:\Users\tbile\AppData\Roaming\JetBrains\Rider2020.2\extensions" t="IncludeRecursive" />
-    <e p="C:\Users\tbile\SemesterProject\SEP3\Client" t="IncludeFlat">
-=======
     <e p="C:\Users\mirek\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
     <e p="C:\Users\mirek\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Client.-977980885.00" t="ExcludeRecursive" />
     <e p="C:\Users\mirek\AppData\Roaming\JetBrains\Rider2020.2\consoles\db" t="IncludeRecursive" />
     <e p="C:\Users\mirek\AppData\Roaming\JetBrains\Rider2020.2\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\mirek\AppData\Roaming\JetBrains\Rider2020.2\javascript\extLibs\http_cdnjs.cloudflare.com_ajax_libs_font-awesome_4.7.0_css_font-awesome.css" t="IncludeRecursive" />
+    <e p="C:\Users\mirek\AppData\Roaming\JetBrains\Rider2020.2\javascript\extLibs\http_www.w3schools.com_w3css_4_w3.css" t="IncludeRecursive" />
     <e p="C:\Users\mirek\Documents\GitHub\SEP3\Client" t="IncludeFlat">
->>>>>>> 025cb0e39618d610e0cb705bd69f85a53a9c0df6
       <e p="Client" t="IncludeRecursive">
         <e p="_Imports.razor" t="Include" />
         <e p="App.razor" t="Include" />
@@ -28,10 +22,15 @@
           <e p="ApplicationService.cs" t="Include" />
           <e p="IApplicationService.cs" t="Include" />
           <e p="IUserService.cs" t="Include" />
+          <e p="Shifts" t="Include">
+            <e p="IShiftService.cs" t="Include" />
+            <e p="ShiftService.cs" t="Include" />
+          </e>
           <e p="UserService.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
           <e p="Application.cs" t="Include" />
+          <e p="Shift.cs" t="Include" />
           <e p="User.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -44,15 +43,15 @@
         </e>
         <e p="Pages" t="Include">
           <e p="_Host.cshtml" t="Include" />
-<<<<<<< HEAD
           <e p="AboutComponent.razor" t="Include" />
           <e p="ContactComponent.razor" t="Include" />
-=======
           <e p="EmployeeApplication.razor" t="Include" />
->>>>>>> 025cb0e39618d610e0cb705bd69f85a53a9c0df6
+          <e p="EmployeeListComponent.razor" t="Include" />
           <e p="HomeComponent.razor" t="Include" />
           <e p="Index.razor" t="Include" />
-          <e p="MyApplicationComponent.razor" t="Include" />
+          <e p="MyApplication.razor" t="Include" />
+          <e p="ShiftListComponent.razor" t="Include" />
+          <e p="ShiftListForEmployee.razor" t="Include" />
           <e p="ShiftsComponent.razor" t="Include" />
           <e p="SignUpComponent.razor" t="Include" />
         </e>
@@ -70,16 +69,16 @@
         <e p="Startup.cs" t="Include" />
         <e p="wwwroot" t="Include">
           <e p="andrei.jpg" t="Include" />
-          <e p="background-logIn.jpg" t="Include" />
           <e p="Background-LogIn_2.jpg" t="Include" />
           <e p="css" t="Include">
-            <e p="AboutComponent.razor.css" t="Include" />
+            <e p="AboutComponent.css" t="Include" />
             <e p="bootstrap" t="Include">
               <e p="bootstrap.min.css" t="Include" />
               <e p="bootstrap.min.css.map" t="Include" />
             </e>
-            <e p="ContactComponent.razor.css" t="Include" />
-            <e p="HomeComponent.razor.css" t="Include" />
+            <e p="ContactComponent.css" t="Include" />
+            <e p="createShift.css" t="Include" />
+            <e p="HomeComponent.css" t="Include" />
             <e p="loading.css" t="Include" />
             <e p="navigation.css" t="Include" />
             <e p="open-iconic" t="Include">
@@ -99,12 +98,19 @@
               <e p="ICON-LICENSE" t="Include" />
               <e p="README.md" t="Include" />
             </e>
+            <e p="shiftList.css" t="Include" />
             <e p="signup.css" t="Include" />
             <e p="site.css" t="Include" />
           </e>
+          <e p="employee.png" t="Include" />
           <e p="favicon.ico" t="Include" />
           <e p="imagne.png" t="Include" />
+          <e p="jobs.jpg" t="Include" />
+          <e p="logoCreateApplication.PNG" t="Include" />
+          <e p="logoForNav.PNG" t="Include" />
+          <e p="LogoMyApplication.png" t="Include" />
           <e p="mirka.jpg" t="Include" />
+          <e p="newLogoForNav.PNG" t="Include" />
           <e p="tautvydas.png" t="Include" />
           <e p="work.png" t="Include" />
           <e p="work2.png" t="Include" />
