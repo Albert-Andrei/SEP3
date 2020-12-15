@@ -4,6 +4,7 @@
 @using Client.Data
 @using Client.Models
 @using Client.Authentication
+@using System.ComponentModel.DataAnnotations
 
 @inject NavigationManager NavigationManager
 @inject IApplicationService ApplicationService
@@ -61,7 +62,7 @@
                                     <label>Phone Number</label>
                                     <input class="text-input"
                                            type="text"
-                                           @bind="application.PhoneNumber" required />
+                                           @bind="application.PhoneNumber" required />        
                                 </fieldset>
                             </div>
                         </div>
@@ -160,7 +161,7 @@
         }
         catch (Exception e)
         {
-            Console.WriteLine(e);
+            Console.Out.WriteLine(e.Message);
             errorMessageStyle = "color:red";
             errorMessage = "Failed To Update";
         }

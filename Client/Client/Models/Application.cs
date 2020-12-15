@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
@@ -11,15 +12,15 @@ namespace Client.Models
     {
         [JsonPropertyName("_id")] public ObjectIDGenerator ApplicationId { get; set; }
         
-        [Required, MaxLength(30)]
+        [Required, MaxLength(15)]
         [JsonPropertyName("firstName")]
         public string FirstName { get; set; }
 
-        [Required, MaxLength(30)]
+        [Required, MaxLength(15)]
         [JsonPropertyName("lastName")]
         public string LastName { get; set; }
 
-        [Required, MaxLength(15)]
+        [Required, MaxLength(8,ErrorMessage = "The phone number can only contains digits")]
         [ValidatePhoneNr]
         [JsonPropertyName("phoneNumber")]
         public string PhoneNumber { get; set; }

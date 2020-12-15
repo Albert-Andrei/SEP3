@@ -24,20 +24,24 @@ public class ApplicationModelImplementation implements ApplicationModel {
 
     private final MongoCollection<Document> applicationCollection;
 
-
-
+    /**
+     * Creating or getting of existing collection in database.
+     * @param database
+     */
     public ApplicationModelImplementation(MongoDatabase database) {
         applicationCollection = database.getCollection("Applications");;
 
     }
 
     /**
-     *
-     * @return
+     * Finding all available Applications from Database using iterator,
+     * converting them using Json and adding to the ArrayList.
+     * @return applicationList
      * @throws IOException
      * @throws ClassNotFoundException
      */
     @Override
+
     public List<Application> getAllApplications() throws IOException, ClassNotFoundException {
         MongoCursor<Document> cursor = applicationCollection.find().iterator();
         List<Application> applicationList = new ArrayList<>();
@@ -58,9 +62,11 @@ public class ApplicationModelImplementation implements ApplicationModel {
     }
 
     /**
-     *
+     * In ApplicationCollection looking for ObjectId type "_id" and compering
+     * with applicationId parameter. Converting founded "_id" to Json, after converting
+     * to String type and setting to String id in object.
      * @param applicationId
-     * @return
+     * @return _application
      * @throws IOException
      * @throws ClassNotFoundException
      */
@@ -69,21 +75,18 @@ public class ApplicationModelImplementation implements ApplicationModel {
         if (applicationCollection.find(eq("_id", new ObjectId(applicationId))).first() != null) {
             Document application = applicationCollection.find(eq("_id", new ObjectId(applicationId))).first();
             Gson gson = new Gson();
-            Application applicationID = gson.fromJson(application.toJson(),Application.class);
+            Application _application = gson.fromJson(application.toJson(),Application.class);
             String objectId = application.get("_id").toString();
-            applicationID.setId(objectId);
-            return applicationID;
+            _application.setId(objectId);
+            return _application;
         }
         return null;
     }
 
     /**
-     * This method creates a new user in the Database with values that came from tear 2.
-     *
-     * **/
-
-    /**
-     *
+     * Creating new Document Object, taking parameter application
+     * and adding every field to Document Object, after inserting
+     * created document with field to Database.
      * @param application
      * @throws IOException
      * @throws ClassNotFoundException
@@ -105,13 +108,14 @@ public class ApplicationModelImplementation implements ApplicationModel {
         document.append("user", application.getUser());
         //Inserting the document into the collection
         applicationCollection.insertOne(document);
-
-
         System.out.println("Document inserted successfully " + application);
     }
 
     /**
-     *
+     * looking for the JSON object in the collection using "user" field,
+     * taking founded result using same "user" field
+     * and comparing values in collection with same "user", then
+     * updating modified values.
      * @param application
      * @throws IOException
      * @throws ClassNotFoundException
@@ -138,9 +142,10 @@ public class ApplicationModelImplementation implements ApplicationModel {
     }
 
     /**
-     *
+     * Finding in the collection JSON Object with same "user" field
+     * converting from JSON and returning Application object.
      * @param user
-     * @return
+     * @return userFromDatabase
      * @throws IOException
      * @throws ClassNotFoundException
      */

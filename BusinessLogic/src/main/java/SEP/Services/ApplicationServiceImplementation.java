@@ -6,7 +6,6 @@ import SEP.Models.Application;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.List;
 
 @Service
@@ -30,13 +29,24 @@ public class ApplicationServiceImplementation implements ApplicationService {
 
     @Override
     public void createApplication(Application application) throws IOException, ClassNotFoundException {
-
-        remoteModel.createApplication(application);
+        try {
+            remoteModel.createApplication(application);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void updateApplication(Application application) throws IOException, ClassNotFoundException {
-         remoteModel.updateApplication(application);
+        try {
+            remoteModel.updateApplication(application);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
