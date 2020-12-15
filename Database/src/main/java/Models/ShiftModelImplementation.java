@@ -78,13 +78,10 @@ public class ShiftModelImplementation implements ShiftModel {
 
     @Override
     public List<Shift> GetAllShiftsForOneUser(String username) throws ParseException {
-        BasicDBObject whereQuery = new BasicDBObject();
-        whereQuery.put("username", username);
-
-        if (shiftCollection.find(whereQuery).first() != null) {
+        if (shiftCollection.find( eq("username", username) ).first() != null) {
             toReturn.clear();
 
-            MongoCursor<Document> cursor = shiftCollection.find(whereQuery).iterator();
+            MongoCursor<Document> cursor = shiftCollection.find( eq("username", username) ).iterator();
 //            Gson gson = new Gson();
             Gson gson = new GsonBuilder()
                     .excludeFieldsWithoutExposeAnnotation()

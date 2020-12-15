@@ -171,13 +171,6 @@ hr.divider:after {
         color: #866118;
         margin-left: -65px;
     }
-    .logoCreateApplicationDiv{
-        background: #f2d184;
-        color: #866118;
-        margin-left: -18px;
-        
-    }
-  
 
     main {
         display: flex;

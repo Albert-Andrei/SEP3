@@ -1,14 +1,14 @@
 @page "/home"
 @inject NavigationManager NavigationManager
 
-<link href="css/HomeComponent.css" media="screen" rel="stylesheet">
+<link href="css/HomeComponent.razor.css" media="screen" rel="stylesheet">
+
+
 
 <div class="photo1">
-    <img src="work.png"  width="600" height="600">
-        </div>
-<div class="photo2">
-    <img src="work2.png"  width="600" height="600">
+    <img src="work.png"  width="350" height="500">
 </div>
+
 <div class="background">
     <div class="headerHome">
         <h1 class="headerFirst"> Plathorm Made for Employee and Employeer</h1>
@@ -22,16 +22,15 @@
     </div>
     <button @onclick="NavigateToLogin" class="buttonSign" >log in</button>
 </div>
-<div class="navbarhome" id="myNavbar">
-  <a href="AboutComponent" >About</a>
-  
-  <a class="right" href="ContactComponent">Contact us</a>
- 
+<div class="navbars">
+    <a href="AboutComponent">About this project</a>
+    <a href="ContactComponent">Contact Us</a>
   
 </div>
 
 
 @code {
+    //   wwwroot/worker.jpg
     private  void  NavigateToSignup()
     {
         NavigationManager.NavigateTo("/sign-up",true);

@@ -154,6 +154,7 @@ else
     private IList<Shift> shiftsToShow;
     private IList<Shift> allShifts;
     private string errorMessage;
+    private string username;
     private int count;
 
     [CascadingParameter]
@@ -167,7 +168,10 @@ else
         {
             NavigationManager.NavigateTo($"/log-in");
         }
-        allShifts = await ShiftService.GetAllShiftsOneUser(((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidatedUsername());
+        
+        username = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidatedUsername();
+        
+        allShifts = await ShiftService.GetAllShiftsOneUser(username);
         shiftsToShow = allShifts;
         count = shiftsToShow.Count;
     }
