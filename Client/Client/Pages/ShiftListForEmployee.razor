@@ -61,16 +61,16 @@
                                                         <div>
                                                             <p style="margin: 0;
                                                                           margin-left: 15px;">
-                                                                <b>Strt Date</b>
+                                                                <b>Date</b>
                                                             </p>
-                                                            <p style="margin: 0px 10px 0px;">@item.StartDate</p>
+                                                            <p style="margin: 0px 10px 0px;">@item.Date.ToShortDateString()</p>
                                                         </div>
                                                         <div>
                                                             <p style="margin: 0;
                                                                           margin-left: 15px;">
-                                                                <b>End Date</b>
+                                                                <b>Time</b>
                                                             </p>
-                                                            <p style="margin: 0px 10px 0px;">@item.EndDate</p>
+                                                            <p style="margin: 0px 10px 0px;">@item.PreferableWorkTime</p>
                                                         </div>
                                                     </div>
                                                     <div class="descriptions">
@@ -127,6 +127,7 @@ else
     private IList<Shift> allShifts;
     private string errorMessage;
     private string username;
+    int calhoz = 0;
     private bool apply = false;
 
     private int count;
@@ -147,27 +148,46 @@ else
         shiftsToShow = new List<Shift>();
         foreach (var shift in allShifts)
         {
-            if (shift.Pending.Count != 0)
+            calhoz = shift.Pending.Count;
+
+            // if (!shift.Pending.Contains(username))
+            // {
+            //     shiftsToShow.Add(shift);
+            // } else if (!shift.Approved.Contains(username))
+            // {
+            //     shiftsToShow.Add(shift);
+            // } else if (!shift.Rejected.Contains(username))
+            // {
+            //     shiftsToShow.Add(shift);   
+            // }
+            
+            if (calhoz != 0)
             {
                 foreach (var name in shift.Pending)
                 {
-                    if (name != username)
+                    if (name == username)
                     {
                         shiftsToShow.Add(shift);
+                        calhoz--;
                     }
                     else
                     {
+                        calhoz--;
                         Console.Out.WriteLine(username + " applied to:  " + shift);
                     }
                 }
             }
-            else if (shift.Approved.Count != 0)
+
+            calhoz = shift.Approved.Count;
+            
+            if (calhoz != 0)
             {
                 foreach (var name in shift.Approved)
                 {
                     if (name != username)
                     {
                         shiftsToShow.Add(shift);
+                        calhoz--;
                     }
                     else
                     {
@@ -175,13 +195,17 @@ else
                     }
                 }
             }
-            else if (shift.Rejected.Count != 0)
+
+            calhoz = shift.Rejected.Count;
+            
+            if (shift.Rejected.Count != 0)
             {
                 foreach (var name in shift.Rejected)
                 {
                     if (name != username)
                     {
                         shiftsToShow.Add(shift);
+                        calhoz--;
                     }
                     else
                     {
@@ -189,11 +213,10 @@ else
                     }
                 }
             }
-            else
-            {
-                shiftsToShow.Add(shift);
-            }
+
+            calhoz = 0;
         }
+        calhoz = 0;
         count = shiftsToShow.Count;
     }
 
@@ -213,7 +236,4 @@ else
         }
         // NavigationManager.NavigateTo($"/empl-shifts",forceLoad:true);
     }
-
-    
-
 }

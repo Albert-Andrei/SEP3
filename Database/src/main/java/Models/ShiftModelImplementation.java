@@ -68,8 +68,8 @@ public class ShiftModelImplementation implements ShiftModel {
         document.append("pendingList", shift.getPendingList());
         document.append("approvedList", shift.getApprovedList());
         document.append("rejectedList", shift.getRejectedList());
-        document.append("startDate", shift.getStartDate());
-        document.append("endDate", shift.getEndDate());
+        document.append("date", shift.getDate());
+        document.append("preferableWorkTime", shift.getPreferableWorkTime());
 
         //Inserting the document into the collection
         shiftCollection.insertOne(document);
@@ -94,22 +94,19 @@ public class ShiftModelImplementation implements ShiftModel {
                 Document document = cursor.next();
                 String json = document.toJson();
 
-                String startDate = document.get("startDate").toString();
-                String endDate = document.get("endDate").toString();
+                String date = document.get("date").toString();
                 // Formatter for the input date
                 final DateFormat inputFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
 //                // The parsed date
 
-                final Date startDateParsed = inputFormat.parse(startDate);
-                final Date endDateParsed = inputFormat.parse(endDate);
+                final Date dateParsed = inputFormat.parse(date);
 
                 // Getting the string value of object id
                 String shiftId = document.get("_id").toString();
 
 
                 Shift opa = gson.fromJson(json, Shift.class);
-                opa.setStartDate(startDateParsed);
-                opa.setEndDate(endDateParsed);
+                opa.setDate(dateParsed);
                 opa.setShiftId(shiftId);
                 System.out.println(opa);
                 toReturn.add(opa);
@@ -131,21 +128,19 @@ public class ShiftModelImplementation implements ShiftModel {
             Document document = cursor.next();
             String json = document.toJson();
 
-            String startDate = document.get("startDate").toString();
-            String endDate = document.get("endDate").toString();
-
+            String date = document.get("date").toString();
             // Formatter for the input date
             final DateFormat inputFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
-            // The parsed date
-            final Date startDateParsed = inputFormat.parse(startDate);
-            final Date endDateParsed = inputFormat.parse(endDate);
+//                // The parsed date
+
+            final Date dateParsed = inputFormat.parse(date);
 
             // Getting the string value of object id
             String shiftId = document.get("_id").toString();
 
+
             Shift opa = gson.fromJson(json, Shift.class);
-            opa.setStartDate(startDateParsed);
-            opa.setEndDate(endDateParsed);
+            opa.setDate(dateParsed);
             opa.setShiftId(shiftId);
             System.out.println(opa);
             toReturn.add(opa);
@@ -162,21 +157,18 @@ public class ShiftModelImplementation implements ShiftModel {
             Document shift = shiftCollection.find(eq("_id", new ObjectId(shiftId))).first();
             String json = shift.toJson();
 
-            String startDate = shift.get("startDate").toString();
-            String endDate = shift.get("endDate").toString();
+            String date = shift.get("date").toString();
             String stringId = shift.get("_id").toString();
 
             // Formatter for the input date
             final DateFormat inputFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
             // The parsed date
-            final Date startDateParsed = inputFormat.parse(startDate);
-            final Date endDateParsed = inputFormat.parse(endDate);
+            final Date dateParsed = inputFormat.parse(date);
 
-            Shift shiftById = gson.fromJson(json,Shift.class);
-            shiftById.setStartDate(startDateParsed);
-            shiftById.setEndDate(endDateParsed);
-            shiftById.setShiftId(stringId);
-            return shiftById;
+            Shift shif = gson.fromJson(json, Shift.class);
+            shif.setDate(dateParsed);
+            shif.setShiftId(stringId);
+            return shif;
         }
         return null;
     }
@@ -202,8 +194,8 @@ public class ShiftModelImplementation implements ShiftModel {
     @Override
     public void Approve(String shiftId, String username) throws IOException, ClassNotFoundException {
         if (shiftCollection.find(eq("_id", new ObjectId(shiftId))).first() != null) {
-            shiftCollection.updateOne(eq("_id", new ObjectId(shiftId) ), Updates.pull("pendingList", username));
-            shiftCollection.updateOne(eq("_id", new ObjectId(shiftId) ), Updates.addToSet("approvedList", username));
+            shiftCollection.updateOne(eq("_id", new ObjectId(shiftId)), Updates.pull("pendingList", username));
+            shiftCollection.updateOne(eq("_id", new ObjectId(shiftId)), Updates.addToSet("approvedList", username));
         }
     }
 
@@ -211,25 +203,22 @@ public class ShiftModelImplementation implements ShiftModel {
     public void Reject(String shiftId, String username) throws IOException, ClassNotFoundException {
         if (shiftCollection.find(eq("_id", new ObjectId(shiftId))).first() != null) {
 
-//            try {
-////                Shift shift = GetShiftById(shiftId);
-////
-////                for ( String uname : shift.getPendingList()) {
-////                    if (uname == username)
-////                    {
-////                        shiftCollection.updateOne(eq("_id", new ObjectId(shiftId) ), Updates.pull("pendingList", username));
-////                        shiftCollection.updateOne(eq("_id", new ObjectId(shiftId) ), Updates.addToSet("rejectedList", username));
-////                    } else
-////                    {
-////
-////                    }
-////                }
-//            } catch (ParseException e) {
-//                e.printStackTrace();
-//            }
-            shiftCollection.updateOne(eq("_id", new ObjectId(shiftId) ), Updates.pull("pendingList", username));
-            shiftCollection.updateOne(eq("_id", new ObjectId(shiftId) ), Updates.pull("approvedList", username));
-            shiftCollection.updateOne(eq("_id", new ObjectId(shiftId) ), Updates.addToSet("rejectedList", username));
+            try {
+                Shift shift = GetShiftById(shiftId);
+
+                for (String uname : shift.getPendingList()) {
+                    if (uname == username) {
+                        shiftCollection.updateOne(eq("_id", new ObjectId(shiftId)), Updates.pull("pendingList", username));
+                        shiftCollection.updateOne(eq("_id", new ObjectId(shiftId)), Updates.addToSet("rejectedList", username));
+                    } else {
+                        shiftCollection.updateOne(eq("_id", new ObjectId(shiftId)), Updates.pull("approvedList", username));
+                        shiftCollection.updateOne(eq("_id", new ObjectId(shiftId)), Updates.addToSet("rejectedList", username));
+                    }
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
+                System.out.println(e);
+            }
         }
     }
 }

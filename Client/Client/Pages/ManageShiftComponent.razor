@@ -31,6 +31,7 @@ else
 
         <div class="sus-acolo">
             <h2 style="margin-left: 50px;">Selected shift</h2>
+            <button @onclick="Cancel" class="createShiftBtn">Cancel</button>
         </div>
 
         <div style="color:red">@errorMessage</div>
@@ -82,16 +83,16 @@ else
                                 <div>
                                     <p style="margin: 0;
                                                                           margin-left: 15px;">
-                                        <b>Strt Date</b>
+                                        <b>Date</b>
                                     </p>
-                                    <p style="margin: 0px 10px 0px;">@shift.StartDate</p>
+                                    <p style="margin: 0px 10px 0px;">@shift.Date.ToShortDateString()</p>
                                 </div>
                                 <div>
                                     <p style="margin: 0;
                                                                           margin-left: 15px;">
-                                        <b>End Date</b>
+                                        <b>Time </b>
                                     </p>
-                                    <p style="margin: 0px 10px 0px;">@shift.EndDate</p>
+                                    <p style="margin: 0px 10px 0px;">@shift.PreferableWorkTime</p>
                                 </div>
                             </div>
                             <div class="descriptions">
@@ -346,7 +347,7 @@ else
                 if (application.User == username)
                 {
                     ShiftService.RejectAsync(shift.ShiftId, username);
-                    OnInitializedAsync();
+                    StateHasChanged();
                 }
             }
         }
@@ -357,7 +358,7 @@ else
                 if (application.User == username)
                 {
                     ShiftService.RejectAsync(shift.ShiftId, username);
-                    OnInitializedAsync();
+                    StateHasChanged();
                 }
             }
         }
@@ -367,5 +368,9 @@ else
             Console.Out.WriteLine("Something went wrong here...");
         }
     }
-
+    
+    private void Cancel()
+    {
+        NavigationManager.NavigateTo("/shift-list");
+    }
 }

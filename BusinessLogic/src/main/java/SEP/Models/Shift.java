@@ -18,27 +18,29 @@ public class Shift {
     private List<String> pendingList;
     private List<String> approvedList;
     private List<String> rejectedList;
-    private Date endDate;
-    private Date startDate;
+    private Date date;
+    private String preferableWorkTime;
 
     public Shift() {
         pendingList = new ArrayList<>();
+        approvedList = new ArrayList<>();
+        rejectedList = new ArrayList<>();
     }
 
-    public Shift(ObjectId _id, String shiftId, String username, String companyName, String jobTitle, Date endDate, Date startDate, String description, String requirements, float hourWage, List<String> pendingList, List<String> approvedList, List<String> rejectedList) {
+    public Shift(ObjectId _id, String shiftId, String username, String companyName, String jobTitle, String description, String requirements, float hourWage, List<String> pendingList, List<String> approvedList, List<String> rejectedList, Date date, String preferableWorkTime) {
         this._id = _id;
         this.shiftId = shiftId;
         this.username = username;
         this.companyName = companyName;
         this.jobTitle = jobTitle;
-        this.endDate = endDate;
-        this.startDate = startDate;
         this.description = description;
         this.requirements = requirements;
         this.hourWage = hourWage;
         this.pendingList = pendingList;
         this.approvedList = approvedList;
         this.rejectedList = rejectedList;
+        this.date = date;
+        this.preferableWorkTime = preferableWorkTime;
     }
 
     public String getShiftId() {
@@ -81,20 +83,20 @@ public class Shift {
         this.companyName = companyName;
     }
 
-    public Date getEndDate() {
-        return endDate;
+    public Date getDate() {
+        return date;
     }
 
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
-    public Date getStartDate() {
-        return startDate;
+    public String getPreferableWorkTime() {
+        return preferableWorkTime;
     }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
+    public void setPreferableWorkTime(String preferableWorkTime) {
+        this.preferableWorkTime = preferableWorkTime;
     }
 
     public String getDescription() {

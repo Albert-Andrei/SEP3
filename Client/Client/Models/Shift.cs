@@ -31,14 +31,11 @@ namespace Client.Models
 
         [Required]
         [NotNull]
-        [JsonPropertyName("startDate")]
-        public DateTime StartDate { get; set; }
-
-        [Required]
-        [NotNull]
-        // [ValidDate]
-        [JsonPropertyName("endDate")]
-        public DateTime EndDate { get; set; }
+        [JsonPropertyName("date")]
+        public DateTime Date { get; set; } = DateTime.Now.Date;
+        
+        [JsonPropertyName("preferableWorkTime")]
+        public string PreferableWorkTime { get; set; }
         
         [Required, MaxLength(70)]
         [JsonPropertyName("description")] [NotNull]
@@ -47,7 +44,7 @@ namespace Client.Models
         [MaxLength(70)]
         [JsonPropertyName("requirements")]
         [NotNull]
-        public string Requirements { get; set; }
+        public string Requirements { get; set; } = "No requirements";
 
         [Required]
         [NotNull, Range(1, 3000)]
@@ -90,8 +87,8 @@ namespace Client.Models
             s += UserName + " ";
             s += CompanyName + " ";
             s += JobTitle + " ";
-            s += StartDate + " ";
-            s += EndDate + " ";
+            s += Date + " ";
+            s += PreferableWorkTime + " ";
             s += HourWage + " ";
             s += Description + " ";
             s += Requirements + " ";
