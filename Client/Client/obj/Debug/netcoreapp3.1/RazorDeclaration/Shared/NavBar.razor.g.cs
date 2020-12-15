@@ -90,7 +90,7 @@ using Client.Authentication;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 100 "C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\Shared\NavBar.razor"
+#line 94 "C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\Shared\NavBar.razor"
        
 
     public async Task PerformLogout()

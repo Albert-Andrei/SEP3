@@ -65,14 +65,14 @@
                                                                           margin-left: 15px;">
                                                                 <b>Strt Date</b>
                                                             </p>
-                                                            <p style="margin: 0px 10px 0px;">@item.StartDate</p>
+                                                            <p style="margin: 0px 10px 0px;">@item.Date.ToShortDateString()</p>
                                                         </div>
                                                         <div>
                                                             <p style="margin: 0;
                                                                           margin-left: 15px;">
-                                                                <b>End Date</b>
+                                                                <b>Time </b>
                                                             </p>
-                                                            <p style="margin: 0px 10px 0px;">@item.EndDate</p>
+                                                            <p style="margin: 0px 10px 0px;">@item.PreferableWorkTime</p>
                                                         </div>
                                                     </div>
                                                     <div class="descriptions">
@@ -122,7 +122,7 @@
                                             {
                                                 <h5 style="color: gray">
                                                     @* @State() *@
-                                                    huita
+                                                    Not working
                                                 </h5>
                                             }
                                         </div>
@@ -219,7 +219,6 @@ else
                 }
             }
         }
-        count = shiftsToShow.Count;
         
         
         toCheck = new List<Shift>();
@@ -238,6 +237,7 @@ else
                     Rejected = item.Rejected,
             });
         }
+        count = shiftsToShow.Count;
     }
 
     private string State()
@@ -257,7 +257,8 @@ else
                         }
                     }
                 }
-                else if (shift.Approved.Count != 0)
+                
+                if (shift.Approved.Count != 0)
                 {
                     foreach (var name in shift.Approved)
                     {
@@ -268,7 +269,8 @@ else
                         }
                     }
                 }
-                else if (shift.Rejected.Count != 0)
+                
+                if (shift.Rejected.Count != 0)
                 {
                     foreach (var name in shift.Rejected)
                     {
@@ -279,6 +281,8 @@ else
                         }
                     }
                 }
+
+                toCheck.Remove(shift);
             }
         }
         return "I don't know :(";

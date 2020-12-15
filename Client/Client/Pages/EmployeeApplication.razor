@@ -13,8 +13,8 @@
         <div class="auth-sidebar">
             <div class="auth-sidebar-content">
                 <div class="header">
-                    <img class="logoCreateApplicationDiv" src="logoMyApplication.png">
-                    <h1 style="font: normal 56px/68px 'Dancing Script', cursive;">Discover all available possibilities of our platform</h1>
+                    <img class="logoCreateApplicationDiv" src="logoCreateApplication.PNG">
+                    <h1>Discover all available possibilities of our platform</h1>
                 </div>
             </div>
         </div>
@@ -24,7 +24,8 @@
         <div class="content">
             <main>
                 <div class="auth-content">
-                    <h2>Create Application</h2>
+
+                    <h2>Please create your apllication</h2>
 
                     <hr class="divider"/>
 
@@ -41,8 +42,11 @@
                             <div class="box">
                                 <fieldset>
                                     <label>Last Name</label>
-                                    <input class="text-input">
-                                    </fieldset>
+                                    <input class="text-input"
+
+                                           type="text"
+                                           @bind="application.LastName" required/>
+                                </fieldset>
                             </div>
                         </div>
                         <div class="name">
@@ -59,6 +63,7 @@
                                     <input class="text-input"
                                            type="text"
                                            @bind="application.PhoneNumber" required/>
+                                    <ValidationMessage For="@(() => application.PhoneNumber)"/>
                                 </fieldset>
                             </div>
                         </div>
@@ -152,6 +157,6 @@
         Console.Out.WriteLine(application.ToString());
         ApplicationService.CreateApplicationAsync(application);
         ApplicationService.GetApplicationAsync(errorMessage);
-        NavigationManager.NavigateTo("/MyApplication");
+        NavigationManager.NavigateTo("/avail-shifts");
     }
 }

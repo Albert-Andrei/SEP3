@@ -115,7 +115,7 @@ using Client.Authentication;
             }
             else
             {
-                NavigationManager.NavigateTo("/avail-shifts");
+                NavigationManager.NavigateTo("/empl-shifts");
             }
             loading = false;
             username = "";

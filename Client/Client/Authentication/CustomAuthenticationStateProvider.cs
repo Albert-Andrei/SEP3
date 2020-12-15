@@ -20,7 +20,6 @@ namespace Client.Authentication
 
         public CustomAuthenticationStateProvider(IJSRuntime jsRuntime, IUserService userService)
         {
-            
             this.jsRuntime = jsRuntime;
             this.userService = userService;
             username = "notauthorized";

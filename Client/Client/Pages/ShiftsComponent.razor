@@ -14,8 +14,11 @@
     <div class="create-shift-content">
         <main>
             <div class="shift-auth-content">
-
-                <h2>Create a shift</h2>
+                
+                 <div class="sus-acolo">
+                                        <h2 style="margin-left: 50px;">Create shift</h2>
+                                        <button @onclick="Cancel" class="createShiftBtn">Cancel</button>
+                                    </div>
 
                 <hr class="divider"/>
 
@@ -44,26 +47,24 @@
                     <div class="name">
                         <div class="box">
                             <fieldset>
-                                <label>Start Date & Time</label>
-                                <input id="datePicker"
-                                       type="datetime-local"
-                                       name="meeting-time"
-                                       min="@startDate"
-                                       value="@startDate">
+                                <label>Start Date</label>
+                                <InputDate class="text-input" type="text"
+                                           @bind-Value="newShift.Date" required/>
                             </fieldset>
-                            <ValidationMessage For="@(() => newShift.StartDate)"/>
+                            <ValidationMessage For="@(() => newShift.Date)"/>
                         </div>
 
                         <div class="box">
                             <fieldset>
-                                <label>End Date & Time</label>
-                                <input id="datePicker"
-                                       type="datetime-local"
-                                       name="meeting-time"
-                                       min="@endDate"
-                                       value="@endDate">
+                                <label>Time</label>
+                                <select name="type" class="state" @bind="@selectedType">
+                                    @foreach (var t in time)
+                                    {
+                                        <option value=@t>@t</option>
+                                    }
+                                </select>
                             </fieldset>
-                            <ValidationMessage For="@(() => newShift.EndDate)"/>
+                            <ValidationMessage For="@(() => newShift.PreferableWorkTime)"/>
                         </div>
                     </div>
 
@@ -96,7 +97,7 @@
                     </div>
                 </div>
                 <div style="color:red">@errorMessage</div>
-                <button type="submit" class="signupBtn">Create Account</button>
+                <button type="submit" class="signupBtn">Create</button>
             </div>
         </main>
     </div>
@@ -106,8 +107,9 @@
 
     string errorMessage;
     private Shift newShift = new Shift();
-    private DateTime startDate;
-    private DateTime endDate;
+    private List<string> time = new List<string>() {"Day (6-14)", "Evening (14-22)", "Night (22-6)"};
+    string selectedType = "Day (6-14)";
+
 
     protected override async Task OnInitializedAsync()
     {
@@ -117,19 +119,16 @@
         {
             NavigationManager.NavigateTo($"/log-in");
         }
-        startDate = DateTime.Now.Date;
-        endDate = DateTime.Now.Date;
     }
-    
+
     private void CreateNewShift()
     {
-        newShift.StartDate = startDate;
-        newShift.EndDate = endDate;
         if (newShift.Requirements == null)
         {
             newShift.Requirements = "No requirements.";
         }
         newShift.UserName = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidatedUsername();
+        newShift.PreferableWorkTime = selectedType;
         Console.Out.WriteLine(newShift.ToString());
         ShiftService.AddShiftAsync(newShift);
         NavigationManager.NavigateTo("/shift-list");
@@ -137,5 +136,11 @@
 
     [CascadingParameter]
     protected Task<AuthenticationState> AuthStat { get; set; }
-    
+
+
+    private void Cancel()
+    {
+        NavigationManager.NavigateTo("/shift-list");
+    }
+
 }
