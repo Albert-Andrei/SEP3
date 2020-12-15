@@ -1,10 +1,12 @@
-@page "/avail-shifts"
+@page "/empl-shifts"
 @using Client.Models
 @using Client.Data.Shifts
 @using Client.Authentication
 @using System.Runtime.Serialization
+@using Client.Data
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
+@inject IApplicationService ApplicationService
 @inject IShiftService ShiftService
 @attribute [Authorize(Policy = "SecurityLevel3")]
 
@@ -13,7 +15,7 @@
     @if (count == 0)
     {
         <div class="noshifts">
-            <h1 class="text-no">There are not available shifts, please come back later.</h1>
+            <h1 class="text-no">Apply to a shift and it will be displayed here</h1>
         </div>
     }
     else
@@ -23,7 +25,7 @@
                 <div class="shift-auth-content" style="width: 95%;">
 
                     <div class="sus-acolo">
-                        <h2 style="margin-left: 50px;">All available shifts</h2>
+                        <h2 style="margin-left: 50px;">Applied shifts</h2>
                     </div>
 
                     <div style="color:red">@errorMessage</div>
@@ -50,8 +52,8 @@
                                                     @if (item.Pending != null)
                                                     {
                                                         <div style="margin-top: 20px;">
-                                                            <p>
-                                                               <b>Applied:</b> @item.Pending.Count
+                                                            <p>    
+                                                                <b>Applied:</b> @item.Pending.Count
                                                                 </p>
                                                         </div>
                                                     }
@@ -93,17 +95,36 @@
                                             </div>
                                         </div>
 
-                                        <div class="remove-card">
-                                            <button @onclick="() => Apply(item.ShiftId)" style="width: 80px; height: 80px; border-radius: 50px;">
-                                                @if (!apply)
-                                                {
-                                                    <i style="color: green">Apply</i>
-                                                }
-                                                else
-                                                {
-                                                    <i class="oi oi-check" style="color:green"/>
-                                                }
-                                            </button>
+                                        <div class="remove-card-m">
+                                            @{ string stateToShow = State();}
+                                            @if (stateToShow == "Rejected")
+                                            {
+                                                <h5 style="color: red">
+                                                    @* @State() *@
+                                                    Rejected
+                                                </h5>
+                                            }
+                                            else if (stateToShow == "Approved")
+                                            {
+                                                <h5 style="color: green">
+                                                    @* @State() *@
+                                                    Approved
+                                                </h5>
+                                            }
+                                            else if (stateToShow == "Pending")
+                                            {
+                                                <h5 style="color: gray">
+                                                    @* @State() *@
+                                                    Pending
+                                                </h5>
+                                            }
+                                            else
+                                            {
+                                                <h5 style="color: gray">
+                                                    @* @State() *@
+                                                    huita
+                                                </h5>
+                                            }
                                         </div>
                                     </div>
                                 </div>
@@ -125,6 +146,7 @@ else
 @code {
     private IList<Shift> shiftsToShow;
     private IList<Shift> allShifts;
+    private IList<Shift> toCheck;
     private string errorMessage;
     private string username;
     private bool apply = false;
@@ -143,29 +165,20 @@ else
             NavigationManager.NavigateTo($"/log-in");
         }
         username = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidatedUsername();
+        Application application = await ApplicationService.GetMyApplicationAsync(username);
+        if (application.User == null)
+        {
+            NavigationManager.NavigateTo($"/CreateApplication");
+        }
         allShifts = await ShiftService.GetAllShifts();
         shiftsToShow = new List<Shift>();
-        foreach (var shift in allShifts)
+        foreach (Shift shift in allShifts)
         {
-            if (shift.Pending.Count != 0)
-            {
-                foreach (var name in shift.Pending)
-                {
-                    if (name != username)
-                    {
-                        shiftsToShow.Add(shift);
-                    }
-                    else
-                    {
-                        Console.Out.WriteLine(username + " applied to:  " + shift);
-                    }
-                }
-            }
-            else if (shift.Approved.Count != 0)
+            if (shift.Approved.Count != 0)
             {
                 foreach (var name in shift.Approved)
                 {
-                    if (name != username)
+                    if (name == username)
                     {
                         shiftsToShow.Add(shift);
                     }
@@ -175,11 +188,12 @@ else
                     }
                 }
             }
-            else if (shift.Rejected.Count != 0)
+            
+            if (shift.Rejected.Count != 0)
             {
                 foreach (var name in shift.Rejected)
                 {
-                    if (name != username)
+                    if (name == username)
                     {
                         shiftsToShow.Add(shift);
                     }
@@ -189,31 +203,85 @@ else
                     }
                 }
             }
-            else
+            
+            if (shift.Pending.Count != 0)
             {
-                shiftsToShow.Add(shift);
+                foreach (var name in shift.Pending)
+                {
+                    if (name == username)
+                    {
+                        shiftsToShow.Add(shift);
+                    }
+                    else
+                    {
+                        Console.Out.WriteLine(username + " applied to:  " + shift);
+                    }
+                }
             }
         }
         count = shiftsToShow.Count;
+        
+        
+        toCheck = new List<Shift>();
+        foreach(var item in shiftsToShow)
+        {
+            toCheck.Add(new Shift { 
+                UserName = item.UserName,
+                    ShiftId = item.ShiftId,
+                    CompanyName = item.CompanyName,
+                    JobTitle = item.JobTitle,
+                    Description = item.Description,
+                    Requirements = item.Requirements,
+                    HourWage = item.HourWage,
+                    Pending = item.Pending,
+                    Approved = item.Approved,
+                    Rejected = item.Rejected,
+            });
+        }
     }
 
-    private void Apply(String shiftId)
+    private string State()
     {
-        Console.Out.WriteLine(shiftId);
-        foreach (var shift in allShifts)
+        if (toCheck.Count != 0)
         {
-            if (shift.ShiftId == shiftId)
+            foreach (Shift shift in toCheck)
             {
-                ShiftService.ApplyToShiftAsync(shiftId, username);
-                // NavigationManager.NavigateTo($"/empl-shifts");
-                shiftsToShow.Remove(shift);
-                StateHasChanged();
-                Console.Out.WriteLine("To check...");
+                if (shift.Pending.Count != 0)
+                {
+                    foreach (var name in shift.Pending)
+                    {
+                        if (name == username)
+                        {
+                            toCheck.Remove(shift);
+                            return "Pending";
+                        }
+                    }
+                }
+                else if (shift.Approved.Count != 0)
+                {
+                    foreach (var name in shift.Approved)
+                    {
+                        if (name == username)
+                        {
+                            toCheck.Remove(shift);
+                            return "Approved";
+                        }
+                    }
+                }
+                else if (shift.Rejected.Count != 0)
+                {
+                    foreach (var name in shift.Rejected)
+                    {
+                        if (name == username)
+                        {
+                            toCheck.Remove(shift);
+                            return "Rejected";
+                        }
+                    }
+                }
             }
         }
-        // NavigationManager.NavigateTo($"/empl-shifts",forceLoad:true);
+        return "I don't know :(";
     }
-
-    
 
 }

@@ -8,6 +8,7 @@ import java.util.List;
 
 public class Shift {
     private ObjectId _id;
+    private String shiftId;
     private String username;
     private String companyName;
     private String jobTitle;
@@ -24,8 +25,9 @@ public class Shift {
         pendingList = new ArrayList<>();
     }
 
-    public Shift(ObjectId _id, String username, String companyName, String jobTitle, Date endDate, Date startDate, String description, String requirements, float hourWage, List<String> pendingList, List<String> approvedList, List<String> rejectedList) {
+    public Shift(ObjectId _id, String shiftId, String username, String companyName, String jobTitle, Date endDate, Date startDate, String description, String requirements, float hourWage, List<String> pendingList, List<String> approvedList, List<String> rejectedList) {
         this._id = _id;
+        this.shiftId = shiftId;
         this.username = username;
         this.companyName = companyName;
         this.jobTitle = jobTitle;
@@ -37,6 +39,14 @@ public class Shift {
         this.pendingList = pendingList;
         this.approvedList = approvedList;
         this.rejectedList = rejectedList;
+    }
+
+    public String getShiftId() {
+        return shiftId;
+    }
+
+    public void setShiftId(String shiftId) {
+        this.shiftId = shiftId;
     }
 
     public String getJobTitle() {

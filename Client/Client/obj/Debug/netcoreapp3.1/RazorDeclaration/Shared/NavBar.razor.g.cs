@@ -75,6 +75,13 @@ using Client.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 1 "C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\Shared\NavBar.razor"
+using Client.Authentication;
+
+#line default
+#line hidden
+#nullable disable
     public partial class NavBar : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -82,6 +89,28 @@ using Client.Shared;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 100 "C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\Shared\NavBar.razor"
+       
+
+    public async Task PerformLogout()
+    {
+        try
+        {
+            ((CustomAuthenticationStateProvider) AuthenticationStateProvider).Logout();
+            NavigationManager.NavigateTo("/");
+        }
+        catch (Exception e)
+        {
+        }
+    }
+
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private AuthenticationStateProvider AuthenticationStateProvider { get; set; }
     }
 }
 #pragma warning restore 1591

@@ -196,5 +196,16 @@ C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor
 C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\EmployeeListComponent.razor.g.cs
 C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\ShiftListComponent.razor.g.cs
 C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\ShiftListForEmployee.razor.g.cs
+D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\MyShiftsEmployeeComponent.razor.g.cs
+D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\MyShiftsEmployeeComponent.razor.g.cs
+D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\ManageShiftComponent.razor.g.cs
+D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\ManageShiftComponent.razor.g.cs
 C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\MyApplication.razor.g.cs
 C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\MyApplication.razor.g.cs
+>>>>>>> 97ee8c29cef9f542b146a14a5215a99a7c4322fe
+D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\MyApplication.razor.g.cs
+D:\VIA\Semester 3\Semester project\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\MyApplication.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\ManageShiftComponent.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\MyShiftsEmployeeComponent.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\ManageShiftComponent.razor.g.cs
+C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\obj\Debug\netcoreapp3.1\Razor\Pages\MyShiftsEmployeeComponent.razor.g.cs

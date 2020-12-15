@@ -149,7 +149,8 @@ hr.divider:after {
         width: 80%;
         background: #fff;
         height: 100%;
-        margin: 5px 0px -8px;
+        margin: 5px 10px 5px 0px;
+        border-radius: 5px;
     }
 
     .imageMyApplication{

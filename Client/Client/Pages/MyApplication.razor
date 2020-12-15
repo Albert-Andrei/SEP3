@@ -141,9 +141,9 @@
         {
             NavigationManager.NavigateTo($"/log-in");
         }
-        application.User = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidatedUsername();
-        application = await ApplicationService.GetMyApplicationAsync(application.User);
-        if (application.Available)
+        string username = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidatedUsername();
+        application = await ApplicationService.GetMyApplicationAsync(username);
+        if (application.User == null)
         {
             NavigationManager.NavigateTo($"/CreateApplication");
         }

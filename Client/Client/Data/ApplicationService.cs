@@ -61,6 +61,7 @@ namespace Client.Data
             Task<string> stringAsync =
                     client.GetStringAsync($"http://localhost:6969/application/get-by-user/{user}");
                 string message = await stringAsync;
+                Console.Out.WriteLine("result" + message);
                 Application result = JsonSerializer.Deserialize<Application>(message);
                 return result;
             

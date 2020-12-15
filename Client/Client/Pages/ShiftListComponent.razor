@@ -40,44 +40,73 @@
                                     <div class="card-content">
 
                                         <div class="card-info">
-                                        <img src="jobs.jpg" style="width: 200px; height: 200px;">
+                                            <img src="jobs.jpg" style="width: 200px; height: 200px;">
                                             <div style="display: flex; margin-left: 30px;">
                                                 <div class="left-side">
                                                     <h2>
-                                                        @item.CompanyName
+                                                        @item.CompanyName <br/>
                                                         <small>@item.JobTitle</small>
                                                     </h2>
 
                                                     <p><b>Hour wage:</b> @item.HourWage DKK</p>
-                                                    @if (item.Pending != null)
-                                                    {
-                                                        <div style="margin-top: 20px;">
-                                                            <p><b>Applied:</b> @item.Pending.Count</p>
-                                                        </div>
-                                                    }
+
+                                                    <div class="b-smal">
+                                                        @if (item.Pending != null)
+                                                        {
+                                                            <div>
+                                                                <p>
+                                                                    <b>Pending:</b> @item.Pending.Count
+                                                                </p>
+                                                            </div>
+                                                        }
+                                                        @if (item.Approved != null)
+                                                        {
+                                                            <div style="margin-left: 10px;">
+                                                                <p>
+                                                                    <b>Approved:</b> @item.Approved.Count
+                                                                </p>
+                                                            </div>
+                                                        }
+                                                        @if (item.Rejected != null)
+                                                        {
+                                                            <div style="margin-left: 10px;">
+                                                                <p>
+                                                                    <b>Rejected:</b> @item.Rejected.Count
+                                                                </p>
+                                                            </div>
+                                                        }
+                                                    </div>
                                                 </div>
                                                 <div class="right-side">
                                                     <div class="dates">
                                                         <div>
                                                             <p style="margin: 0;
-                                                                          margin-left: 15px;"><b>Strt Date</b></p>
+                                                                          margin-left: 15px;">
+                                                                <b>Strt Date</b>
+                                                            </p>
                                                             <p style="margin: 0px 10px 0px;">@item.StartDate</p>
                                                         </div>
                                                         <div>
                                                             <p style="margin: 0;
-                                                                          margin-left: 15px;"><b>End Date</b></p>
+                                                                          margin-left: 15px;">
+                                                                <b>End Date</b>
+                                                            </p>
                                                             <p style="margin: 0px 10px 0px;">@item.EndDate</p>
                                                         </div>
                                                     </div>
                                                     <div class="descriptions">
                                                         @if (item.Description != null)
                                                         {
-                                                            <p><b>Description: </b></p>
+                                                            <p>
+                                                                <b>Description: </b>
+                                                            </p>
                                                             <p>@item.Description</p>
                                                         }
                                                         @if (item.Requirements != null)
                                                         {
-                                                            <p><b>Requirements: </b></p>
+                                                            <p>
+                                                                <b>Requirements: </b>
+                                                            </p>
                                                             <p>@item.Requirements</p>
                                                         }
                                                     </div>
@@ -86,11 +115,13 @@
                                         </div>
 
                                         <div class="remove-card">
-                                            <button @onclick="@(() => RemoveShift(item.ShiftId))" style="    width: 80px;
-                                                                                                             height: 80px;
-                                                                                                             border-radius: 50px;">
+                                            <button @onclick="@(() => RemoveShift(item.ShiftId))" class="remove-btn">
                                                 <i class="oi oi-trash" style="color:red"/>
                                             </button>
+                                            @if (item.Pending != null || item.Approved != null || item.Rejected != null)
+                                            {
+                                                <button @onclick="@(() => Manage(item.ShiftId))" class="manage-btn">Manage</button>
+                                            }
                                         </div>
                                     </div>
                                 </div>
@@ -114,6 +145,7 @@ else
     private IList<Shift> allShifts;
     private string errorMessage;
     private int count;
+
     [CascadingParameter]
     protected Task<AuthenticationState> AuthStat { get; set; }
 
@@ -130,11 +162,17 @@ else
         count = shiftsToShow.Count;
     }
 
-    private void RemoveShift(ObjectIDGenerator shiftId)
+    private void RemoveShift(string shiftId)
     {
         Shift shiftToRemove = shiftsToShow.First(t => t.ShiftId == shiftId);
-        ShiftService.RemoveShiftAsync(shiftId.ToString());
+        ShiftService.RemoveShiftAsync(shiftId);
         shiftsToShow.Remove(shiftToRemove);
+        OnInitializedAsync();
+    }
+
+    private void Manage(string id)
+    {
+        NavigationManager.NavigateTo($"/manage-shift?id={id}");
     }
 
     private void Navigate()

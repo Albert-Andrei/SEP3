@@ -70,16 +70,35 @@ public class ShiftController {
         return service.GetAllShifts();
     }
 
-    @DeleteMapping("/delete/{shiftId}")
+    @GetMapping("/one/{shiftId}")
+    public Shift getShiftById(@PathVariable("shiftId") String shiftId) throws IOException, ClassNotFoundException {
+        return service.GetShiftById(shiftId);
+    }
+
+    @DeleteMapping("{shiftId}")
+    @ResponseBody
     public void remove(@PathVariable("shiftId") String shiftId) throws IOException, ClassNotFoundException {
          service.RemoveShiftAsync(shiftId);
     }
 
     ;
 
-    @PutMapping("/update")
-    public void update(@RequestBody final User user) {
+    @PutMapping("apply/{shiftId}/{username}")
+    public void update(@PathVariable("shiftId") String shiftId, @PathVariable("username") String username) throws IOException, ClassNotFoundException {
+        System.out.println(shiftId + ", "+ username);
+        service.ApplyToShiftAsync(shiftId, username);
+    }
 
+    @PutMapping("approve/{shiftId}/{username}")
+    public void approve(@PathVariable("shiftId") String shiftId, @PathVariable("username") String username) throws IOException, ClassNotFoundException {
+        System.out.println("approve" + shiftId + ", "+ username);
+        service.ApproveAsync(shiftId, username);
+    }
+
+    @PutMapping("reject/{shiftId}/{username}")
+    public void reject(@PathVariable("shiftId") String shiftId, @PathVariable("username") String username) throws IOException, ClassNotFoundException {
+        System.out.println("reject" + shiftId + ", "+ username);
+        service.RejectAsync(shiftId, username);
     }
 
     ;

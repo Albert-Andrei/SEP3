@@ -125,6 +125,10 @@
     {
         newShift.StartDate = startDate;
         newShift.EndDate = endDate;
+        if (newShift.Requirements == null)
+        {
+            newShift.Requirements = "No requirements.";
+        }
         newShift.UserName = ((CustomAuthenticationStateProvider) AuthenticationStateProvider).ValidatedUsername();
         Console.Out.WriteLine(newShift.ToString());
         ShiftService.AddShiftAsync(newShift);

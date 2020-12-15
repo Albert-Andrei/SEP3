@@ -49,7 +49,9 @@
           <e p="EmployeeListComponent.razor" t="Include" />
           <e p="HomeComponent.razor" t="Include" />
           <e p="Index.razor" t="Include" />
+          <e p="ManageShiftComponent.razor" t="Include" />
           <e p="MyApplication.razor" t="Include" />
+          <e p="MyShiftsEmployeeComponent.razor" t="Include" />
           <e p="ShiftListComponent.razor" t="Include" />
           <e p="ShiftListForEmployee.razor" t="Include" />
           <e p="ShiftsComponent.razor" t="Include" />

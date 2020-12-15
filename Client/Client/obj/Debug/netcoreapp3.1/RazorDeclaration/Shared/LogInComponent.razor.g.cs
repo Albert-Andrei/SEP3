@@ -91,7 +91,7 @@ using Client.Authentication;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 67 "C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\Shared\LogInComponent.razor"
+#line 72 "C:\Users\mirek\Documents\GitHub\SEP3\Client\Client\Shared\LogInComponent.razor"
        
     private string username;
     private string password;
@@ -115,7 +115,7 @@ using Client.Authentication;
             }
             else
             {
-                NavigationManager.NavigateTo("/");
+                NavigationManager.NavigateTo("/avail-shifts");
             }
             loading = false;
             username = "";

@@ -95,7 +95,6 @@ public class ApplicationModelImplementation implements ApplicationModel {
     public void createApplication(Application application) throws IOException, ClassNotFoundException {
         //Preparing a document
         Document document = new Document();
-        document.append("id", application.getId() );
         document.append("firstName", application.getFirstName());
         document.append("lastName", application.getLastName());
         document.append("phoneNumber", application.getPhoneNumber());

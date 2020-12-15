@@ -43,6 +43,14 @@ namespace Client.Data.Shifts
             return result;
         }
 
+        public async Task<Shift> GetShiftById(string id)
+        {
+            string message = await client.GetStringAsync($"http://localhost:6969/shifts/one/{id}");
+            Console.Out.WriteLine(message + "< result from getAllSfhits");
+            Shift result = JsonSerializer.Deserialize<Shift>(message);
+            return result;
+        }
+
         public async Task AddShiftAsync(Shift shift)
         {
             string todoSerialized = JsonSerializer.Serialize(shift);
@@ -59,14 +67,24 @@ namespace Client.Data.Shifts
             Console.Out.WriteLine(response.ToString());
         }
 
-        public Task RemoveShiftAsync(string shiftId)
+        public async Task RemoveShiftAsync(string shiftId)
         {
-            throw new System.NotImplementedException();
+            await client.DeleteAsync($"http://localhost:6969/shifts/{shiftId}");
         }
 
-        public Task UpdateShiftAsync(Shift shift)
+        public async Task ApplyToShiftAsync(string shiftId, string username)
         {
-            throw new System.NotImplementedException();
+            await client.PutAsync($"http://localhost:6969/shifts/apply/{shiftId}/{username}", null);
+        }
+
+        public async Task ApproveAsync(string shiftId, string username)
+        {
+            await client.PutAsync($"http://localhost:6969/shifts/approve/{shiftId}/{username}", null);
+        }
+
+        public async Task RejectAsync(string shiftId, string username)
+        {
+            await client.PutAsync($"http://localhost:6969/shifts/reject/{shiftId}/{username}", null);
         }
     }
 }

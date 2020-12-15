@@ -1,4 +1,5 @@
 package Mediator;
+
 import Data.Shift;
 import Data.User;
 import Models.ShiftModel;
@@ -23,6 +24,7 @@ public class ClientHandler implements Runnable {
     private ShiftModel shiftModelManager;
     private ApplicationModel applicationModel;
     private Gson gson;
+    private String calhoz = null;
 
 
     public ClientHandler(Socket socket, UserModel userModelManager, ShiftModel shiftModelManager, ApplicationModel applicationModel) throws IOException {
@@ -113,27 +115,44 @@ public class ClientHandler implements Runnable {
                         send(outputStream, response3);
                         break;
                     case GET_APPLICATION:
-                        QueryPackage queryPackage = gson.fromJson(message,QueryPackage.class);
+                        QueryPackage queryPackage = gson.fromJson(message, QueryPackage.class);
                         Object object = queryPackage.getObject();
                         String idToGetApplication = object.toString();
                         Application application1 = applicationModel.getApplication(idToGetApplication);
 
                         ApplicationPackage applicationPackage1 = new ApplicationPackage(NetworkType.GET_APPLICATION, application1);
                         String response4 = gson.toJson(applicationPackage1);
-                        send(outputStream,response4);
+                        send(outputStream, response4);
                         break;
                     case UPDATE_APPLICATION:
                         ApplicationPackage applicationPackage4 = gson.fromJson(message, ApplicationPackage.class);
                         Application application3 = applicationPackage4.getApplication();
+                        // Mirka new version
                         applicationModel.updateApplication(application3);
+                        //String getApplicationStringId = application3.getId();
+                        //applicationModel.updateApplication(getApplicationStringId, application3);
                         break;
                     case DELETE_SHIFT:
-                        QueryPackage shiftPackage = gson.fromJson(message,QueryPackage.class);
-                        Object object1 = shiftPackage.getObject();
-                        String idToGetShift = object1.toString();
-                        shiftModelManager.removeShift(idToGetShift);
-
+                        StringPackage idToRemove = gson.fromJson(message, StringPackage.class);
+                        String toRemove = idToRemove.getString();
+                        shiftModelManager.removeShift(toRemove);
                         break;
+                    case APPLY_TO_SHIFT:
+                        if (calhoz == null) {
+                            StringPackage shiftId = gson.fromJson(message, StringPackage.class);
+                            String shiftIdString = shiftId.getString();
+                            calhoz = shiftIdString;
+                            System.out.println("Received 1 > " + shiftIdString);
+                        } else {
+                            StringPackage usernameToAdd = gson.fromJson(message, StringPackage.class);
+                            String usernameToAddString = usernameToAdd.getString();
+                            System.out.println("Received 2 > " + usernameToAddString);
+                            shiftModelManager.applyToShift(calhoz, usernameToAddString);
+
+                            calhoz = null;
+                        }
+                        break;
+
                     case GET_MY_APPLICATION:
                         ApplicationPackage incomingApplicationPackage = gson.fromJson(message, ApplicationPackage.class);
                         Application application2 = incomingApplicationPackage.getApplication();
@@ -145,10 +164,51 @@ public class ClientHandler implements Runnable {
                         send(outputStream, response5);
 
                         break;
+                    case GET_SHIFT_ID:
+                        StringPackage getShiftId = gson.fromJson(message, StringPackage.class);
+                        String getShiftIdString = getShiftId.getString();
+
+                        Shift getOne = shiftModelManager.GetShiftById(getShiftIdString);
+
+                        ShiftPackage returnOneShift = new ShiftPackage(NetworkType.GET_SHIFT_ID ,getOne);
+                        String returnOneShiftString = gson.toJson(returnOneShift);
+                        send(outputStream, returnOneShiftString);
+                        break;
+                    case APPROVE:
+                        if (calhoz == null) {
+                            StringPackage shiftIdToApprove = gson.fromJson(message, StringPackage.class);
+                            String shiftIdToApproveString = shiftIdToApprove.getString();
+                            calhoz = shiftIdToApproveString;
+                            System.out.println("Received 1 > " + shiftIdToApproveString);
+                        } else {
+                            StringPackage usernameToApprove = gson.fromJson(message, StringPackage.class);
+                            String usernameToApproveString = usernameToApprove.getString();
+                            System.out.println("Received 2 > " + usernameToApproveString);
+                            shiftModelManager.Approve(calhoz, usernameToApproveString);
+
+                            calhoz = null;
+                        }
+                        break;
+                    case REJECT:
+                        if (calhoz == null) {
+                            StringPackage shiftIdToRject = gson.fromJson(message, StringPackage.class);
+                            String shiftIdToRjectString = shiftIdToRject.getString();
+                            calhoz = shiftIdToRjectString;
+                            System.out.println("Received 1 > " + shiftIdToRjectString);
+                        } else {
+                            StringPackage usernameToReject = gson.fromJson(message, StringPackage.class);
+                            String usernameToRejectString = usernameToReject.getString();
+                            System.out.println("Received 2 > " + usernameToRejectString);
+                            shiftModelManager.Reject(calhoz, usernameToRejectString);
+
+                            calhoz = null;
+                        }
+                        break;
                 }
 
             } catch (Exception e) {
                 System.out.println("Client disconnected");
+                System.out.println(e);
                 break;
             }
         }

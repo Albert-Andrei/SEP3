@@ -69,7 +69,7 @@ namespace Client.Models
 
                     if (!validator)
                     {
-                        return new ValidationResult("huita..");
+                        return new ValidationResult("Not valid...");
                     }
                 }
                 return ValidationResult.Success;

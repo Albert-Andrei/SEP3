@@ -1,15 +1,18 @@
+@using Client.Authentication
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject NavigationManager NavigationManager
 
 <div id="navbar" class="navbar">
     <div class="navbar-main">
-        <ul class="nav">
-                    <li class="nav_li">
-                        <img class="LogoForNav" src="logoForNav.PNG">
-                    </li>
-                    <li class="nav_li">
-                        <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                            <span class="oi oi-home" aria-hidden="true"></span> Home
-                        </NavLink>
-                        </li>
+        <div class="logo-routing">
+            <div class="logo">
+                <a style="margin: 0;" class="navbar-brand" href="">Logo</a>
+                <button class="navbar-toggler">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div>
+                <ul class="nav">
                     <li class="nav_li">
                         <NavLink class="nav-link" href="AboutComponent" Match="NavLinkMatch.All">
                             <span class="oi oi-home" aria-hidden="true"></span> About
@@ -41,26 +44,71 @@
                     </NavLink>
                 </li>
             </AuthorizeView>
-            <AuthorizeView Policy="SecurityLevel3">
+                    <AuthorizeView Policy="SecurityLevel3">
+                        <li class="nav_li">
+                            <NavLink class="nav-link" href="MyApplication" Match="NavLinkMatch.All">
+                                <span class="oi oi-home" aria-hidden="true"></span> My Application
+                            </NavLink>
+                        </li>
+                    </AuthorizeView>
+                    <AuthorizeView Policy="SecurityLevel3">
+                        <li class="nav_li">
+                            <NavLink class="nav-link" href="avail-shifts" Match="NavLinkMatch.All">
+                                <span class="oi oi-home" aria-hidden="true"></span>Shifts
+                            </NavLink>
+                        </li>
+                    </AuthorizeView>
+                    <AuthorizeView Policy="SecurityLevel3">
+>>>>>>> 3329546cd6a32dd128bf55e6bc092cd9a13a2e23
                         <li class="nav_li">
                             <NavLink class="nav-link" href="empl-shifts" Match="NavLinkMatch.All">
-                                <span class="oi oi-home" aria-hidden="true"></span> Shifts
+                                <span class="oi oi-home" aria-hidden="true"></span>My Shifts
                             </NavLink>
                         </li>
                     </AuthorizeView>
                 </ul>
-        <div class="login-main">
-            <ul class="nav">
-                <li class="nav_li">
-                    <NavLink class="nav-link-login" href="/log-in" Match="NavLinkMatch.All">
-                        <span class="oi oi-home" aria-hidden="true"></span> Log In
-                    </NavLink>
-                </li>
-            </ul>
+            </div>
         </div>
+        <AuthorizeView>
+            <NotAuthorized>
+                <div class="login-main">
+                    <ul class="nav">
+                        <li class="nav_li">
+                            <NavLink class="nav-link-login" href="/log-in" Match="NavLinkMatch.All">
+                                <span class="oi oi-home" aria-hidden="true"></span> Log In
+                            </NavLink>
+                        </li>
+                    </ul>
+                </div>
+            </NotAuthorized>
+            <Authorized>
+                <div class="login-main">
+                    <ul class="nav">
+                        <li class="nav_li">
+                            <NavLink @onclick="PerformLogout" class="nav-link-out" href="/log-in" Match="NavLinkMatch.All">
+                                <span class="oi oi-home" aria-hidden="true"></span> Log Out
+                            </NavLink>
+                        </li>
+                    </ul>
+                </div>
+            </Authorized>
+        </AuthorizeView>
     </div>
 </div>
 
 
 @code {
+
+    public async Task PerformLogout()
+    {
+        try
+        {
+            ((CustomAuthenticationStateProvider) AuthenticationStateProvider).Logout();
+            NavigationManager.NavigateTo("/");
+        }
+        catch (Exception e)
+        {
+        }
+    }
+
 }

@@ -57,7 +57,6 @@ namespace Client.Authentication
             {
                 User user = await userService.GetUserAsync(username, password);
                 user.Password = null;
-                Console.Out.WriteLine(user.UserName);
                 if (user.UserName.Equals("User not found")) throw new Exception("User not found");
                 if (user.UserName.Equals("Wrong password")) throw new Exception("Wrong password");
                 identity = SetupClaimsForUser(user);
@@ -77,7 +76,16 @@ namespace Client.Authentication
         {
             return cachedUser.UserName;
         }
-        
+
+        public User UserInfo()
+        {
+            User info = new User();
+            info.FirstName = cachedUser.FirstName;
+            info.LastName = cachedUser.LastName;
+            info.Email = cachedUser.Email;
+            return info;
+        }
+
         public string ValidatedUsernameType()
         {
             return cachedUser.UserType;
