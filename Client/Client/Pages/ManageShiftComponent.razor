@@ -332,7 +332,8 @@ else
             if (application.User == username)
             {
                 ShiftService.ApproveAsync(shift.ShiftId, username);
-                NavigationManager.NavigateTo("/manage-shift");
+                NavigationManager.NavigateTo("/");
+                StateHasChanged();
             }
         }
     }
@@ -347,6 +348,7 @@ else
                 if (application.User == username)
                 {
                     ShiftService.RejectAsync(shift.ShiftId, username);
+                    NavigationManager.NavigateTo("/");
                     StateHasChanged();
                 }
             }
@@ -358,6 +360,7 @@ else
                 if (application.User == username)
                 {
                     ShiftService.RejectAsync(shift.ShiftId, username);
+                    NavigationManager.NavigateTo("/");
                     StateHasChanged();
                 }
             }

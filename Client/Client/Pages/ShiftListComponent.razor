@@ -54,8 +54,18 @@
                                                         @if (item.Pending != null)
                                                         {
                                                             <div>
-                                                                <p>
-                                                                    <b>Pending:</b> @item.Pending.Count
+                                                                <p style="display: flex;">
+                                                                    @{ int co = item.Pending.Count;}
+                                                                    @if (co != 0)
+                                                                    {
+                                                                        <b style="margin-right: 5px; color: red">Pending:</b> 
+                                                                        <p style="color: red">@item.Pending.Count</p> 
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <b style="margin-right: 5px">Pending:</b> 
+                                                                        <p>@item.Pending.Count</p> 
+                                                                    }
                                                                 </p>
                                                             </div>
                                                         }

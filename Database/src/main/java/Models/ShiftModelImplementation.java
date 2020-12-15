@@ -206,10 +206,16 @@ public class ShiftModelImplementation implements ShiftModel {
             try {
                 Shift shift = GetShiftById(shiftId);
 
-                for (String uname : shift.getPendingList()) {
-                    if (uname == username) {
-                        shiftCollection.updateOne(eq("_id", new ObjectId(shiftId)), Updates.pull("pendingList", username));
-                        shiftCollection.updateOne(eq("_id", new ObjectId(shiftId)), Updates.addToSet("rejectedList", username));
+                if (shift.getPendingList().size() != 0) {
+                    for (String uname : shift.getPendingList()) {
+                        if (username.equals(uname)) {
+                            shiftCollection.updateOne(eq("_id", new ObjectId(shiftId)), Updates.pull("pendingList", username));
+                            shiftCollection.updateOne(eq("_id", new ObjectId(shiftId)), Updates.addToSet("rejectedList", username));
+                        }
+                    }
+                } else if (shift.getApprovedList().size() != 0)
+                for (String uname : shift.getApprovedList()) {
+                    if (username.equals(uname)) {
                     } else {
                         shiftCollection.updateOne(eq("_id", new ObjectId(shiftId)), Updates.pull("approvedList", username));
                         shiftCollection.updateOne(eq("_id", new ObjectId(shiftId)), Updates.addToSet("rejectedList", username));

@@ -51,8 +51,8 @@
                                                     {
                                                         <div style="margin-top: 20px;">
                                                             <p>
-                                                               <b>Applied:</b> @item.Pending.Count
-                                                                </p>
+                                                                <b>Applied:</b> @item.Pending.Count
+                                                            </p>
                                                         </div>
                                                     }
                                                 </div>
@@ -127,7 +127,6 @@ else
     private IList<Shift> allShifts;
     private string errorMessage;
     private string username;
-    int calhoz = 0;
     private bool apply = false;
 
     private int count;
@@ -148,75 +147,16 @@ else
         shiftsToShow = new List<Shift>();
         foreach (var shift in allShifts)
         {
-            calhoz = shift.Pending.Count;
-
-            // if (!shift.Pending.Contains(username))
-            // {
-            //     shiftsToShow.Add(shift);
-            // } else if (!shift.Approved.Contains(username))
-            // {
-            //     shiftsToShow.Add(shift);
-            // } else if (!shift.Rejected.Contains(username))
-            // {
-            //     shiftsToShow.Add(shift);   
-            // }
-            
-            if (calhoz != 0)
+            if (shift.Pending.Count == 0 && shift.Approved.Count == 0 && shift.Rejected.Count == 0)
             {
-                foreach (var name in shift.Pending)
-                {
-                    if (name == username)
-                    {
-                        shiftsToShow.Add(shift);
-                        calhoz--;
-                    }
-                    else
-                    {
-                        calhoz--;
-                        Console.Out.WriteLine(username + " applied to:  " + shift);
-                    }
-                }
-            }
-
-            calhoz = shift.Approved.Count;
-            
-            if (calhoz != 0)
+                shiftsToShow.Add(shift);
+            } else if (shift.Pending.Contains(username) == false
+                       && shift.Approved.Contains(username) == false 
+                       && shift.Rejected.Contains(username) == false)
             {
-                foreach (var name in shift.Approved)
-                {
-                    if (name != username)
-                    {
-                        shiftsToShow.Add(shift);
-                        calhoz--;
-                    }
-                    else
-                    {
-                        Console.Out.WriteLine(username + " approved to:  " + shift);
-                    }
-                }
+                shiftsToShow.Add(shift);
             }
-
-            calhoz = shift.Rejected.Count;
-            
-            if (shift.Rejected.Count != 0)
-            {
-                foreach (var name in shift.Rejected)
-                {
-                    if (name != username)
-                    {
-                        shiftsToShow.Add(shift);
-                        calhoz--;
-                    }
-                    else
-                    {
-                        Console.Out.WriteLine(username + " Rejected to:  " + shift);
-                    }
-                }
-            }
-
-            calhoz = 0;
         }
-        calhoz = 0;
         count = shiftsToShow.Count;
     }
 
@@ -228,12 +168,13 @@ else
             if (shift.ShiftId == shiftId)
             {
                 ShiftService.ApplyToShiftAsync(shiftId, username);
-                // NavigationManager.NavigateTo($"/empl-shifts");
+    // NavigationManager.NavigateTo($"/empl-shifts");
                 shiftsToShow.Remove(shift);
                 StateHasChanged();
                 Console.Out.WriteLine("To check...");
             }
         }
-        // NavigationManager.NavigateTo($"/empl-shifts",forceLoad:true);
+    // NavigationManager.NavigateTo($"/empl-shifts",forceLoad:true);
     }
+
 }
