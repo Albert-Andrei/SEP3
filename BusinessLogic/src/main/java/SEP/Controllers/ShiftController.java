@@ -91,13 +91,13 @@ public class ShiftController {
 
     @PutMapping("approve/{shiftId}/{username}")
     public void approve(@PathVariable("shiftId") String shiftId, @PathVariable("username") String username) throws IOException, ClassNotFoundException {
-        System.out.println("approve" + shiftId + ", "+ username);
+        System.out.println("Approve >>> " + shiftId + ", "+ username);
         service.ApproveAsync(shiftId, username);
     }
 
     @PutMapping("reject/{shiftId}/{username}")
     public void reject(@PathVariable("shiftId") String shiftId, @PathVariable("username") String username) throws IOException, ClassNotFoundException {
-        System.out.println("reject" + shiftId + ", "+ username);
+        System.out.println("Reject >>> " + shiftId + ", "+ username);
         service.RejectAsync(shiftId, username);
     }
 

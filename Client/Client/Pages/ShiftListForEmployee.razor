@@ -51,8 +51,8 @@
                                                     {
                                                         <div style="margin-top: 20px;">
                                                             <p>
-                                                               <b>Applied:</b> @item.Pending.Count
-                                                                </p>
+                                                                <b>Applied:</b> @item.Pending.Count
+                                                            </p>
                                                         </div>
                                                     }
                                                 </div>
@@ -61,16 +61,16 @@
                                                         <div>
                                                             <p style="margin: 0;
                                                                           margin-left: 15px;">
-                                                                <b>Strt Date</b>
+                                                                <b>Date</b>
                                                             </p>
-                                                            <p style="margin: 0px 10px 0px;">@item.StartDate</p>
+                                                            <p style="margin: 0px 10px 0px;">@item.Date.ToShortDateString()</p>
                                                         </div>
                                                         <div>
                                                             <p style="margin: 0;
                                                                           margin-left: 15px;">
-                                                                <b>End Date</b>
+                                                                <b>Time</b>
                                                             </p>
-                                                            <p style="margin: 0px 10px 0px;">@item.EndDate</p>
+                                                            <p style="margin: 0px 10px 0px;">@item.PreferableWorkTime</p>
                                                         </div>
                                                     </div>
                                                     <div class="descriptions">
@@ -147,49 +147,12 @@ else
         shiftsToShow = new List<Shift>();
         foreach (var shift in allShifts)
         {
-            if (shift.Pending.Count != 0)
+            if (shift.Pending.Count == 0 && shift.Approved.Count == 0 && shift.Rejected.Count == 0)
             {
-                foreach (var name in shift.Pending)
-                {
-                    if (name != username)
-                    {
-                        shiftsToShow.Add(shift);
-                    }
-                    else
-                    {
-                        Console.Out.WriteLine(username + " applied to:  " + shift);
-                    }
-                }
-            }
-            else if (shift.Approved.Count != 0)
-            {
-                foreach (var name in shift.Approved)
-                {
-                    if (name != username)
-                    {
-                        shiftsToShow.Add(shift);
-                    }
-                    else
-                    {
-                        Console.Out.WriteLine(username + " approved to:  " + shift);
-                    }
-                }
-            }
-            else if (shift.Rejected.Count != 0)
-            {
-                foreach (var name in shift.Rejected)
-                {
-                    if (name != username)
-                    {
-                        shiftsToShow.Add(shift);
-                    }
-                    else
-                    {
-                        Console.Out.WriteLine(username + " Rejected to:  " + shift);
-                    }
-                }
-            }
-            else
+                shiftsToShow.Add(shift);
+            } else if (shift.Pending.Contains(username) == false
+                       && shift.Approved.Contains(username) == false 
+                       && shift.Rejected.Contains(username) == false)
             {
                 shiftsToShow.Add(shift);
             }
@@ -205,15 +168,13 @@ else
             if (shift.ShiftId == shiftId)
             {
                 ShiftService.ApplyToShiftAsync(shiftId, username);
-                // NavigationManager.NavigateTo($"/empl-shifts");
+    // NavigationManager.NavigateTo($"/empl-shifts");
                 shiftsToShow.Remove(shift);
                 StateHasChanged();
                 Console.Out.WriteLine("To check...");
             }
         }
-        // NavigationManager.NavigateTo($"/empl-shifts",forceLoad:true);
+    // NavigationManager.NavigateTo($"/empl-shifts",forceLoad:true);
     }
-
-    
 
 }

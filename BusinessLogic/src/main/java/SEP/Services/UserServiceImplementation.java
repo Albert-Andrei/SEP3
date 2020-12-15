@@ -50,7 +50,6 @@ public class UserServiceImplementation implements UserService {
         else {
             throw new IOException("Username already used");
         }
-        remoteModel.createUser(user);
     }
 
 

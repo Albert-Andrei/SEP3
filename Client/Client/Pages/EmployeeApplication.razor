@@ -25,7 +25,7 @@
             <main>
                 <div class="auth-content">
 
-                    <h2>Create apllication</h2>
+                    <h2>Please create your apllication</h2>
 
                     <hr class="divider"/>
 
@@ -157,6 +157,6 @@
         Console.Out.WriteLine(application.ToString());
         ApplicationService.CreateApplicationAsync(application);
         ApplicationService.GetApplicationAsync(errorMessage);
-        NavigationManager.NavigateTo("/MyApplication");
+        NavigationManager.NavigateTo("/avail-shifts");
     }
 }
