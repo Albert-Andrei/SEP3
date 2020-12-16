@@ -13,9 +13,14 @@ import org.springframework.web.bind.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
+
+/**
+ * ShiftController class make the API connection using Java Spring framework
+ */
+
+
 @RestController
 @RequestMapping("/shifts")
-
 public class ShiftController {
 
     /**
@@ -26,7 +31,8 @@ public class ShiftController {
 
 
     /**
-     *
+     * Receives and send the shift to Data tire in order to be stored in database
+     * Returns an HttpStatus to client's post request
      * @param shift
      * @return HttpStatus.CREATED and shift is everithing went ok and HttpStatus.EXPECTATION_FAILED
      * if something went wrong
@@ -46,10 +52,11 @@ public class ShiftController {
         }
     }
 
+
     /**
-     *
      * Controller for get request calls the GetShiftsAsyncForOne method from Shift Service
      * @param username
+     * Username of shift owner
      * @return List of Shifts
      * @throws IOException
      * @throws ClassNotFoundException
@@ -60,7 +67,7 @@ public class ShiftController {
     }
 
     /**
-     *
+     * Controller for get request calls the GetAllShifts method from Shift Service
      * @return A list of all shifts
      * @throws IOException
      * @throws ClassNotFoundException
@@ -70,37 +77,70 @@ public class ShiftController {
         return service.GetAllShifts();
     }
 
+    /**
+     * Controller for get request calls the GetShiftById method from Shift Service
+     * @param shiftId
+     * @return A shift by it's id
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     @GetMapping("/one/{shiftId}")
     public Shift getShiftById(@PathVariable("shiftId") String shiftId) throws IOException, ClassNotFoundException {
         return service.GetShiftById(shiftId);
     }
 
+    /**
+     * Controller for delete request calls the RemoveShiftAsync method from Shift Service
+     * @param shiftId
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     @DeleteMapping("{shiftId}")
     @ResponseBody
     public void remove(@PathVariable("shiftId") String shiftId) throws IOException, ClassNotFoundException {
          service.RemoveShiftAsync(shiftId);
     }
 
-    ;
-
+    /**
+     * Controller for put request calls the ApplyToShiftAsync method from Shift Service
+     * @param shiftId
+     * @param username
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     @PutMapping("apply/{shiftId}/{username}")
     public void update(@PathVariable("shiftId") String shiftId, @PathVariable("username") String username) throws IOException, ClassNotFoundException {
-        System.out.println(shiftId + ", "+ username);
         service.ApplyToShiftAsync(shiftId, username);
     }
 
+    /**
+     * Controller for put request calls the Controller for put request calls the ApproveAsync
+     * method from Shift Service
+     * @param shiftId
+     * Id of the shift
+     * @param username
+     * The username of shift owner
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     @PutMapping("approve/{shiftId}/{username}")
     public void approve(@PathVariable("shiftId") String shiftId, @PathVariable("username") String username) throws IOException, ClassNotFoundException {
-        System.out.println("Approve >>> " + shiftId + ", "+ username);
         service.ApproveAsync(shiftId, username);
     }
 
+    /**
+     * Controller for put request calls the RejectAsync for put request calls the RejectAsync
+     * method from Shift Service
+     * This method send the shiftId to find shift in database and username that have to be rejected
+     * @param shiftId
+     * Id of the shift to update
+     * @param username
+     * Username of an employee that have to be rejected for this shift
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     @PutMapping("reject/{shiftId}/{username}")
     public void reject(@PathVariable("shiftId") String shiftId, @PathVariable("username") String username) throws IOException, ClassNotFoundException {
-        System.out.println("Reject >>> " + shiftId + ", "+ username);
         service.RejectAsync(shiftId, username);
     }
-
-    ;
-
 }

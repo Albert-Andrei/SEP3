@@ -16,7 +16,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class ClientConnector implements Runnable {
-    final int PORT = 2910;
+    final int PORT = 2020;
     private ServerSocket welcomeSocket;
     private UserModel userModel;
     private ShiftModel shiftModel;

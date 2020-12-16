@@ -11,11 +11,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * ShiftClient class implements ShiftRemoteModel interface
+ */
 public class ShiftClient implements ShiftRemoteModel{
 
     private Gson gson;
     ConnectionHandler handler;
 
+    /**
+     * Constructor
+     * @throws IOException
+     */
     public ShiftClient() throws IOException {
         this.gson = new Gson();
         this.handler = ConnectionImplementation.getInstance();
@@ -34,7 +41,18 @@ public class ShiftClient implements ShiftRemoteModel{
         handler.sendToDb(gsonToServer);
     }
 
-
+    /**
+     * Creating a network package with StringPackage type
+     * Converts to gson the network package
+     * Send the gson to data tire
+     * Deserialize the response from data tire
+     * Returns a list with shifts from database
+     *
+     * @param username
+     * @return a list of shifts
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     @Override
     public List<Shift> getShiftsForOneUser(String username) throws IOException, ClassNotFoundException {
 
@@ -47,6 +65,19 @@ public class ShiftClient implements ShiftRemoteModel{
         return list.getShiftList();
     }
 
+    /**
+     * Creating a network package with StringPackage type and String shiftId in order
+     * to get the specific shift from database
+     * Converts to gson the network package
+     * Send the gson to data tire
+     * Deserialize the response from data tire
+     * Returns a shifts from database
+     *
+     * @param shiftId
+     * @ a shift
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     @Override
     public Shift GetShiftById(String shiftId) throws IOException, ClassNotFoundException {
         NetworkPackage toServer = new StringPackage(NetworkType.GET_SHIFT_ID, shiftId);
@@ -58,6 +89,17 @@ public class ShiftClient implements ShiftRemoteModel{
         return shift.getShift();
     }
 
+    /**
+     * Creating a network package with StringPackage type
+     * Converts to gson the network package
+     * Send the gson to data tire
+     * Deserialize the response from data tire
+     * Returns a list with shifts from database
+     *
+     * @return a list of shifts
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     @Override
     public List<Shift> getAllShifts() throws IOException, ClassNotFoundException {
         NetworkPackage toServer = new StringPackage(NetworkType.GET_ALL_SHIFTS);
@@ -70,6 +112,16 @@ public class ShiftClient implements ShiftRemoteModel{
         return list.getShiftList();
     }
 
+    /**
+     *
+     * Creating a network package with StringPackage type
+     * Converts to gson the network package
+     * Send the gson to data tire
+     *
+     * @param shiftId
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     @Override
     public void removeShift(String shiftId) throws IOException, ClassNotFoundException {
         NetworkPackage toServer = new StringPackage(NetworkType.DELETE_SHIFT, shiftId);
@@ -77,6 +129,20 @@ public class ShiftClient implements ShiftRemoteModel{
         handler.sendToDb(gsonToServer);
     }
 
+    /**
+     * Creating a network package with StringPackage type with shiftId
+     * Converts to gson the network package
+     * Send the gson to data tire
+     *
+     * Creating a network package with StringPackage type with username
+     * Converts to gson the network package
+     * Send the gson to data tire
+     *
+     * @param shiftId
+     * @param username
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     @Override
     public void applyToShift(String shiftId, String username) throws IOException, ClassNotFoundException {
         StringPackage toServer = new StringPackage(NetworkType.APPLY_TO_SHIFT, shiftId);
@@ -88,6 +154,16 @@ public class ShiftClient implements ShiftRemoteModel{
         handler.sendToDb(gsonToServer2);
     }
 
+    /**
+     * Creating a network package with StringPackage type with shift ID and username
+     * Converts to gson the network package
+     * Send the gson to data tire
+     *
+     * @param shiftId
+     * @param username
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     @Override
     public void Approve(String shiftId, String username) throws IOException, ClassNotFoundException {
         StringPackage toServer = new StringPackage(NetworkType.APPROVE, shiftId);
@@ -99,13 +175,21 @@ public class ShiftClient implements ShiftRemoteModel{
         handler.sendToDb(gsonToServer2);
     }
 
+    /**
+     * Creating a network package with StringPackage type with shift ID and username
+     * Converts to gson the network package
+     * Send the gson to data tire
+     *
+     * @param shiftId
+     * @param username
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     @Override
     public void Reject(String shiftId, String username) throws IOException, ClassNotFoundException {
         StringPackage toServer = new StringPackage(NetworkType.REJECT, shiftId);
         String gsonToServer = gson.toJson(toServer);
         handler.sendToDb(gsonToServer);
-
-        System.out.println("aici " + username);
 
         StringPackage toServer2 = new StringPackage(NetworkType.REJECT, username);
         String gsonToServer2 = gson.toJson(toServer2);

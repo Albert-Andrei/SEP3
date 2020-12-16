@@ -7,9 +7,12 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
-public class ConnectionImplementation implements ConnectionHandler{
+/**
+ * ConnectionImplementation implements ConnectionHandler interface
+ */
+public class ConnectionImplementation implements ConnectionHandler {
     public static final String HOST = "localhost";
-    public static final int PORT = 2910;
+    public static final int PORT = 2020;
     private String host;
     private int port;
     private Socket socket;
@@ -18,20 +21,28 @@ public class ConnectionImplementation implements ConnectionHandler{
     private static Object lock = new Object();
     private static ConnectionImplementation instance;
 
+    /**
+     * Constructor
+     * Initialise the port and, host  and calls connect method
+     *
+     * @throws IOException
+     */
     private ConnectionImplementation() throws IOException {
         this.port = PORT;
         this.host = HOST;
         connect();
     }
 
-    public static ConnectionImplementation getInstance() throws IOException
-    {
-        if(instance == null)
-        {
-            synchronized (lock)
-            {
-                if (instance == null)
-                {
+    /**
+     * Checks if there is any instance of this class and returns it or creates it
+     *
+     * @return An instance of ConnectionImplementation
+     * @throws IOException
+     */
+    public static ConnectionImplementation getInstance() throws IOException {
+        if (instance == null) {
+            synchronized (lock) {
+                if (instance == null) {
                     instance = new ConnectionImplementation();
                 }
             }
@@ -39,12 +50,22 @@ public class ConnectionImplementation implements ConnectionHandler{
         return instance;
     }
 
+    /**
+     * Initialise the socket, outputStream and inputStream
+     *
+     * @throws IOException
+     */
     private void connect() throws IOException {
         this.socket = new Socket(host, port);
         this.outputStream = socket.getOutputStream();
         this.inputStream = socket.getInputStream();
     }
 
+    /**
+     * Close all connections
+     *
+     * @throws IOException
+     */
     @Override
     public void disconnect() throws IOException {
         this.inputStream.close();
@@ -52,16 +73,35 @@ public class ConnectionImplementation implements ConnectionHandler{
         socket.close();
     }
 
+    /**
+     * Calls method read
+     *
+     * @return A string with values from read method
+     * @throws IOException
+     */
     @Override
     public String readFromDb() throws IOException {
         return read(inputStream);
     }
 
+    /**
+     * Calls local send method
+     *
+     * @param toServer
+     * @throws IOException
+     */
     @Override
     public void sendToDb(String toServer) throws IOException {
-        send(outputStream,toServer);
+        send(outputStream, toServer);
     }
 
+    /**
+     * Deserialise the byte message from data tire
+     *
+     * @param inputStream
+     * @return A json string from data tire
+     * @throws IOException
+     */
     private static String read(InputStream inputStream) throws IOException {
         //translating input
         byte[] lenBytes = new byte[4];
@@ -76,6 +116,13 @@ public class ConnectionImplementation implements ConnectionHandler{
         return receivedFromClient;
     }
 
+    /**
+     * Serialize in byte the message and sends it to data tire
+     *
+     * @param outputStream
+     * @param toSend
+     * @throws IOException
+     */
     private static void send(OutputStream outputStream, String toSend) throws IOException {
         byte[] toSendBytes = toSend.getBytes();
         int toSendLen = toSendBytes.length;
