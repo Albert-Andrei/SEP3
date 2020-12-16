@@ -44,7 +44,7 @@ public class ShiftClient implements ShiftRemoteModel{
     /**
      * Creating a network package with StringPackage type
      * Converts to gson the network package
-     * Send the gson to data tire
+     * Send the gson to data tier
      * Deserialize the response from data tire
      * Returns a list with shifts from database
      *
@@ -69,7 +69,7 @@ public class ShiftClient implements ShiftRemoteModel{
      * Creating a network package with StringPackage type and String shiftId in order
      * to get the specific shift from database
      * Converts to gson the network package
-     * Send the gson to data tire
+     * Send the gson to data tier
      * Deserialize the response from data tire
      * Returns a shifts from database
      *
@@ -92,7 +92,7 @@ public class ShiftClient implements ShiftRemoteModel{
     /**
      * Creating a network package with StringPackage type
      * Converts to gson the network package
-     * Send the gson to data tire
+     * Send the gson to data tier
      * Deserialize the response from data tire
      * Returns a list with shifts from database
      *
@@ -116,7 +116,7 @@ public class ShiftClient implements ShiftRemoteModel{
      *
      * Creating a network package with StringPackage type
      * Converts to gson the network package
-     * Send the gson to data tire
+     * Send the gson to data tier
      *
      * @param shiftId
      * @throws IOException
@@ -132,11 +132,11 @@ public class ShiftClient implements ShiftRemoteModel{
     /**
      * Creating a network package with StringPackage type with shiftId
      * Converts to gson the network package
-     * Send the gson to data tire
+     * Send the gson to data tier
      *
      * Creating a network package with StringPackage type with username
      * Converts to gson the network package
-     * Send the gson to data tire
+     * Send the gson to data tier
      *
      * @param shiftId
      * @param username
@@ -157,7 +157,7 @@ public class ShiftClient implements ShiftRemoteModel{
     /**
      * Creating a network package with StringPackage type with shift ID and username
      * Converts to gson the network package
-     * Send the gson to data tire
+     * Send the gson to data tier
      *
      * @param shiftId
      * @param username
@@ -178,7 +178,7 @@ public class ShiftClient implements ShiftRemoteModel{
     /**
      * Creating a network package with StringPackage type with shift ID and username
      * Converts to gson the network package
-     * Send the gson to data tire
+     * Send the gson to data tier
      *
      * @param shiftId
      * @param username

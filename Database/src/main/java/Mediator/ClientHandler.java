@@ -26,7 +26,14 @@ public class ClientHandler implements Runnable {
     private Gson gson;
     private String calhoz = null;
 
-
+    /**
+     * Constructor, initialize the variables
+     * @param socket
+     * @param userModelManager
+     * @param shiftModelManager
+     * @param applicationModel
+     * @throws IOException
+     */
     public ClientHandler(Socket socket, UserModel userModelManager, ShiftModel shiftModelManager, ApplicationModel applicationModel) throws IOException {
         this.socket = socket;
         inputStream = socket.getInputStream();
@@ -37,7 +44,11 @@ public class ClientHandler implements Runnable {
         this.gson = new Gson();
     }
 
-
+    /**
+     * Reeds data from Business logic tier and sends back relevant information
+     *
+     * THE MAIN METHOD OF ALL DATA TIER
+     */
     @Override
     public void run() {
         while (true) {

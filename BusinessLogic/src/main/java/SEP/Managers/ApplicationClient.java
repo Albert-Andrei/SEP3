@@ -31,7 +31,7 @@ public class ApplicationClient implements ApplicationRemoteModel {
     /**
      * Creating a network package with application and name
      * Converts to json the network package
-     * Send the gson to data tire
+     * Send the gson to data tier
      * Deserialize the response from data tire
      * Returns a list with applications from database
      *
@@ -53,7 +53,7 @@ public class ApplicationClient implements ApplicationRemoteModel {
 
     /**
      * Crete a network package with application and serialize it
-     * Send the gson to data tire in order to store it in database
+     * Send the gson to data tier in order to store it in database
      *
      * @param application
      * @throws IOException
@@ -68,7 +68,7 @@ public class ApplicationClient implements ApplicationRemoteModel {
 
     /**
      * Creates a QueryPackage And serialize it
-     * Send the gson to data tire
+     * Send the gson to data tier
      * Deserialize the response from data tire
      * Returns an application
      *
@@ -90,7 +90,7 @@ public class ApplicationClient implements ApplicationRemoteModel {
 
     /**
      * Creates a ApplicationPackage And serialize it
-     * Send the gson to data tire
+     * Send the gson to data tier
      *
      * @param application
      * @throws IOException
@@ -108,8 +108,8 @@ public class ApplicationClient implements ApplicationRemoteModel {
      * Setting the application name
      * Creating a network package of type ApplicationPackage
      * Converts to gson the network package
-     * Send the gson to data tire
-     * Deserialize the response from data tire
+     * Send the gson to data tier
+     * Deserialize the response from data tier
      * Returns an applications from database
      *
      * @param user

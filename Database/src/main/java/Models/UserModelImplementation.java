@@ -18,7 +18,7 @@ public class UserModelImplementation implements UserModel {
     }
 
     /**
-     * This method checks if there is a existing user in db with the given username
+     * This method checks if there is a existing user in db with the given username and returns it
      * @param username
      * @return User
      */

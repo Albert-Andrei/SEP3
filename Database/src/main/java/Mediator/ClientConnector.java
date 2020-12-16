@@ -15,6 +15,10 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * ClientConnector class implements Runnable
+ * Set the connection between T2 and T3
+ */
 public class ClientConnector implements Runnable {
     final int PORT = 2020;
     private ServerSocket welcomeSocket;
@@ -22,19 +26,28 @@ public class ClientConnector implements Runnable {
     private ShiftModel shiftModel;
     private ApplicationModel applicationModel;
 
+    /**
+     * Constructs an database connection
+     * @throws IOException
+     */
     public ClientConnector() throws IOException {
         this.welcomeSocket = new ServerSocket(PORT);
         MongoClient mongoClient = MongoClients.create(
                 "mongodb+srv://shared:12345@cluster0.anhd1.mongodb.net/Cluster0?retryWrites=true&w=majority"
         );
-//        septesting123@gmail.com
-//        fuckingmongobd
+        // Database username and password:
+        //  septesting123@gmail.com
+        //  fuckingmongobd
         MongoDatabase database = mongoClient.getDatabase("SEP");
         this.userModel = new UserModelImplementation(database);
         this.shiftModel = new ShiftModelImplementation(database);
         this.applicationModel = new ApplicationModelImplementation(database);
     }
 
+    /**
+     * Run method from Runnable
+     * Sets the with business logic
+     */
     @Override
     public void run() {
         System.out.println("Server started...");

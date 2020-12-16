@@ -27,8 +27,8 @@ public class UserClient implements UserRemoteModel{
     /**
      * Creates a new user and set the username and password // NOT THE BEST WAY OF DOING IT BUT IT WORKS
      * Creates a new NetworkPackage of UserPackage type and serialize it
-     * Send the gson to data tire
-     * Deserializing the response from data tire
+     * Send the gson to data tier
+     * Deserializing the response from data tier
      * Returning the user
      *
      * @param username
@@ -53,7 +53,7 @@ public class UserClient implements UserRemoteModel{
 
     /**
      * Creates a new NetworkPackage of UserPackage type and serialize it
-     * Send the gson to data tire
+     * Send the gson to data tier
      *
      * @param user
      * @throws IOException

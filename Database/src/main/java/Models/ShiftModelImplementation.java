@@ -76,6 +76,13 @@ public class ShiftModelImplementation implements ShiftModel {
         System.out.println("Shift inserted successfully " + shift);
     }
 
+    /**
+     * Return a list of shifts by given username
+     *
+     * @param username
+     * @return A list of shifts
+     * @throws ParseException
+     */
     @Override
     public List<Shift> GetAllShiftsForOneUser(String username) throws ParseException {
         if (shiftCollection.find( eq("username", username) ).first() != null) {
@@ -112,6 +119,12 @@ public class ShiftModelImplementation implements ShiftModel {
         return toReturn;
     }
 
+    /**
+     * Returns allShifts that are in the database
+     *
+     * @return all shifts that are in the database
+     * @throws ParseException
+     */
     @Override
     public List<Shift> GetAllShifts() throws ParseException {
         toReturn.clear();
@@ -145,6 +158,12 @@ public class ShiftModelImplementation implements ShiftModel {
         return toReturn;
     }
 
+    /**
+     * Return a Shift from database by given ID
+     * @param shiftId
+     * @return A shift
+     * @throws ParseException
+     */
     @Override
     public Shift GetShiftById(String shiftId) throws ParseException {
         Gson gson = new GsonBuilder()
@@ -170,6 +189,12 @@ public class ShiftModelImplementation implements ShiftModel {
         return null;
     }
 
+    /**
+     * Removes a shift from database by given ID
+     * @param shiftId
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     @Override
     public void removeShift(String shiftId) throws IOException, ClassNotFoundException {
         try {
@@ -181,6 +206,13 @@ public class ShiftModelImplementation implements ShiftModel {
         }
     }
 
+    /**
+     * Writes the given username into Pending list of a shift by given shift ID
+     * @param shiftId
+     * @param username
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     @Override
     public void applyToShift(String shiftId, String username) throws IOException, ClassNotFoundException {
         if (shiftCollection.find(eq("_id", new ObjectId(shiftId))).first() != null) {
@@ -188,6 +220,14 @@ public class ShiftModelImplementation implements ShiftModel {
         }
     }
 
+    /**
+     * Updates a shift by moving a username from pending list to approved list into
+     * a shift by given shift ID
+     * @param shiftId
+     * @param username
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     @Override
     public void Approve(String shiftId, String username) throws IOException, ClassNotFoundException {
         if (shiftCollection.find(eq("_id", new ObjectId(shiftId))).first() != null) {
@@ -196,6 +236,14 @@ public class ShiftModelImplementation implements ShiftModel {
         }
     }
 
+    /**
+     * Updates a shift by moving a username from pending or approved list to rejected list into
+     * a shift by given shift ID
+     * @param shiftId
+     * @param username
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     @Override
     public void Reject(String shiftId, String username) throws IOException, ClassNotFoundException {
         if (shiftCollection.find(eq("_id", new ObjectId(shiftId))).first() != null) {

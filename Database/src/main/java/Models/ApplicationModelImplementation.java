@@ -24,16 +24,19 @@ public class ApplicationModelImplementation implements ApplicationModel {
 
     private final MongoCollection<Document> applicationCollection;
 
-
-
+    /**
+     * Constructor
+     * Connects with the Application table from database
+     * @param database
+     */
     public ApplicationModelImplementation(MongoDatabase database) {
         applicationCollection = database.getCollection("Applications");;
 
     }
 
     /**
-     *
-     * @return
+     * Returns all applications from database
+     * @return list of all applications from database
      * @throws IOException
      * @throws ClassNotFoundException
      */
@@ -58,7 +61,7 @@ public class ApplicationModelImplementation implements ApplicationModel {
     }
 
     /**
-     *
+     * Returns an application by given ID
      * @param applicationId
      * @return
      * @throws IOException
@@ -75,13 +78,9 @@ public class ApplicationModelImplementation implements ApplicationModel {
         return null;
     }
 
-    /**
-     * This method creates a new user in the Database with values that came from tear 2.
-     *
-     * **/
 
     /**
-     *
+     * This method creates a new user in the Database with values that came from tear 2.
      * @param application
      * @throws IOException
      * @throws ClassNotFoundException
@@ -108,6 +107,7 @@ public class ApplicationModelImplementation implements ApplicationModel {
     }
 
     /**
+     * Updates an application in database
      *
      * @param application
      * @throws IOException
@@ -135,9 +135,9 @@ public class ApplicationModelImplementation implements ApplicationModel {
     }
 
     /**
-     *
+     * Gets an application from database by username
      * @param user
-     * @return
+     * @return Application
      * @throws IOException
      * @throws ClassNotFoundException
      */
