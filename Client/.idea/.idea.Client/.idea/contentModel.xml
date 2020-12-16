@@ -37,7 +37,6 @@
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
               <e p="Client.AssemblyInfo.cs" t="Include" />
-              <e p="Client.RazorAssemblyInfo.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -80,7 +79,7 @@
             </e>
             <e p="ContactComponent.css" t="Include" />
             <e p="createShift.css" t="Include" />
-            <e p="HomeComponent.css" t="Include" />
+            <e p="HomeComponent.razor.css" t="Include" />
             <e p="loading.css" t="Include" />
             <e p="navigation.css" t="Include" />
             <e p="open-iconic" t="Include">

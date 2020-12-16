@@ -4,17 +4,20 @@
     text-align: center;
     font-family: sans; color: white;
     font-size: 50px;
+    z-index: 2;
 }
 .headerSecond{
     text-align: center;
     font-family: sans; color: white;
     font-size: 50px;
+    z-index: 2;
 }
 .headerThird{
     text-align: center;
     font-family: sans; color: white;
     font-size: 25px;
-} 
+    z-index: 2;
+}
 .buttonSign{
     margin-top: 50px;
     font-size: 25px;
@@ -31,13 +34,13 @@
     background: #1f7ac4;
     max-height: 100%;
     max-width: 100%;
-    
+
 }
 
 body {
     background-color: #1f7ac4;
-    
-    }
+
+}
 .buttonSign:hover {
     transform: scale(1.35);
     opacity: 1;
@@ -49,55 +52,47 @@ body {
     display: none;
 }
 
-.navbarhome {
+.navbars {
+    overflow: hidden;
     background-color: #333;
     position: fixed;
     bottom: 0;
-    opacity: 0.8;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0.7;
+    z-index: 2;
 }
 
-.navbarhome a {
+.navbars a {
+    float: left;
+    display: block;
     color: #f2f2f2;
     text-align: center;
+    padding: 30px 16px;
+    text-decoration: none;
     font-size: 17px;
+
 }
 
-.navbarhome a:hover {
-    background-color: #ddd;
+.navbars a:hover {
+    background: #f1f1f1;
     color: black;
 }
 
-.navbarhome a.active {
+.navbars a.active {
     background-color: #4CAF50;
     color: white;
 }
 
-.navbarhome .icon {
-    display: none;
-}
-
 .photo1 {
-
-    width: 458px;
-
-    height: 100%;
-    display: flex;
-
-    position:absolute;
-    left:-125px;
-}
-.photo2 {
-   
-    width: 458px;
-   
-    height: 100%;
-    display: flex;
-    
-    position:absolute;
-     left:1050px;
+    margin-top: 60px;
+    position:fixed;
 }
 
 .main {
     height: 100%;
     background: #1f7ac4;
 }
+
