@@ -64,24 +64,4 @@ class ShiftModlTest {
     void getAllShifts() throws ParseException {
         assertEquals(all, model.GetAllShifts());
     }
-
-    @Test
-    void getShiftById() {
-    }
-
-    @Test
-    void removeShift() {
-    }
-
-    @Test
-    void applyToShift() {
-    }
-
-    @Test
-    void approve() {
-    }
-
-    @Test
-    void reject() {
-    }
 }
